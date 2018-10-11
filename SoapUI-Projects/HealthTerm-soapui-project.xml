@@ -1,0 +1,2192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="46cd179a-e85a-4fa0-b0e9-b40c63aa06ab" activeEnvironment="Default" name="HealthTerm-Test" resourceRoot="" soapui-version="5.4.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="711fb448-2c83-4dee-b6cb-feaae306fe05" wsaVersion="NONE" name="conceptlookupsoapwebserviceSoapBinding" type="wsdl" bindingName="{http://webservices.ht.carecom.dk/}conceptlookupsoapwebserviceSoapBinding" soapVersion="1_1" anonymous="optional" definition="https://terminologyservices.htte.orionhealth-saas-svcs.com/webservice/conceptlookupsoapwebservice?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://terminologyservices.htte.orionhealth-saas-svcs.com/webservice/conceptlookupsoapwebservice?wsdl"><con:part><con:url>https://terminologyservices.htte.orionhealth-saas-svcs.com/webservice/conceptlookupsoapwebservice?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="conceptlookupsoapwebservice" targetNamespace="http://webservices.ht.carecom.dk/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://webservices.ht.carecom.dk/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://webservices.ht.carecom.dk/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="codeDatasetMembershipDescriptor" type="tns:codeDatasetMembershipDescriptor"/>
+      <xs:element name="codeSystemDescriptor" type="tns:codeSystemDescriptor"/>
+      <xs:element name="codeSystemVersionDescriptor" type="tns:codeSystemVersionDescriptor"/>
+      <xs:element name="conceptDescriptor" type="tns:conceptDescriptor"/>
+      <xs:element name="conceptIdentificatorCollectionDescriptor" type="tns:conceptIdentificatorCollectionDescriptor"/>
+      <xs:element name="conceptIdentificatorDescriptor" type="tns:conceptIdentificatorDescriptor"/>
+      <xs:element name="conceptParentCategoryDescriptor" type="tns:conceptParentCategoryDescriptor"/>
+      <xs:element name="conceptSearchResultDescriptor" type="tns:conceptSearchResultDescriptor"/>
+      <xs:element name="contextDescriptor" type="tns:contextDescriptor"/>
+      <xs:element name="crossmapDescriptor" type="tns:crossmapDescriptor"/>
+      <xs:element name="datasetDescriptor" type="tns:datasetDescriptor"/>
+      <xs:element name="datasetPathDescriptor" type="tns:datasetPathDescriptor"/>
+      <xs:element name="descriptionDescriptor" type="tns:descriptionDescriptor"/>
+      <xs:element name="getConceptAttributeRelationshipsBySourceConceptCode" type="tns:getConceptAttributeRelationshipsBySourceConceptCode"/>
+      <xs:element name="getConceptAttributeRelationshipsBySourceConceptCodeResponse" type="tns:getConceptAttributeRelationshipsBySourceConceptCodeResponse"/>
+      <xs:element name="getConceptAttributeRelationshipsBySourceConceptId" type="tns:getConceptAttributeRelationshipsBySourceConceptId"/>
+      <xs:element name="getConceptAttributeRelationshipsBySourceConceptIdResponse" type="tns:getConceptAttributeRelationshipsBySourceConceptIdResponse"/>
+      <xs:element name="getConceptAttributeRelationshipsByTargetConceptCode" type="tns:getConceptAttributeRelationshipsByTargetConceptCode"/>
+      <xs:element name="getConceptAttributeRelationshipsByTargetConceptCodeResponse" type="tns:getConceptAttributeRelationshipsByTargetConceptCodeResponse"/>
+      <xs:element name="getConceptAttributeRelationshipsByTargetConceptId" type="tns:getConceptAttributeRelationshipsByTargetConceptId"/>
+      <xs:element name="getConceptAttributeRelationshipsByTargetConceptIdResponse" type="tns:getConceptAttributeRelationshipsByTargetConceptIdResponse"/>
+      <xs:element name="getConceptByCode" type="tns:getConceptByCode"/>
+      <xs:element name="getConceptByCodeResponse" type="tns:getConceptByCodeResponse"/>
+      <xs:element name="getConceptById" type="tns:getConceptById"/>
+      <xs:element name="getConceptByIdResponse" type="tns:getConceptByIdResponse"/>
+      <xs:element name="getConceptChildrenByConceptCode" type="tns:getConceptChildrenByConceptCode"/>
+      <xs:element name="getConceptChildrenByConceptCodeResponse" type="tns:getConceptChildrenByConceptCodeResponse"/>
+      <xs:element name="getConceptChildrenByConceptId" type="tns:getConceptChildrenByConceptId"/>
+      <xs:element name="getConceptChildrenByConceptIdResponse" type="tns:getConceptChildrenByConceptIdResponse"/>
+      <xs:element name="getConceptDescendantsByConceptCode" type="tns:getConceptDescendantsByConceptCode"/>
+      <xs:element name="getConceptDescendantsByConceptCodeResponse" type="tns:getConceptDescendantsByConceptCodeResponse"/>
+      <xs:element name="getConceptDescendantsByConceptId" type="tns:getConceptDescendantsByConceptId"/>
+      <xs:element name="getConceptDescendantsByConceptIdResponse" type="tns:getConceptDescendantsByConceptIdResponse"/>
+      <xs:element name="getConceptDescriptionsByConceptCode" type="tns:getConceptDescriptionsByConceptCode"/>
+      <xs:element name="getConceptDescriptionsByConceptCodeResponse" type="tns:getConceptDescriptionsByConceptCodeResponse"/>
+      <xs:element name="getConceptDescriptionsByConceptId" type="tns:getConceptDescriptionsByConceptId"/>
+      <xs:element name="getConceptDescriptionsByConceptIdResponse" type="tns:getConceptDescriptionsByConceptIdResponse"/>
+      <xs:element name="getConceptFullySpecifiedNamesByConceptCode" type="tns:getConceptFullySpecifiedNamesByConceptCode"/>
+      <xs:element name="getConceptFullySpecifiedNamesByConceptCodeResponse" type="tns:getConceptFullySpecifiedNamesByConceptCodeResponse"/>
+      <xs:element name="getConceptFullySpecifiedNamesByConceptId" type="tns:getConceptFullySpecifiedNamesByConceptId"/>
+      <xs:element name="getConceptFullySpecifiedNamesByConceptIdResponse" type="tns:getConceptFullySpecifiedNamesByConceptIdResponse"/>
+      <xs:element name="getConceptParentsByConceptCode" type="tns:getConceptParentsByConceptCode"/>
+      <xs:element name="getConceptParentsByConceptCodeResponse" type="tns:getConceptParentsByConceptCodeResponse"/>
+      <xs:element name="getConceptParentsByConceptId" type="tns:getConceptParentsByConceptId"/>
+      <xs:element name="getConceptParentsByConceptIdResponse" type="tns:getConceptParentsByConceptIdResponse"/>
+      <xs:element name="getConceptPathsByConceptCode" type="tns:getConceptPathsByConceptCode"/>
+      <xs:element name="getConceptPathsByConceptCodeResponse" type="tns:getConceptPathsByConceptCodeResponse"/>
+      <xs:element name="getConceptPathsByConceptId" type="tns:getConceptPathsByConceptId"/>
+      <xs:element name="getConceptPathsByConceptIdResponse" type="tns:getConceptPathsByConceptIdResponse"/>
+      <xs:element name="getConceptPreferredTermsByConceptCode" type="tns:getConceptPreferredTermsByConceptCode"/>
+      <xs:element name="getConceptPreferredTermsByConceptCodeResponse" type="tns:getConceptPreferredTermsByConceptCodeResponse"/>
+      <xs:element name="getConceptPreferredTermsByConceptId" type="tns:getConceptPreferredTermsByConceptId"/>
+      <xs:element name="getConceptPreferredTermsByConceptIdResponse" type="tns:getConceptPreferredTermsByConceptIdResponse"/>
+      <xs:element name="getConceptPropertiesByConceptCode" type="tns:getConceptPropertiesByConceptCode"/>
+      <xs:element name="getConceptPropertiesByConceptCodeResponse" type="tns:getConceptPropertiesByConceptCodeResponse"/>
+      <xs:element name="getConceptPropertiesByConceptId" type="tns:getConceptPropertiesByConceptId"/>
+      <xs:element name="getConceptPropertiesByConceptIdResponse" type="tns:getConceptPropertiesByConceptIdResponse"/>
+      <xs:element name="getConceptRelationshipsByCode" type="tns:getConceptRelationshipsByCode"/>
+      <xs:element name="getConceptRelationshipsByCodeResponse" type="tns:getConceptRelationshipsByCodeResponse"/>
+      <xs:element name="getConceptRelationshipsByConceptId" type="tns:getConceptRelationshipsByConceptId"/>
+      <xs:element name="getConceptRelationshipsByConceptIdResponse" type="tns:getConceptRelationshipsByConceptIdResponse"/>
+      <xs:element name="getConceptSynonymsByConceptCode" type="tns:getConceptSynonymsByConceptCode"/>
+      <xs:element name="getConceptSynonymsByConceptCodeResponse" type="tns:getConceptSynonymsByConceptCodeResponse"/>
+      <xs:element name="getConceptSynonymsByConceptId" type="tns:getConceptSynonymsByConceptId"/>
+      <xs:element name="getConceptSynonymsByConceptIdResponse" type="tns:getConceptSynonymsByConceptIdResponse"/>
+      <xs:element name="groupedConceptIdentificatorDescriptor" type="tns:groupedConceptIdentificatorDescriptor"/>
+      <xs:element name="keyValueDescriptor" type="tns:keyValueDescriptor"/>
+      <xs:element name="localeDescriptor" type="tns:localeDescriptor"/>
+      <xs:element name="logEntry" type="tns:logEntry"/>
+      <xs:element name="mapsetDescriptor" type="tns:mapsetDescriptor"/>
+      <xs:element name="namespaceDescriptor" type="tns:namespaceDescriptor"/>
+      <xs:element name="propertyDescriptor" type="tns:propertyDescriptor"/>
+      <xs:element name="realmDescriptor" type="tns:realmDescriptor"/>
+      <xs:element name="relationshipDescriptor" type="tns:relationshipDescriptor"/>
+      <xs:element name="relationshipTypeDescriptor" type="tns:relationshipTypeDescriptor"/>
+      <xs:element name="result" type="tns:webserviceResult"/>
+      <xs:complexType name="getConceptFullySpecifiedNamesByConceptId">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="conceptId" type="xs:long"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="contentLocaleCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="validFrom" type="xs:string"/>
+          <xs:element minOccurs="0" name="includeInactive" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptFullySpecifiedNamesByConceptIdResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="tns:result"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="webserviceResult">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:logEntry"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="record" type="xs:anyType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="logEntry">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="cause" type="xs:string"/>
+          <xs:element minOccurs="0" name="code" type="xs:string"/>
+          <xs:element minOccurs="0" name="level" type="xs:string"/>
+          <xs:element minOccurs="0" name="value" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="codeSystemDescriptor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" type="xs:long"/>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+          <xs:element minOccurs="0" name="oid" type="xs:string"/>
+          <xs:element minOccurs="0" name="type" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="codeSystemVersionDescriptor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" type="xs:string"/>
+          <xs:element minOccurs="0" name="validFrom" type="xs:dateTime"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="codeDatasetMembershipDescriptor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="code" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="healthtermOriginalDatasetId" nillable="true" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="conceptDescriptor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="code" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:descriptionDescriptor"/>
+          <xs:element minOccurs="0" name="hierarchy" type="xs:string"/>
+          <xs:element minOccurs="0" name="id" type="xs:long"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:keyValueDescriptor"/>
+          <xs:element minOccurs="0" name="oid" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:propertyDescriptor"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="relationDescriptor" type="tns:relationshipDescriptor"/>
+          <xs:element minOccurs="0" name="term" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="descriptionDescriptor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="conceptCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="conceptId" type="xs:long"/>
+          <xs:element minOccurs="0" name="descriptionId" type="xs:long"/>
+          <xs:element minOccurs="0" name="descriptionLocale" type="xs:string"/>
+          <xs:element minOccurs="0" name="descriptionTerm" type="xs:string"/>
+          <xs:element minOccurs="0" name="descriptionType" type="xs:int"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="keyValueDescriptor" nillable="true" type="tns:keyValueDescriptor"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="keyValueDescriptor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="key" type="xs:string"/>
+          <xs:element minOccurs="0" name="value" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="propertyDescriptor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="conceptCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="conceptId" type="xs:long"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="keyValueDescriptor" nillable="true" type="tns:keyValueDescriptor"/>
+          <xs:element minOccurs="0" name="propertyId" type="xs:long"/>
+          <xs:element minOccurs="0" name="propertyLocale" type="xs:string"/>
+          <xs:element minOccurs="0" name="propertyType" type="xs:string"/>
+          <xs:element minOccurs="0" name="propertyValue" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="relationshipDescriptor">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="keyValueDescriptor" nillable="true" type="tns:keyValueDescriptor"/>
+          <xs:element minOccurs="0" name="relationshipTypeId" type="xs:long"/>
+          <xs:element minOccurs="0" name="sourceConceptCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="sourceConceptId" type="xs:long"/>
+          <xs:element minOccurs="0" name="targetConceptCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="targetConceptId" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="conceptIdentificatorDescriptor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="conceptCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="healthTermConceptId" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="conceptParentCategoryDescriptor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="calculated" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="categoryCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="categoryId" type="xs:long"/>
+          <xs:element minOccurs="0" name="categoryPreferredTerm" type="xs:string"/>
+          <xs:element minOccurs="0" name="code" type="xs:string"/>
+          <xs:element minOccurs="0" name="id" type="xs:long"/>
+          <xs:element minOccurs="0" name="parentCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="parentId" type="xs:long"/>
+          <xs:element minOccurs="0" name="parentPreferredTerm" type="xs:string"/>
+          <xs:element minOccurs="0" name="preferredTerm" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="conceptSearchResultDescriptor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="conceptCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="conceptFullySpecifiedName" type="xs:string"/>
+          <xs:element minOccurs="0" name="conceptHierarchy" type="xs:string"/>
+          <xs:element minOccurs="0" name="conceptNamespaceId" type="xs:string"/>
+          <xs:element minOccurs="0" name="conceptNamespaceName" type="xs:string"/>
+          <xs:element minOccurs="0" name="descriptionNamespaceId" type="xs:string"/>
+          <xs:element minOccurs="0" name="descriptionNamespaceName" type="xs:string"/>
+          <xs:element minOccurs="0" name="descriptionTerm" type="xs:string"/>
+          <xs:element minOccurs="0" name="descriptionType" type="xs:long"/>
+          <xs:element minOccurs="0" name="healthtermConceptId" type="xs:long"/>
+          <xs:element minOccurs="0" name="healthtermDescriptionId" type="xs:long"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:keyValueDescriptor"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="contextDescriptor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="contextDescription" type="xs:string"/>
+          <xs:element minOccurs="0" name="contextId" type="xs:string"/>
+          <xs:element minOccurs="0" name="contextName" type="xs:string"/>
+          <xs:element minOccurs="0" name="realmId" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="crossmapDescriptor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="healthtermCrossmapId" type="xs:long"/>
+          <xs:element minOccurs="0" name="healthtermMapsetId" type="xs:long"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:keyValueDescriptor"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="sourceConcepts" type="tns:conceptDescriptor"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="targetConcepts" type="tns:conceptDescriptor"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="datasetDescriptor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="datasetContextId" type="xs:string"/>
+          <xs:element minOccurs="0" name="datasetCurrentVersionNumber" type="xs:int"/>
+          <xs:element minOccurs="0" name="datasetName" type="xs:string"/>
+          <xs:element minOccurs="0" name="datasetRealmId" type="xs:string"/>
+          <xs:element minOccurs="0" name="datasetStatus" type="xs:string"/>
+          <xs:element minOccurs="0" name="datasetType" type="xs:int"/>
+          <xs:element minOccurs="0" name="healthtermOriginalDatasetId" type="xs:long"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:keyValueDescriptor"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="memberId" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="datasetPathDescriptor">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="contextDescriptor" nillable="true" type="tns:contextDescriptor"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="realmDescriptor" nillable="true" type="tns:realmDescriptor"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="realmDescriptor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="realmDescription" type="xs:string"/>
+          <xs:element minOccurs="0" name="realmId" type="xs:string"/>
+          <xs:element minOccurs="0" name="realmName" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="groupedConceptIdentificatorDescriptor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="conceptIdentificator" type="tns:conceptIdentificatorDescriptor"/>
+          <xs:element minOccurs="0" name="conceptIdentificatorCollection" type="tns:conceptIdentificatorCollectionDescriptor"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="conceptIdentificatorCollectionDescriptor">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="conceptIdentificator" type="tns:conceptIdentificatorDescriptor"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="localeDescriptor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="countryCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="languageCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="localeName" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="mapsetDescriptor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="healthtermMapsetId" type="xs:long"/>
+          <xs:element minOccurs="0" name="mapsetName" type="xs:string"/>
+          <xs:element minOccurs="0" name="namespace" type="tns:namespaceDescriptor"/>
+          <xs:element minOccurs="0" name="realm" type="tns:realmDescriptor"/>
+          <xs:element minOccurs="0" name="sourceCodeSystem" type="tns:codeSystemDescriptor"/>
+          <xs:element minOccurs="0" name="targetCodeSystem" type="tns:codeSystemDescriptor"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="namespaceDescriptor">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="keyValueDescriptor" nillable="true" type="tns:keyValueDescriptor"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="localeDescriptor" nillable="true" type="tns:localeDescriptor"/>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+          <xs:element minOccurs="0" name="namespaceId" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="relationshipTypeDescriptor">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="tns:conceptDescriptor"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptAttributeRelationshipsByTargetConceptId">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="conceptId" type="xs:long"/>
+          <xs:element minOccurs="0" name="validFrom" type="xs:string"/>
+          <xs:element minOccurs="0" name="includeInactive" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptAttributeRelationshipsByTargetConceptIdResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="tns:result"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptDescriptionsByConceptId">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="conceptId" type="xs:long"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="descriptionTypeId" type="xs:int"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="contentLocaleCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="validFrom" type="xs:string"/>
+          <xs:element minOccurs="0" name="includeInactive" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptDescriptionsByConceptIdResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="tns:result"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptPreferredTermsByConceptId">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="conceptId" type="xs:long"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="contentLocaleCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="validFrom" type="xs:string"/>
+          <xs:element minOccurs="0" name="includeInactive" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptPreferredTermsByConceptIdResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="tns:result"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptPreferredTermsByConceptCode">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codeSystemOID" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="conceptCode" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="contentLocaleCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="validFrom" type="xs:string"/>
+          <xs:element minOccurs="0" name="includeInactive" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptPreferredTermsByConceptCodeResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="tns:result"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptAttributeRelationshipsBySourceConceptId">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="conceptId" type="xs:long"/>
+          <xs:element minOccurs="0" name="validFrom" type="xs:string"/>
+          <xs:element minOccurs="0" name="includeInactive" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptAttributeRelationshipsBySourceConceptIdResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="tns:result"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptRelationshipsByCode">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codeSystemOID" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="conceptCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="validFrom" type="xs:string"/>
+          <xs:element minOccurs="0" name="includeInactive" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptRelationshipsByCodeResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="tns:result"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptParentsByConceptId">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="conceptId" type="xs:long"/>
+          <xs:element minOccurs="0" name="validFrom" type="xs:string"/>
+          <xs:element minOccurs="0" name="includeInactive" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptParentsByConceptIdResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="tns:result"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptPathsByConceptCode">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codeSystemOID" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="conceptCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="validFrom" type="xs:string"/>
+          <xs:element minOccurs="0" name="includeInactive" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptPathsByConceptCodeResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="tns:result"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptChildrenByConceptCode">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codeSystemOID" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="conceptCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="validFrom" type="xs:string"/>
+          <xs:element minOccurs="0" name="includeInactive" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptChildrenByConceptCodeResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="tns:result"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptAttributeRelationshipsBySourceConceptCode">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codeSystemOID" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="conceptCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="validFrom" type="xs:string"/>
+          <xs:element minOccurs="0" name="includeInactive" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptAttributeRelationshipsBySourceConceptCodeResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="tns:result"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptRelationshipsByConceptId">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="conceptId" type="xs:long"/>
+          <xs:element minOccurs="0" name="validFrom" type="xs:string"/>
+          <xs:element minOccurs="0" name="includeInactive" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptRelationshipsByConceptIdResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="tns:result"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptAttributeRelationshipsByTargetConceptCode">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codeSystemOID" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="conceptCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="validFrom" type="xs:string"/>
+          <xs:element minOccurs="0" name="includeInactive" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptAttributeRelationshipsByTargetConceptCodeResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="tns:result"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptPropertiesByConceptId">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="conceptId" type="xs:long"/>
+          <xs:element minOccurs="0" name="validFrom" type="xs:string"/>
+          <xs:element minOccurs="0" name="includeInactive" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptPropertiesByConceptIdResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="tns:result"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptDescriptionsByConceptCode">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codeSystemOID" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="conceptCode" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="descriptionTypeId" type="xs:int"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="contentLocaleCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="validFrom" type="xs:string"/>
+          <xs:element minOccurs="0" name="includeInactive" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptDescriptionsByConceptCodeResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="tns:result"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptByCode">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codeSystemOID" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="conceptCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="validFrom" type="xs:string"/>
+          <xs:element minOccurs="0" name="includeInactive" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptByCodeResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="tns:result"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptDescendantsByConceptCode">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codeSystemOID" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="conceptCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="maxLevel" type="xs:int"/>
+          <xs:element minOccurs="0" name="validFrom" type="xs:string"/>
+          <xs:element minOccurs="0" name="includeInactive" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptDescendantsByConceptCodeResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="tns:result"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptPropertiesByConceptCode">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codeSystemOID" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="conceptCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="validFrom" type="xs:string"/>
+          <xs:element minOccurs="0" name="includeInactive" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptPropertiesByConceptCodeResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="tns:result"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptFullySpecifiedNamesByConceptCode">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codeSystemOID" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="conceptCode" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="contentLocaleCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="validFrom" type="xs:string"/>
+          <xs:element minOccurs="0" name="includeInactive" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptFullySpecifiedNamesByConceptCodeResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="tns:result"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptPathsByConceptId">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="conceptId" type="xs:long"/>
+          <xs:element minOccurs="0" name="validFrom" type="xs:string"/>
+          <xs:element minOccurs="0" name="includeInactive" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptPathsByConceptIdResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="tns:result"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptParentsByConceptCode">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codeSystemOID" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="conceptCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="validFrom" type="xs:string"/>
+          <xs:element minOccurs="0" name="includeInactive" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptParentsByConceptCodeResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="tns:result"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptDescendantsByConceptId">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="conceptId" type="xs:long"/>
+          <xs:element minOccurs="0" name="maxLevel" type="xs:int"/>
+          <xs:element minOccurs="0" name="validFrom" type="xs:string"/>
+          <xs:element minOccurs="0" name="includeInactive" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptDescendantsByConceptIdResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="tns:result"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptChildrenByConceptId">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="conceptId" type="xs:long"/>
+          <xs:element minOccurs="0" name="validFrom" type="xs:string"/>
+          <xs:element minOccurs="0" name="includeInactive" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptChildrenByConceptIdResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="tns:result"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptSynonymsByConceptId">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="conceptId" type="xs:long"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="contentLocaleCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="validFrom" type="xs:string"/>
+          <xs:element minOccurs="0" name="includeInactive" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptSynonymsByConceptIdResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="tns:result"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptSynonymsByConceptCode">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codeSystemOID" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="conceptCode" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="contentLocaleCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="validFrom" type="xs:string"/>
+          <xs:element minOccurs="0" name="includeInactive" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptSynonymsByConceptCodeResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="tns:result"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptById">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="conceptId" type="xs:long"/>
+          <xs:element minOccurs="0" name="validFrom" type="xs:string"/>
+          <xs:element minOccurs="0" name="includeInactive" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getConceptByIdResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="tns:result"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="HealthtermAbstractException" type="tns:HealthtermAbstractException"/>
+      <xs:complexType name="HealthtermAbstractException">
+        <xs:sequence>
+          <xs:element name="status" nillable="true" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getConceptSynonymsByConceptIdResponse">
+    <wsdl:part element="tns:getConceptSynonymsByConceptIdResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptAttributeRelationshipsBySourceConceptCode">
+    <wsdl:part element="tns:getConceptAttributeRelationshipsBySourceConceptCode" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptParentsByConceptId">
+    <wsdl:part element="tns:getConceptParentsByConceptId" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptFullySpecifiedNamesByConceptCode">
+    <wsdl:part element="tns:getConceptFullySpecifiedNamesByConceptCode" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptPathsByConceptId">
+    <wsdl:part element="tns:getConceptPathsByConceptId" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptAttributeRelationshipsByTargetConceptCode">
+    <wsdl:part element="tns:getConceptAttributeRelationshipsByTargetConceptCode" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptPathsByConceptCodeResponse">
+    <wsdl:part element="tns:getConceptPathsByConceptCodeResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptDescendantsByConceptIdResponse">
+    <wsdl:part element="tns:getConceptDescendantsByConceptIdResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptPropertiesByConceptId">
+    <wsdl:part element="tns:getConceptPropertiesByConceptId" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptRelationshipsByCodeResponse">
+    <wsdl:part element="tns:getConceptRelationshipsByCodeResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptPropertiesByConceptCode">
+    <wsdl:part element="tns:getConceptPropertiesByConceptCode" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptParentsByConceptCode">
+    <wsdl:part element="tns:getConceptParentsByConceptCode" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptFullySpecifiedNamesByConceptCodeResponse">
+    <wsdl:part element="tns:getConceptFullySpecifiedNamesByConceptCodeResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptById">
+    <wsdl:part element="tns:getConceptById" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptParentsByConceptIdResponse">
+    <wsdl:part element="tns:getConceptParentsByConceptIdResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptAttributeRelationshipsByTargetConceptId">
+    <wsdl:part element="tns:getConceptAttributeRelationshipsByTargetConceptId" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptByCodeResponse">
+    <wsdl:part element="tns:getConceptByCodeResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptDescriptionsByConceptIdResponse">
+    <wsdl:part element="tns:getConceptDescriptionsByConceptIdResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptChildrenByConceptId">
+    <wsdl:part element="tns:getConceptChildrenByConceptId" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptPropertiesByConceptIdResponse">
+    <wsdl:part element="tns:getConceptPropertiesByConceptIdResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptSynonymsByConceptCode">
+    <wsdl:part element="tns:getConceptSynonymsByConceptCode" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptByCode">
+    <wsdl:part element="tns:getConceptByCode" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptDescriptionsByConceptCode">
+    <wsdl:part element="tns:getConceptDescriptionsByConceptCode" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptSynonymsByConceptId">
+    <wsdl:part element="tns:getConceptSynonymsByConceptId" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptPathsByConceptCode">
+    <wsdl:part element="tns:getConceptPathsByConceptCode" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptPropertiesByConceptCodeResponse">
+    <wsdl:part element="tns:getConceptPropertiesByConceptCodeResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptDescriptionsByConceptCodeResponse">
+    <wsdl:part element="tns:getConceptDescriptionsByConceptCodeResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptRelationshipsByConceptId">
+    <wsdl:part element="tns:getConceptRelationshipsByConceptId" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptAttributeRelationshipsBySourceConceptCodeResponse">
+    <wsdl:part element="tns:getConceptAttributeRelationshipsBySourceConceptCodeResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptAttributeRelationshipsByTargetConceptIdResponse">
+    <wsdl:part element="tns:getConceptAttributeRelationshipsByTargetConceptIdResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptChildrenByConceptIdResponse">
+    <wsdl:part element="tns:getConceptChildrenByConceptIdResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptAttributeRelationshipsBySourceConceptIdResponse">
+    <wsdl:part element="tns:getConceptAttributeRelationshipsBySourceConceptIdResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptPreferredTermsByConceptCodeResponse">
+    <wsdl:part element="tns:getConceptPreferredTermsByConceptCodeResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptAttributeRelationshipsByTargetConceptCodeResponse">
+    <wsdl:part element="tns:getConceptAttributeRelationshipsByTargetConceptCodeResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptByIdResponse">
+    <wsdl:part element="tns:getConceptByIdResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptPreferredTermsByConceptCode">
+    <wsdl:part element="tns:getConceptPreferredTermsByConceptCode" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptParentsByConceptCodeResponse">
+    <wsdl:part element="tns:getConceptParentsByConceptCodeResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptPreferredTermsByConceptId">
+    <wsdl:part element="tns:getConceptPreferredTermsByConceptId" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptRelationshipsByConceptIdResponse">
+    <wsdl:part element="tns:getConceptRelationshipsByConceptIdResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptDescendantsByConceptCode">
+    <wsdl:part element="tns:getConceptDescendantsByConceptCode" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptDescendantsByConceptId">
+    <wsdl:part element="tns:getConceptDescendantsByConceptId" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptChildrenByConceptCode">
+    <wsdl:part element="tns:getConceptChildrenByConceptCode" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptPathsByConceptIdResponse">
+    <wsdl:part element="tns:getConceptPathsByConceptIdResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptFullySpecifiedNamesByConceptId">
+    <wsdl:part element="tns:getConceptFullySpecifiedNamesByConceptId" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptRelationshipsByCode">
+    <wsdl:part element="tns:getConceptRelationshipsByCode" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptDescendantsByConceptCodeResponse">
+    <wsdl:part element="tns:getConceptDescendantsByConceptCodeResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="HealthtermAbstractException">
+    <wsdl:part element="tns:HealthtermAbstractException" name="HealthtermAbstractException"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptPreferredTermsByConceptIdResponse">
+    <wsdl:part element="tns:getConceptPreferredTermsByConceptIdResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptAttributeRelationshipsBySourceConceptId">
+    <wsdl:part element="tns:getConceptAttributeRelationshipsBySourceConceptId" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptSynonymsByConceptCodeResponse">
+    <wsdl:part element="tns:getConceptSynonymsByConceptCodeResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptChildrenByConceptCodeResponse">
+    <wsdl:part element="tns:getConceptChildrenByConceptCodeResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptFullySpecifiedNamesByConceptIdResponse">
+    <wsdl:part element="tns:getConceptFullySpecifiedNamesByConceptIdResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptDescriptionsByConceptId">
+    <wsdl:part element="tns:getConceptDescriptionsByConceptId" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ConceptLookupSOAPWebService">
+    <wsdl:operation name="getConceptFullySpecifiedNamesByConceptId">
+      <wsdl:input message="tns:getConceptFullySpecifiedNamesByConceptId" name="getConceptFullySpecifiedNamesByConceptId"></wsdl:input>
+      <wsdl:output message="tns:getConceptFullySpecifiedNamesByConceptIdResponse" name="getConceptFullySpecifiedNamesByConceptIdResponse"></wsdl:output>
+      <wsdl:fault message="tns:HealthtermAbstractException" name="HealthtermAbstractException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptAttributeRelationshipsByTargetConceptId">
+      <wsdl:input message="tns:getConceptAttributeRelationshipsByTargetConceptId" name="getConceptAttributeRelationshipsByTargetConceptId"></wsdl:input>
+      <wsdl:output message="tns:getConceptAttributeRelationshipsByTargetConceptIdResponse" name="getConceptAttributeRelationshipsByTargetConceptIdResponse"></wsdl:output>
+      <wsdl:fault message="tns:HealthtermAbstractException" name="HealthtermAbstractException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptDescriptionsByConceptId">
+      <wsdl:input message="tns:getConceptDescriptionsByConceptId" name="getConceptDescriptionsByConceptId"></wsdl:input>
+      <wsdl:output message="tns:getConceptDescriptionsByConceptIdResponse" name="getConceptDescriptionsByConceptIdResponse"></wsdl:output>
+      <wsdl:fault message="tns:HealthtermAbstractException" name="HealthtermAbstractException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptPreferredTermsByConceptId">
+      <wsdl:input message="tns:getConceptPreferredTermsByConceptId" name="getConceptPreferredTermsByConceptId"></wsdl:input>
+      <wsdl:output message="tns:getConceptPreferredTermsByConceptIdResponse" name="getConceptPreferredTermsByConceptIdResponse"></wsdl:output>
+      <wsdl:fault message="tns:HealthtermAbstractException" name="HealthtermAbstractException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptPreferredTermsByConceptCode">
+      <wsdl:input message="tns:getConceptPreferredTermsByConceptCode" name="getConceptPreferredTermsByConceptCode"></wsdl:input>
+      <wsdl:output message="tns:getConceptPreferredTermsByConceptCodeResponse" name="getConceptPreferredTermsByConceptCodeResponse"></wsdl:output>
+      <wsdl:fault message="tns:HealthtermAbstractException" name="HealthtermAbstractException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptAttributeRelationshipsBySourceConceptId">
+      <wsdl:input message="tns:getConceptAttributeRelationshipsBySourceConceptId" name="getConceptAttributeRelationshipsBySourceConceptId"></wsdl:input>
+      <wsdl:output message="tns:getConceptAttributeRelationshipsBySourceConceptIdResponse" name="getConceptAttributeRelationshipsBySourceConceptIdResponse"></wsdl:output>
+      <wsdl:fault message="tns:HealthtermAbstractException" name="HealthtermAbstractException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptRelationshipsByCode">
+      <wsdl:input message="tns:getConceptRelationshipsByCode" name="getConceptRelationshipsByCode"></wsdl:input>
+      <wsdl:output message="tns:getConceptRelationshipsByCodeResponse" name="getConceptRelationshipsByCodeResponse"></wsdl:output>
+      <wsdl:fault message="tns:HealthtermAbstractException" name="HealthtermAbstractException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptParentsByConceptId">
+      <wsdl:input message="tns:getConceptParentsByConceptId" name="getConceptParentsByConceptId"></wsdl:input>
+      <wsdl:output message="tns:getConceptParentsByConceptIdResponse" name="getConceptParentsByConceptIdResponse"></wsdl:output>
+      <wsdl:fault message="tns:HealthtermAbstractException" name="HealthtermAbstractException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptPathsByConceptCode">
+      <wsdl:input message="tns:getConceptPathsByConceptCode" name="getConceptPathsByConceptCode"></wsdl:input>
+      <wsdl:output message="tns:getConceptPathsByConceptCodeResponse" name="getConceptPathsByConceptCodeResponse"></wsdl:output>
+      <wsdl:fault message="tns:HealthtermAbstractException" name="HealthtermAbstractException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptChildrenByConceptCode">
+      <wsdl:input message="tns:getConceptChildrenByConceptCode" name="getConceptChildrenByConceptCode"></wsdl:input>
+      <wsdl:output message="tns:getConceptChildrenByConceptCodeResponse" name="getConceptChildrenByConceptCodeResponse"></wsdl:output>
+      <wsdl:fault message="tns:HealthtermAbstractException" name="HealthtermAbstractException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptAttributeRelationshipsBySourceConceptCode">
+      <wsdl:input message="tns:getConceptAttributeRelationshipsBySourceConceptCode" name="getConceptAttributeRelationshipsBySourceConceptCode"></wsdl:input>
+      <wsdl:output message="tns:getConceptAttributeRelationshipsBySourceConceptCodeResponse" name="getConceptAttributeRelationshipsBySourceConceptCodeResponse"></wsdl:output>
+      <wsdl:fault message="tns:HealthtermAbstractException" name="HealthtermAbstractException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptRelationshipsByConceptId">
+      <wsdl:input message="tns:getConceptRelationshipsByConceptId" name="getConceptRelationshipsByConceptId"></wsdl:input>
+      <wsdl:output message="tns:getConceptRelationshipsByConceptIdResponse" name="getConceptRelationshipsByConceptIdResponse"></wsdl:output>
+      <wsdl:fault message="tns:HealthtermAbstractException" name="HealthtermAbstractException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptAttributeRelationshipsByTargetConceptCode">
+      <wsdl:input message="tns:getConceptAttributeRelationshipsByTargetConceptCode" name="getConceptAttributeRelationshipsByTargetConceptCode"></wsdl:input>
+      <wsdl:output message="tns:getConceptAttributeRelationshipsByTargetConceptCodeResponse" name="getConceptAttributeRelationshipsByTargetConceptCodeResponse"></wsdl:output>
+      <wsdl:fault message="tns:HealthtermAbstractException" name="HealthtermAbstractException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptPropertiesByConceptId">
+      <wsdl:input message="tns:getConceptPropertiesByConceptId" name="getConceptPropertiesByConceptId"></wsdl:input>
+      <wsdl:output message="tns:getConceptPropertiesByConceptIdResponse" name="getConceptPropertiesByConceptIdResponse"></wsdl:output>
+      <wsdl:fault message="tns:HealthtermAbstractException" name="HealthtermAbstractException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptDescriptionsByConceptCode">
+      <wsdl:input message="tns:getConceptDescriptionsByConceptCode" name="getConceptDescriptionsByConceptCode"></wsdl:input>
+      <wsdl:output message="tns:getConceptDescriptionsByConceptCodeResponse" name="getConceptDescriptionsByConceptCodeResponse"></wsdl:output>
+      <wsdl:fault message="tns:HealthtermAbstractException" name="HealthtermAbstractException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptByCode">
+      <wsdl:input message="tns:getConceptByCode" name="getConceptByCode"></wsdl:input>
+      <wsdl:output message="tns:getConceptByCodeResponse" name="getConceptByCodeResponse"></wsdl:output>
+      <wsdl:fault message="tns:HealthtermAbstractException" name="HealthtermAbstractException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptDescendantsByConceptCode">
+      <wsdl:input message="tns:getConceptDescendantsByConceptCode" name="getConceptDescendantsByConceptCode"></wsdl:input>
+      <wsdl:output message="tns:getConceptDescendantsByConceptCodeResponse" name="getConceptDescendantsByConceptCodeResponse"></wsdl:output>
+      <wsdl:fault message="tns:HealthtermAbstractException" name="HealthtermAbstractException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptPropertiesByConceptCode">
+      <wsdl:input message="tns:getConceptPropertiesByConceptCode" name="getConceptPropertiesByConceptCode"></wsdl:input>
+      <wsdl:output message="tns:getConceptPropertiesByConceptCodeResponse" name="getConceptPropertiesByConceptCodeResponse"></wsdl:output>
+      <wsdl:fault message="tns:HealthtermAbstractException" name="HealthtermAbstractException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptFullySpecifiedNamesByConceptCode">
+      <wsdl:input message="tns:getConceptFullySpecifiedNamesByConceptCode" name="getConceptFullySpecifiedNamesByConceptCode"></wsdl:input>
+      <wsdl:output message="tns:getConceptFullySpecifiedNamesByConceptCodeResponse" name="getConceptFullySpecifiedNamesByConceptCodeResponse"></wsdl:output>
+      <wsdl:fault message="tns:HealthtermAbstractException" name="HealthtermAbstractException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptPathsByConceptId">
+      <wsdl:input message="tns:getConceptPathsByConceptId" name="getConceptPathsByConceptId"></wsdl:input>
+      <wsdl:output message="tns:getConceptPathsByConceptIdResponse" name="getConceptPathsByConceptIdResponse"></wsdl:output>
+      <wsdl:fault message="tns:HealthtermAbstractException" name="HealthtermAbstractException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptParentsByConceptCode">
+      <wsdl:input message="tns:getConceptParentsByConceptCode" name="getConceptParentsByConceptCode"></wsdl:input>
+      <wsdl:output message="tns:getConceptParentsByConceptCodeResponse" name="getConceptParentsByConceptCodeResponse"></wsdl:output>
+      <wsdl:fault message="tns:HealthtermAbstractException" name="HealthtermAbstractException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptDescendantsByConceptId">
+      <wsdl:input message="tns:getConceptDescendantsByConceptId" name="getConceptDescendantsByConceptId"></wsdl:input>
+      <wsdl:output message="tns:getConceptDescendantsByConceptIdResponse" name="getConceptDescendantsByConceptIdResponse"></wsdl:output>
+      <wsdl:fault message="tns:HealthtermAbstractException" name="HealthtermAbstractException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptChildrenByConceptId">
+      <wsdl:input message="tns:getConceptChildrenByConceptId" name="getConceptChildrenByConceptId"></wsdl:input>
+      <wsdl:output message="tns:getConceptChildrenByConceptIdResponse" name="getConceptChildrenByConceptIdResponse"></wsdl:output>
+      <wsdl:fault message="tns:HealthtermAbstractException" name="HealthtermAbstractException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptSynonymsByConceptId">
+      <wsdl:input message="tns:getConceptSynonymsByConceptId" name="getConceptSynonymsByConceptId"></wsdl:input>
+      <wsdl:output message="tns:getConceptSynonymsByConceptIdResponse" name="getConceptSynonymsByConceptIdResponse"></wsdl:output>
+      <wsdl:fault message="tns:HealthtermAbstractException" name="HealthtermAbstractException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptSynonymsByConceptCode">
+      <wsdl:input message="tns:getConceptSynonymsByConceptCode" name="getConceptSynonymsByConceptCode"></wsdl:input>
+      <wsdl:output message="tns:getConceptSynonymsByConceptCodeResponse" name="getConceptSynonymsByConceptCodeResponse"></wsdl:output>
+      <wsdl:fault message="tns:HealthtermAbstractException" name="HealthtermAbstractException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptById">
+      <wsdl:input message="tns:getConceptById" name="getConceptById"></wsdl:input>
+      <wsdl:output message="tns:getConceptByIdResponse" name="getConceptByIdResponse"></wsdl:output>
+      <wsdl:fault message="tns:HealthtermAbstractException" name="HealthtermAbstractException"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="conceptlookupsoapwebserviceSoapBinding" type="tns:ConceptLookupSOAPWebService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getConceptFullySpecifiedNamesByConceptId">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getConceptFullySpecifiedNamesByConceptId">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getConceptFullySpecifiedNamesByConceptIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="HealthtermAbstractException">
+        <soap:fault name="HealthtermAbstractException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptAttributeRelationshipsByTargetConceptId">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getConceptAttributeRelationshipsByTargetConceptId">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getConceptAttributeRelationshipsByTargetConceptIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="HealthtermAbstractException">
+        <soap:fault name="HealthtermAbstractException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptDescriptionsByConceptId">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getConceptDescriptionsByConceptId">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getConceptDescriptionsByConceptIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="HealthtermAbstractException">
+        <soap:fault name="HealthtermAbstractException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptPreferredTermsByConceptCode">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getConceptPreferredTermsByConceptCode">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getConceptPreferredTermsByConceptCodeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="HealthtermAbstractException">
+        <soap:fault name="HealthtermAbstractException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptPreferredTermsByConceptId">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getConceptPreferredTermsByConceptId">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getConceptPreferredTermsByConceptIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="HealthtermAbstractException">
+        <soap:fault name="HealthtermAbstractException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptAttributeRelationshipsBySourceConceptId">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getConceptAttributeRelationshipsBySourceConceptId">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getConceptAttributeRelationshipsBySourceConceptIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="HealthtermAbstractException">
+        <soap:fault name="HealthtermAbstractException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptRelationshipsByCode">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getConceptRelationshipsByCode">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getConceptRelationshipsByCodeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="HealthtermAbstractException">
+        <soap:fault name="HealthtermAbstractException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptParentsByConceptId">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getConceptParentsByConceptId">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getConceptParentsByConceptIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="HealthtermAbstractException">
+        <soap:fault name="HealthtermAbstractException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptAttributeRelationshipsBySourceConceptCode">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getConceptAttributeRelationshipsBySourceConceptCode">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getConceptAttributeRelationshipsBySourceConceptCodeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="HealthtermAbstractException">
+        <soap:fault name="HealthtermAbstractException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptChildrenByConceptCode">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getConceptChildrenByConceptCode">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getConceptChildrenByConceptCodeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="HealthtermAbstractException">
+        <soap:fault name="HealthtermAbstractException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptPathsByConceptCode">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getConceptPathsByConceptCode">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getConceptPathsByConceptCodeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="HealthtermAbstractException">
+        <soap:fault name="HealthtermAbstractException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptRelationshipsByConceptId">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getConceptRelationshipsByConceptId">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getConceptRelationshipsByConceptIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="HealthtermAbstractException">
+        <soap:fault name="HealthtermAbstractException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptAttributeRelationshipsByTargetConceptCode">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getConceptAttributeRelationshipsByTargetConceptCode">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getConceptAttributeRelationshipsByTargetConceptCodeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="HealthtermAbstractException">
+        <soap:fault name="HealthtermAbstractException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptByCode">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getConceptByCode">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getConceptByCodeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="HealthtermAbstractException">
+        <soap:fault name="HealthtermAbstractException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptDescriptionsByConceptCode">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getConceptDescriptionsByConceptCode">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getConceptDescriptionsByConceptCodeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="HealthtermAbstractException">
+        <soap:fault name="HealthtermAbstractException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptPropertiesByConceptId">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getConceptPropertiesByConceptId">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getConceptPropertiesByConceptIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="HealthtermAbstractException">
+        <soap:fault name="HealthtermAbstractException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptDescendantsByConceptCode">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getConceptDescendantsByConceptCode">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getConceptDescendantsByConceptCodeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="HealthtermAbstractException">
+        <soap:fault name="HealthtermAbstractException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptFullySpecifiedNamesByConceptCode">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getConceptFullySpecifiedNamesByConceptCode">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getConceptFullySpecifiedNamesByConceptCodeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="HealthtermAbstractException">
+        <soap:fault name="HealthtermAbstractException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptPropertiesByConceptCode">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getConceptPropertiesByConceptCode">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getConceptPropertiesByConceptCodeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="HealthtermAbstractException">
+        <soap:fault name="HealthtermAbstractException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptDescendantsByConceptId">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getConceptDescendantsByConceptId">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getConceptDescendantsByConceptIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="HealthtermAbstractException">
+        <soap:fault name="HealthtermAbstractException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptParentsByConceptCode">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getConceptParentsByConceptCode">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getConceptParentsByConceptCodeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="HealthtermAbstractException">
+        <soap:fault name="HealthtermAbstractException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptPathsByConceptId">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getConceptPathsByConceptId">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getConceptPathsByConceptIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="HealthtermAbstractException">
+        <soap:fault name="HealthtermAbstractException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptChildrenByConceptId">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getConceptChildrenByConceptId">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getConceptChildrenByConceptIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="HealthtermAbstractException">
+        <soap:fault name="HealthtermAbstractException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptSynonymsByConceptCode">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getConceptSynonymsByConceptCode">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getConceptSynonymsByConceptCodeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="HealthtermAbstractException">
+        <soap:fault name="HealthtermAbstractException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptSynonymsByConceptId">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getConceptSynonymsByConceptId">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getConceptSynonymsByConceptIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="HealthtermAbstractException">
+        <soap:fault name="HealthtermAbstractException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptById">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getConceptById">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getConceptByIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="HealthtermAbstractException">
+        <soap:fault name="HealthtermAbstractException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="conceptlookupsoapwebservice">
+    <wsdl:port binding="tns:conceptlookupsoapwebserviceSoapBinding" name="ConceptLookupSOAPWebServicePort">
+      <soap:address location="https://terminologyservices.htte.orionhealth-saas-svcs.com/webservice/conceptlookupsoapwebservice"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://terminologyservices.htte.orionhealth-saas-svcs.com/webservice/conceptlookupsoapwebservice</con:endpoint></con:endpoints><con:operation id="779eb135-900b-4fa3-8652-edcdfcad92a3" isOneWay="false" action="" name="getConceptAttributeRelationshipsBySourceConceptCode" bindingOperationName="getConceptAttributeRelationshipsBySourceConceptCode" type="Request-Response" outputName="getConceptAttributeRelationshipsBySourceConceptCodeResponse" inputName="getConceptAttributeRelationshipsBySourceConceptCode" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="8092a098-83e8-4afc-bb56-a460bf63add4" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://terminologyservices.htte.orionhealth-saas-svcs.com/webservice/conceptlookupsoapwebservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservices.ht.carecom.dk/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:getConceptAttributeRelationshipsBySourceConceptCode>\r
+         <!--Optional:-->\r
+         <codeSystemOID>?</codeSystemOID>\r
+         <!--Zero or more repetitions:-->\r
+         <conceptCode>?</conceptCode>\r
+         <!--Optional:-->\r
+         <validFrom>?</validFrom>\r
+         <!--Optional:-->\r
+         <includeInactive>?</includeInactive>\r
+      </web:getConceptAttributeRelationshipsBySourceConceptCode>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.ht.carecom.dk/ConceptLookupSOAPWebService/getConceptAttributeRelationshipsBySourceConceptCode"/></con:call></con:operation><con:operation id="d82e723e-18c3-45e3-9de6-c1e8cc5a231a" isOneWay="false" action="" name="getConceptAttributeRelationshipsBySourceConceptId" bindingOperationName="getConceptAttributeRelationshipsBySourceConceptId" type="Request-Response" outputName="getConceptAttributeRelationshipsBySourceConceptIdResponse" inputName="getConceptAttributeRelationshipsBySourceConceptId" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="9808ed55-5a20-48e9-ba99-cb3b2d4e9810" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://terminologyservices.htte.orionhealth-saas-svcs.com/webservice/conceptlookupsoapwebservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservices.ht.carecom.dk/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:getConceptAttributeRelationshipsBySourceConceptId>\r
+         <!--Zero or more repetitions:-->\r
+         <conceptId>?</conceptId>\r
+         <!--Optional:-->\r
+         <validFrom>?</validFrom>\r
+         <!--Optional:-->\r
+         <includeInactive>?</includeInactive>\r
+      </web:getConceptAttributeRelationshipsBySourceConceptId>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.ht.carecom.dk/ConceptLookupSOAPWebService/getConceptAttributeRelationshipsBySourceConceptId"/></con:call></con:operation><con:operation id="d738fb34-6140-4623-988f-39f6ae219401" isOneWay="false" action="" name="getConceptAttributeRelationshipsByTargetConceptCode" bindingOperationName="getConceptAttributeRelationshipsByTargetConceptCode" type="Request-Response" outputName="getConceptAttributeRelationshipsByTargetConceptCodeResponse" inputName="getConceptAttributeRelationshipsByTargetConceptCode" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="ac8ebbc2-1b4a-4f48-ba9d-7bfcee17fb75" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://terminologyservices.htte.orionhealth-saas-svcs.com/webservice/conceptlookupsoapwebservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservices.ht.carecom.dk/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:getConceptAttributeRelationshipsByTargetConceptCode>\r
+         <!--Optional:-->\r
+         <codeSystemOID>?</codeSystemOID>\r
+         <!--Zero or more repetitions:-->\r
+         <conceptCode>?</conceptCode>\r
+         <!--Optional:-->\r
+         <validFrom>?</validFrom>\r
+         <!--Optional:-->\r
+         <includeInactive>?</includeInactive>\r
+      </web:getConceptAttributeRelationshipsByTargetConceptCode>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.ht.carecom.dk/ConceptLookupSOAPWebService/getConceptAttributeRelationshipsByTargetConceptCode"/></con:call></con:operation><con:operation id="0bf356a9-6659-4bb4-a776-af868692c77d" isOneWay="false" action="" name="getConceptAttributeRelationshipsByTargetConceptId" bindingOperationName="getConceptAttributeRelationshipsByTargetConceptId" type="Request-Response" outputName="getConceptAttributeRelationshipsByTargetConceptIdResponse" inputName="getConceptAttributeRelationshipsByTargetConceptId" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="42a2b0e8-d7d1-462e-9cf5-d08ffd2fec46" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://terminologyservices.htte.orionhealth-saas-svcs.com/webservice/conceptlookupsoapwebservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservices.ht.carecom.dk/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:getConceptAttributeRelationshipsByTargetConceptId>\r
+         <!--Zero or more repetitions:-->\r
+         <conceptId>?</conceptId>\r
+         <!--Optional:-->\r
+         <validFrom>?</validFrom>\r
+         <!--Optional:-->\r
+         <includeInactive>?</includeInactive>\r
+      </web:getConceptAttributeRelationshipsByTargetConceptId>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.ht.carecom.dk/ConceptLookupSOAPWebService/getConceptAttributeRelationshipsByTargetConceptId"/></con:call></con:operation><con:operation id="8fd76e04-441e-4639-b722-2dace142c6c0" isOneWay="false" action="" name="getConceptByCode" bindingOperationName="getConceptByCode" type="Request-Response" outputName="getConceptByCodeResponse" inputName="getConceptByCode" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="36bf5125-6adb-406c-aa76-14d636c6a008" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://terminologyservices.htte.orionhealth-saas-svcs.com/webservice/conceptlookupsoapwebservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservices.ht.carecom.dk/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:getConceptByCode>\r
+         <codeSystemOID>2.16.840.1.113883.3.89.410.333.1.8.6.16</codeSystemOID>\r
+         <conceptCode>18</conceptCode>\r
+      </web:getConceptByCode>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:username>orionws-ref-test</con:username><con:password>2gU66nfogYieIutH</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.ht.carecom.dk/ConceptLookupSOAPWebService/getConceptByCode"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="9290bc30-1e47-463f-8b78-cd9cfafae9b3" isOneWay="false" action="" name="getConceptById" bindingOperationName="getConceptById" type="Request-Response" outputName="getConceptByIdResponse" inputName="getConceptById" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="6e897ac1-5ca0-44dc-8133-f4927f815b88" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://terminologyservices.htte.orionhealth-saas-svcs.com/webservice/conceptlookupsoapwebservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservices.ht.carecom.dk/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:getConceptById>\r
+         <!--Zero or more repetitions:-->\r
+         <conceptId>?</conceptId>\r
+         <!--Optional:-->\r
+         <validFrom>?</validFrom>\r
+         <!--Optional:-->\r
+         <includeInactive>?</includeInactive>\r
+      </web:getConceptById>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.ht.carecom.dk/ConceptLookupSOAPWebService/getConceptById"/></con:call></con:operation><con:operation id="b4e4977a-a0d2-428b-9785-24890eb58bac" isOneWay="false" action="" name="getConceptChildrenByConceptCode" bindingOperationName="getConceptChildrenByConceptCode" type="Request-Response" outputName="getConceptChildrenByConceptCodeResponse" inputName="getConceptChildrenByConceptCode" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="ff5b862b-cba6-4680-b8fb-f17224b54af2" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://terminologyservices.htte.orionhealth-saas-svcs.com/webservice/conceptlookupsoapwebservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservices.ht.carecom.dk/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:getConceptChildrenByConceptCode>\r
+         <!--Optional:-->\r
+         <codeSystemOID>?</codeSystemOID>\r
+         <!--Zero or more repetitions:-->\r
+         <conceptCode>?</conceptCode>\r
+         <!--Optional:-->\r
+         <validFrom>?</validFrom>\r
+         <!--Optional:-->\r
+         <includeInactive>?</includeInactive>\r
+      </web:getConceptChildrenByConceptCode>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.ht.carecom.dk/ConceptLookupSOAPWebService/getConceptChildrenByConceptCode"/></con:call></con:operation><con:operation id="fbba6fc9-933d-4da0-b1e4-63e456356707" isOneWay="false" action="" name="getConceptChildrenByConceptId" bindingOperationName="getConceptChildrenByConceptId" type="Request-Response" outputName="getConceptChildrenByConceptIdResponse" inputName="getConceptChildrenByConceptId" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="977fca2d-83e3-4ce5-9358-f117fde86f19" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://terminologyservices.htte.orionhealth-saas-svcs.com/webservice/conceptlookupsoapwebservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservices.ht.carecom.dk/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:getConceptChildrenByConceptId>\r
+         <!--Zero or more repetitions:-->\r
+         <conceptId>?</conceptId>\r
+         <!--Optional:-->\r
+         <validFrom>?</validFrom>\r
+         <!--Optional:-->\r
+         <includeInactive>?</includeInactive>\r
+      </web:getConceptChildrenByConceptId>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.ht.carecom.dk/ConceptLookupSOAPWebService/getConceptChildrenByConceptId"/></con:call></con:operation><con:operation id="8ceb4f42-81ad-4ddd-b691-ae85d176f37e" isOneWay="false" action="" name="getConceptDescendantsByConceptCode" bindingOperationName="getConceptDescendantsByConceptCode" type="Request-Response" outputName="getConceptDescendantsByConceptCodeResponse" inputName="getConceptDescendantsByConceptCode" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="4c6cb682-f1c2-4941-be01-4a1a56974ea5" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://terminologyservices.htte.orionhealth-saas-svcs.com/webservice/conceptlookupsoapwebservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservices.ht.carecom.dk/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:getConceptDescendantsByConceptCode>\r
+         <!--Optional:-->\r
+         <codeSystemOID>?</codeSystemOID>\r
+         <!--Zero or more repetitions:-->\r
+         <conceptCode>?</conceptCode>\r
+         <!--Optional:-->\r
+         <maxLevel>?</maxLevel>\r
+         <!--Optional:-->\r
+         <validFrom>?</validFrom>\r
+         <!--Optional:-->\r
+         <includeInactive>?</includeInactive>\r
+      </web:getConceptDescendantsByConceptCode>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.ht.carecom.dk/ConceptLookupSOAPWebService/getConceptDescendantsByConceptCode"/></con:call></con:operation><con:operation id="8e02fdf6-3098-46e3-9499-92118201467f" isOneWay="false" action="" name="getConceptDescendantsByConceptId" bindingOperationName="getConceptDescendantsByConceptId" type="Request-Response" outputName="getConceptDescendantsByConceptIdResponse" inputName="getConceptDescendantsByConceptId" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="6abfb303-deda-456e-847e-d76aaa671471" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://terminologyservices.htte.orionhealth-saas-svcs.com/webservice/conceptlookupsoapwebservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservices.ht.carecom.dk/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:getConceptDescendantsByConceptId>\r
+         <!--Zero or more repetitions:-->\r
+         <conceptId>?</conceptId>\r
+         <!--Optional:-->\r
+         <maxLevel>?</maxLevel>\r
+         <!--Optional:-->\r
+         <validFrom>?</validFrom>\r
+         <!--Optional:-->\r
+         <includeInactive>?</includeInactive>\r
+      </web:getConceptDescendantsByConceptId>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.ht.carecom.dk/ConceptLookupSOAPWebService/getConceptDescendantsByConceptId"/></con:call></con:operation><con:operation id="46bff7e3-b819-4003-ba03-f09fca476102" isOneWay="false" action="" name="getConceptDescriptionsByConceptCode" bindingOperationName="getConceptDescriptionsByConceptCode" type="Request-Response" outputName="getConceptDescriptionsByConceptCodeResponse" inputName="getConceptDescriptionsByConceptCode" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="513befb4-cf2c-44a8-8c5f-d4048476fd81" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://terminologyservices.htte.orionhealth-saas-svcs.com/webservice/conceptlookupsoapwebservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservices.ht.carecom.dk/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:getConceptDescriptionsByConceptCode>\r
+         <!--Optional:-->\r
+         <codeSystemOID>?</codeSystemOID>\r
+         <!--Zero or more repetitions:-->\r
+         <conceptCode>?</conceptCode>\r
+         <!--Zero or more repetitions:-->\r
+         <descriptionTypeId>?</descriptionTypeId>\r
+         <!--Zero or more repetitions:-->\r
+         <contentLocaleCode>?</contentLocaleCode>\r
+         <!--Optional:-->\r
+         <validFrom>?</validFrom>\r
+         <!--Optional:-->\r
+         <includeInactive>?</includeInactive>\r
+      </web:getConceptDescriptionsByConceptCode>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.ht.carecom.dk/ConceptLookupSOAPWebService/getConceptDescriptionsByConceptCode"/></con:call></con:operation><con:operation id="6bba67f4-8cea-48d9-a06d-d75ab5e785de" isOneWay="false" action="" name="getConceptDescriptionsByConceptId" bindingOperationName="getConceptDescriptionsByConceptId" type="Request-Response" outputName="getConceptDescriptionsByConceptIdResponse" inputName="getConceptDescriptionsByConceptId" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="412674a5-d579-4705-986b-f4d56984fbe4" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://terminologyservices.htte.orionhealth-saas-svcs.com/webservice/conceptlookupsoapwebservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservices.ht.carecom.dk/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:getConceptDescriptionsByConceptId>\r
+         <!--Zero or more repetitions:-->\r
+         <conceptId>?</conceptId>\r
+         <!--Zero or more repetitions:-->\r
+         <descriptionTypeId>?</descriptionTypeId>\r
+         <!--Zero or more repetitions:-->\r
+         <contentLocaleCode>?</contentLocaleCode>\r
+         <!--Optional:-->\r
+         <validFrom>?</validFrom>\r
+         <!--Optional:-->\r
+         <includeInactive>?</includeInactive>\r
+      </web:getConceptDescriptionsByConceptId>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.ht.carecom.dk/ConceptLookupSOAPWebService/getConceptDescriptionsByConceptId"/></con:call></con:operation><con:operation id="915c3669-e61c-4ce6-ac52-6a8367af52ef" isOneWay="false" action="" name="getConceptFullySpecifiedNamesByConceptCode" bindingOperationName="getConceptFullySpecifiedNamesByConceptCode" type="Request-Response" outputName="getConceptFullySpecifiedNamesByConceptCodeResponse" inputName="getConceptFullySpecifiedNamesByConceptCode" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5c563188-2c8d-41d0-80ff-ce2256a529eb" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://terminologyservices.htte.orionhealth-saas-svcs.com/webservice/conceptlookupsoapwebservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservices.ht.carecom.dk/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:getConceptFullySpecifiedNamesByConceptCode>\r
+         <!--Optional:-->\r
+         <codeSystemOID>?</codeSystemOID>\r
+         <!--Zero or more repetitions:-->\r
+         <conceptCode>?</conceptCode>\r
+         <!--Zero or more repetitions:-->\r
+         <contentLocaleCode>?</contentLocaleCode>\r
+         <!--Optional:-->\r
+         <validFrom>?</validFrom>\r
+         <!--Optional:-->\r
+         <includeInactive>?</includeInactive>\r
+      </web:getConceptFullySpecifiedNamesByConceptCode>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.ht.carecom.dk/ConceptLookupSOAPWebService/getConceptFullySpecifiedNamesByConceptCode"/></con:call></con:operation><con:operation id="523b9dbb-0fc9-483f-aec3-860d9d3ed62b" isOneWay="false" action="" name="getConceptFullySpecifiedNamesByConceptId" bindingOperationName="getConceptFullySpecifiedNamesByConceptId" type="Request-Response" outputName="getConceptFullySpecifiedNamesByConceptIdResponse" inputName="getConceptFullySpecifiedNamesByConceptId" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="59cf4ceb-2b83-4881-9fbe-a6222284ad8b" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://terminologyservices.htte.orionhealth-saas-svcs.com/webservice/conceptlookupsoapwebservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservices.ht.carecom.dk/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:getConceptFullySpecifiedNamesByConceptId>\r
+         <!--Zero or more repetitions:-->\r
+         <conceptId>?</conceptId>\r
+         <!--Zero or more repetitions:-->\r
+         <contentLocaleCode>?</contentLocaleCode>\r
+         <!--Optional:-->\r
+         <validFrom>?</validFrom>\r
+         <!--Optional:-->\r
+         <includeInactive>?</includeInactive>\r
+      </web:getConceptFullySpecifiedNamesByConceptId>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.ht.carecom.dk/ConceptLookupSOAPWebService/getConceptFullySpecifiedNamesByConceptId"/></con:call></con:operation><con:operation id="a16f94fb-12d8-4130-99cb-d7b3025b494d" isOneWay="false" action="" name="getConceptParentsByConceptCode" bindingOperationName="getConceptParentsByConceptCode" type="Request-Response" outputName="getConceptParentsByConceptCodeResponse" inputName="getConceptParentsByConceptCode" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="fe754a1a-a818-4a66-9f62-419a5bfde55c" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://terminologyservices.htte.orionhealth-saas-svcs.com/webservice/conceptlookupsoapwebservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservices.ht.carecom.dk/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:getConceptParentsByConceptCode>\r
+         <!--Optional:-->\r
+         <codeSystemOID>?</codeSystemOID>\r
+         <!--Zero or more repetitions:-->\r
+         <conceptCode>?</conceptCode>\r
+         <!--Optional:-->\r
+         <validFrom>?</validFrom>\r
+         <!--Optional:-->\r
+         <includeInactive>?</includeInactive>\r
+      </web:getConceptParentsByConceptCode>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.ht.carecom.dk/ConceptLookupSOAPWebService/getConceptParentsByConceptCode"/></con:call></con:operation><con:operation id="3bb0c986-3a82-48ab-b7d8-4a93ee92993c" isOneWay="false" action="" name="getConceptParentsByConceptId" bindingOperationName="getConceptParentsByConceptId" type="Request-Response" outputName="getConceptParentsByConceptIdResponse" inputName="getConceptParentsByConceptId" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="7365a01a-ce6b-48f2-a883-fc7742f69ff7" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://terminologyservices.htte.orionhealth-saas-svcs.com/webservice/conceptlookupsoapwebservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservices.ht.carecom.dk/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:getConceptParentsByConceptId>\r
+         <!--Zero or more repetitions:-->\r
+         <conceptId>?</conceptId>\r
+         <!--Optional:-->\r
+         <validFrom>?</validFrom>\r
+         <!--Optional:-->\r
+         <includeInactive>?</includeInactive>\r
+      </web:getConceptParentsByConceptId>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.ht.carecom.dk/ConceptLookupSOAPWebService/getConceptParentsByConceptId"/></con:call></con:operation><con:operation id="511e3734-51a8-470e-ab89-aa9178a94d1c" isOneWay="false" action="" name="getConceptPathsByConceptCode" bindingOperationName="getConceptPathsByConceptCode" type="Request-Response" outputName="getConceptPathsByConceptCodeResponse" inputName="getConceptPathsByConceptCode" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="333839ee-7ccf-4cc0-b78d-00a70242ae7c" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://terminologyservices.htte.orionhealth-saas-svcs.com/webservice/conceptlookupsoapwebservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservices.ht.carecom.dk/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:getConceptPathsByConceptCode>\r
+         <!--Optional:-->\r
+         <codeSystemOID>?</codeSystemOID>\r
+         <!--Zero or more repetitions:-->\r
+         <conceptCode>?</conceptCode>\r
+         <!--Optional:-->\r
+         <validFrom>?</validFrom>\r
+         <!--Optional:-->\r
+         <includeInactive>?</includeInactive>\r
+      </web:getConceptPathsByConceptCode>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.ht.carecom.dk/ConceptLookupSOAPWebService/getConceptPathsByConceptCode"/></con:call></con:operation><con:operation id="a51947dc-5801-46dd-b3e7-ecece7b652cc" isOneWay="false" action="" name="getConceptPathsByConceptId" bindingOperationName="getConceptPathsByConceptId" type="Request-Response" outputName="getConceptPathsByConceptIdResponse" inputName="getConceptPathsByConceptId" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="461c3acd-7df7-43c4-a6c7-ee959e667540" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://terminologyservices.htte.orionhealth-saas-svcs.com/webservice/conceptlookupsoapwebservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservices.ht.carecom.dk/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:getConceptPathsByConceptId>\r
+         <!--Zero or more repetitions:-->\r
+         <conceptId>?</conceptId>\r
+         <!--Optional:-->\r
+         <validFrom>?</validFrom>\r
+         <!--Optional:-->\r
+         <includeInactive>?</includeInactive>\r
+      </web:getConceptPathsByConceptId>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.ht.carecom.dk/ConceptLookupSOAPWebService/getConceptPathsByConceptId"/></con:call></con:operation><con:operation id="1e5d6932-36d7-4a99-8a8b-1d36b7e09639" isOneWay="false" action="" name="getConceptPreferredTermsByConceptCode" bindingOperationName="getConceptPreferredTermsByConceptCode" type="Request-Response" outputName="getConceptPreferredTermsByConceptCodeResponse" inputName="getConceptPreferredTermsByConceptCode" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="d0dbf876-8cb3-4182-b12f-30d54094f04e" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://terminologyservices.htte.orionhealth-saas-svcs.com/webservice/conceptlookupsoapwebservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservices.ht.carecom.dk/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:getConceptPreferredTermsByConceptCode>\r
+         <!--Optional:-->\r
+         <codeSystemOID>?</codeSystemOID>\r
+         <!--Zero or more repetitions:-->\r
+         <conceptCode>?</conceptCode>\r
+         <!--Zero or more repetitions:-->\r
+         <contentLocaleCode>?</contentLocaleCode>\r
+         <!--Optional:-->\r
+         <validFrom>?</validFrom>\r
+         <!--Optional:-->\r
+         <includeInactive>?</includeInactive>\r
+      </web:getConceptPreferredTermsByConceptCode>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.ht.carecom.dk/ConceptLookupSOAPWebService/getConceptPreferredTermsByConceptCode"/></con:call></con:operation><con:operation id="178081af-7add-436f-8fd1-9069f476fd98" isOneWay="false" action="" name="getConceptPreferredTermsByConceptId" bindingOperationName="getConceptPreferredTermsByConceptId" type="Request-Response" outputName="getConceptPreferredTermsByConceptIdResponse" inputName="getConceptPreferredTermsByConceptId" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c67bca80-55ea-40ae-a7cf-47af1bf9d2ef" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://terminologyservices.htte.orionhealth-saas-svcs.com/webservice/conceptlookupsoapwebservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservices.ht.carecom.dk/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:getConceptPreferredTermsByConceptId>\r
+         <!--Zero or more repetitions:-->\r
+         <conceptId>?</conceptId>\r
+         <!--Zero or more repetitions:-->\r
+         <contentLocaleCode>?</contentLocaleCode>\r
+         <!--Optional:-->\r
+         <validFrom>?</validFrom>\r
+         <!--Optional:-->\r
+         <includeInactive>?</includeInactive>\r
+      </web:getConceptPreferredTermsByConceptId>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.ht.carecom.dk/ConceptLookupSOAPWebService/getConceptPreferredTermsByConceptId"/></con:call></con:operation><con:operation id="cddb5e1d-4de2-4db0-874e-cb5129b985fb" isOneWay="false" action="" name="getConceptPropertiesByConceptCode" bindingOperationName="getConceptPropertiesByConceptCode" type="Request-Response" outputName="getConceptPropertiesByConceptCodeResponse" inputName="getConceptPropertiesByConceptCode" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="d5efaa5b-3f2e-4680-84d9-63a5e035efac" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://terminologyservices.htte.orionhealth-saas-svcs.com/webservice/conceptlookupsoapwebservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservices.ht.carecom.dk/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:getConceptPropertiesByConceptCode>\r
+         <!--Optional:-->\r
+         <codeSystemOID>?</codeSystemOID>\r
+         <!--Zero or more repetitions:-->\r
+         <conceptCode>?</conceptCode>\r
+         <!--Optional:-->\r
+         <validFrom>?</validFrom>\r
+         <!--Optional:-->\r
+         <includeInactive>?</includeInactive>\r
+      </web:getConceptPropertiesByConceptCode>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.ht.carecom.dk/ConceptLookupSOAPWebService/getConceptPropertiesByConceptCode"/></con:call></con:operation><con:operation id="0133c0e3-ca33-4873-90f6-946a6f820931" isOneWay="false" action="" name="getConceptPropertiesByConceptId" bindingOperationName="getConceptPropertiesByConceptId" type="Request-Response" outputName="getConceptPropertiesByConceptIdResponse" inputName="getConceptPropertiesByConceptId" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="44921909-a9c6-4984-9636-e9a70bc5591b" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://terminologyservices.htte.orionhealth-saas-svcs.com/webservice/conceptlookupsoapwebservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservices.ht.carecom.dk/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:getConceptPropertiesByConceptId>\r
+         <!--Zero or more repetitions:-->\r
+         <conceptId>?</conceptId>\r
+         <!--Optional:-->\r
+         <validFrom>?</validFrom>\r
+         <!--Optional:-->\r
+         <includeInactive>?</includeInactive>\r
+      </web:getConceptPropertiesByConceptId>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.ht.carecom.dk/ConceptLookupSOAPWebService/getConceptPropertiesByConceptId"/></con:call></con:operation><con:operation id="9d6105e3-e178-46b2-ac3d-0da3c70dd0d7" isOneWay="false" action="" name="getConceptRelationshipsByCode" bindingOperationName="getConceptRelationshipsByCode" type="Request-Response" outputName="getConceptRelationshipsByCodeResponse" inputName="getConceptRelationshipsByCode" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="f12f2b17-0428-414f-8879-99e552fdf4a3" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://terminologyservices.htte.orionhealth-saas-svcs.com/webservice/conceptlookupsoapwebservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservices.ht.carecom.dk/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:getConceptRelationshipsByCode>\r
+         <!--Optional:-->\r
+         <codeSystemOID>?</codeSystemOID>\r
+         <!--Zero or more repetitions:-->\r
+         <conceptCode>?</conceptCode>\r
+         <!--Optional:-->\r
+         <validFrom>?</validFrom>\r
+         <!--Optional:-->\r
+         <includeInactive>?</includeInactive>\r
+      </web:getConceptRelationshipsByCode>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.ht.carecom.dk/ConceptLookupSOAPWebService/getConceptRelationshipsByCode"/></con:call></con:operation><con:operation id="d4cf9b70-58b6-4b3d-ae86-6643828e6a79" isOneWay="false" action="" name="getConceptRelationshipsByConceptId" bindingOperationName="getConceptRelationshipsByConceptId" type="Request-Response" outputName="getConceptRelationshipsByConceptIdResponse" inputName="getConceptRelationshipsByConceptId" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="ec56d5b2-41e5-4f17-b376-c3266d75d4d6" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://terminologyservices.htte.orionhealth-saas-svcs.com/webservice/conceptlookupsoapwebservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservices.ht.carecom.dk/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:getConceptRelationshipsByConceptId>\r
+         <!--Zero or more repetitions:-->\r
+         <conceptId>?</conceptId>\r
+         <!--Optional:-->\r
+         <validFrom>?</validFrom>\r
+         <!--Optional:-->\r
+         <includeInactive>?</includeInactive>\r
+      </web:getConceptRelationshipsByConceptId>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.ht.carecom.dk/ConceptLookupSOAPWebService/getConceptRelationshipsByConceptId"/></con:call></con:operation><con:operation id="8d8a3337-615c-4776-8973-6831a0d5f7ba" isOneWay="false" action="" name="getConceptSynonymsByConceptCode" bindingOperationName="getConceptSynonymsByConceptCode" type="Request-Response" outputName="getConceptSynonymsByConceptCodeResponse" inputName="getConceptSynonymsByConceptCode" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="cc219cec-b6b6-442e-9bab-72ea7540514e" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://terminologyservices.htte.orionhealth-saas-svcs.com/webservice/conceptlookupsoapwebservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservices.ht.carecom.dk/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:getConceptSynonymsByConceptCode>\r
+         <!--Optional:-->\r
+         <codeSystemOID>?</codeSystemOID>\r
+         <!--Zero or more repetitions:-->\r
+         <conceptCode>?</conceptCode>\r
+         <!--Zero or more repetitions:-->\r
+         <contentLocaleCode>?</contentLocaleCode>\r
+         <!--Optional:-->\r
+         <validFrom>?</validFrom>\r
+         <!--Optional:-->\r
+         <includeInactive>?</includeInactive>\r
+      </web:getConceptSynonymsByConceptCode>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.ht.carecom.dk/ConceptLookupSOAPWebService/getConceptSynonymsByConceptCode"/></con:call></con:operation><con:operation id="279679e8-df63-4b3e-942e-ee8f5ddb263c" isOneWay="false" action="" name="getConceptSynonymsByConceptId" bindingOperationName="getConceptSynonymsByConceptId" type="Request-Response" outputName="getConceptSynonymsByConceptIdResponse" inputName="getConceptSynonymsByConceptId" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="de37b5a2-ac27-4086-8b88-09bac91c6e24" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://terminologyservices.htte.orionhealth-saas-svcs.com/webservice/conceptlookupsoapwebservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservices.ht.carecom.dk/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:getConceptSynonymsByConceptId>\r
+         <!--Zero or more repetitions:-->\r
+         <conceptId>?</conceptId>\r
+         <!--Zero or more repetitions:-->\r
+         <contentLocaleCode>?</contentLocaleCode>\r
+         <!--Optional:-->\r
+         <validFrom>?</validFrom>\r
+         <!--Optional:-->\r
+         <includeInactive>?</includeInactive>\r
+      </web:getConceptSynonymsByConceptId>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.ht.carecom.dk/ConceptLookupSOAPWebService/getConceptSynonymsByConceptId"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="09045497-791e-4786-8aef-2b212bf9e03b" wsaVersion="NONE" name="codesystemoverviewsoapwebserviceSoapBinding" type="wsdl" bindingName="{http://webservices.ht.carecom.dk/}codesystemoverviewsoapwebserviceSoapBinding" soapVersion="1_1" anonymous="optional" definition="https://terminologyservices.htte.orionhealth-saas-svcs.com/webservice/codesystemoverviewsoapwebservice?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://terminologyservices.htte.orionhealth-saas-svcs.com/webservice/codesystemoverviewsoapwebservice?wsdl"><con:part><con:url>https://terminologyservices.htte.orionhealth-saas-svcs.com/webservice/codesystemoverviewsoapwebservice?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="codesystemoverviewsoapwebservice" targetNamespace="http://webservices.ht.carecom.dk/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://webservices.ht.carecom.dk/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://webservices.ht.carecom.dk/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="codeDatasetMembershipDescriptor" type="tns:codeDatasetMembershipDescriptor"/>
+      <xs:element name="codeSystemDescriptor" type="tns:codeSystemDescriptor"/>
+      <xs:element name="codeSystemVersionDescriptor" type="tns:codeSystemVersionDescriptor"/>
+      <xs:element name="conceptDescriptor" type="tns:conceptDescriptor"/>
+      <xs:element name="conceptIdentificatorCollectionDescriptor" type="tns:conceptIdentificatorCollectionDescriptor"/>
+      <xs:element name="conceptIdentificatorDescriptor" type="tns:conceptIdentificatorDescriptor"/>
+      <xs:element name="conceptParentCategoryDescriptor" type="tns:conceptParentCategoryDescriptor"/>
+      <xs:element name="conceptSearchResultDescriptor" type="tns:conceptSearchResultDescriptor"/>
+      <xs:element name="contextDescriptor" type="tns:contextDescriptor"/>
+      <xs:element name="crossmapDescriptor" type="tns:crossmapDescriptor"/>
+      <xs:element name="datasetDescriptor" type="tns:datasetDescriptor"/>
+      <xs:element name="datasetPathDescriptor" type="tns:datasetPathDescriptor"/>
+      <xs:element name="descriptionDescriptor" type="tns:descriptionDescriptor"/>
+      <xs:element name="getAllCodeSystems" type="tns:getAllCodeSystems"/>
+      <xs:element name="getAllCodeSystemsResponse" type="tns:getAllCodeSystemsResponse"/>
+      <xs:element name="getAllConceptsByCodeSystem" type="tns:getAllConceptsByCodeSystem"/>
+      <xs:element name="getAllConceptsByCodeSystemAndLocale" type="tns:getAllConceptsByCodeSystemAndLocale"/>
+      <xs:element name="getAllConceptsByCodeSystemAndLocaleResponse" type="tns:getAllConceptsByCodeSystemAndLocaleResponse"/>
+      <xs:element name="getAllConceptsByCodeSystemAndNamespace" type="tns:getAllConceptsByCodeSystemAndNamespace"/>
+      <xs:element name="getAllConceptsByCodeSystemAndNamespaceResponse" type="tns:getAllConceptsByCodeSystemAndNamespaceResponse"/>
+      <xs:element name="getAllConceptsByCodeSystemResponse" type="tns:getAllConceptsByCodeSystemResponse"/>
+      <xs:element name="getCodeSystemRelationshipTypesByOID" type="tns:getCodeSystemRelationshipTypesByOID"/>
+      <xs:element name="getCodeSystemRelationshipTypesByOIDResponse" type="tns:getCodeSystemRelationshipTypesByOIDResponse"/>
+      <xs:element name="getCodeSystemRootConceptsByOID" type="tns:getCodeSystemRootConceptsByOID"/>
+      <xs:element name="getCodeSystemRootConceptsByOIDResponse" type="tns:getCodeSystemRootConceptsByOIDResponse"/>
+      <xs:element name="getCodeSystemVersionsByOID" type="tns:getCodeSystemVersionsByOID"/>
+      <xs:element name="getCodeSystemVersionsByOIDResponse" type="tns:getCodeSystemVersionsByOIDResponse"/>
+      <xs:element name="groupedConceptIdentificatorDescriptor" type="tns:groupedConceptIdentificatorDescriptor"/>
+      <xs:element name="keyValueDescriptor" type="tns:keyValueDescriptor"/>
+      <xs:element name="localeDescriptor" type="tns:localeDescriptor"/>
+      <xs:element name="logEntry" type="tns:logEntry"/>
+      <xs:element name="mapsetDescriptor" type="tns:mapsetDescriptor"/>
+      <xs:element name="namespaceDescriptor" type="tns:namespaceDescriptor"/>
+      <xs:element name="propertyDescriptor" type="tns:propertyDescriptor"/>
+      <xs:element name="realmDescriptor" type="tns:realmDescriptor"/>
+      <xs:element name="relationshipDescriptor" type="tns:relationshipDescriptor"/>
+      <xs:element name="relationshipTypeDescriptor" type="tns:relationshipTypeDescriptor"/>
+      <xs:element name="result" type="tns:webserviceResult"/>
+      <xs:complexType name="getAllConceptsByCodeSystem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codeSystemOID" type="xs:string"/>
+          <xs:element minOccurs="0" name="pageNumber" type="xs:int"/>
+          <xs:element minOccurs="0" name="pageSize" type="xs:int"/>
+          <xs:element minOccurs="0" name="validFrom" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getAllConceptsByCodeSystemResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="tns:result"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="webserviceResult">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:logEntry"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="record" type="xs:anyType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="logEntry">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="cause" type="xs:string"/>
+          <xs:element minOccurs="0" name="code" type="xs:string"/>
+          <xs:element minOccurs="0" name="level" type="xs:string"/>
+          <xs:element minOccurs="0" name="value" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="codeSystemDescriptor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" type="xs:long"/>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+          <xs:element minOccurs="0" name="oid" type="xs:string"/>
+          <xs:element minOccurs="0" name="type" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="codeSystemVersionDescriptor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" type="xs:string"/>
+          <xs:element minOccurs="0" name="validFrom" type="xs:dateTime"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="codeDatasetMembershipDescriptor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="code" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="healthtermOriginalDatasetId" nillable="true" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="conceptDescriptor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="code" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:descriptionDescriptor"/>
+          <xs:element minOccurs="0" name="hierarchy" type="xs:string"/>
+          <xs:element minOccurs="0" name="id" type="xs:long"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:keyValueDescriptor"/>
+          <xs:element minOccurs="0" name="oid" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:propertyDescriptor"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="relationDescriptor" type="tns:relationshipDescriptor"/>
+          <xs:element minOccurs="0" name="term" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="descriptionDescriptor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="conceptCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="conceptId" type="xs:long"/>
+          <xs:element minOccurs="0" name="descriptionId" type="xs:long"/>
+          <xs:element minOccurs="0" name="descriptionLocale" type="xs:string"/>
+          <xs:element minOccurs="0" name="descriptionTerm" type="xs:string"/>
+          <xs:element minOccurs="0" name="descriptionType" type="xs:int"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="keyValueDescriptor" nillable="true" type="tns:keyValueDescriptor"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="keyValueDescriptor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="key" type="xs:string"/>
+          <xs:element minOccurs="0" name="value" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="propertyDescriptor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="conceptCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="conceptId" type="xs:long"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="keyValueDescriptor" nillable="true" type="tns:keyValueDescriptor"/>
+          <xs:element minOccurs="0" name="propertyId" type="xs:long"/>
+          <xs:element minOccurs="0" name="propertyLocale" type="xs:string"/>
+          <xs:element minOccurs="0" name="propertyType" type="xs:string"/>
+          <xs:element minOccurs="0" name="propertyValue" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="relationshipDescriptor">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="keyValueDescriptor" nillable="true" type="tns:keyValueDescriptor"/>
+          <xs:element minOccurs="0" name="relationshipTypeId" type="xs:long"/>
+          <xs:element minOccurs="0" name="sourceConceptCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="sourceConceptId" type="xs:long"/>
+          <xs:element minOccurs="0" name="targetConceptCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="targetConceptId" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="conceptIdentificatorDescriptor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="conceptCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="healthTermConceptId" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="conceptParentCategoryDescriptor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="calculated" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="categoryCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="categoryId" type="xs:long"/>
+          <xs:element minOccurs="0" name="categoryPreferredTerm" type="xs:string"/>
+          <xs:element minOccurs="0" name="code" type="xs:string"/>
+          <xs:element minOccurs="0" name="id" type="xs:long"/>
+          <xs:element minOccurs="0" name="parentCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="parentId" type="xs:long"/>
+          <xs:element minOccurs="0" name="parentPreferredTerm" type="xs:string"/>
+          <xs:element minOccurs="0" name="preferredTerm" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="conceptSearchResultDescriptor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="conceptCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="conceptFullySpecifiedName" type="xs:string"/>
+          <xs:element minOccurs="0" name="conceptHierarchy" type="xs:string"/>
+          <xs:element minOccurs="0" name="conceptNamespaceId" type="xs:string"/>
+          <xs:element minOccurs="0" name="conceptNamespaceName" type="xs:string"/>
+          <xs:element minOccurs="0" name="descriptionNamespaceId" type="xs:string"/>
+          <xs:element minOccurs="0" name="descriptionNamespaceName" type="xs:string"/>
+          <xs:element minOccurs="0" name="descriptionTerm" type="xs:string"/>
+          <xs:element minOccurs="0" name="descriptionType" type="xs:long"/>
+          <xs:element minOccurs="0" name="healthtermConceptId" type="xs:long"/>
+          <xs:element minOccurs="0" name="healthtermDescriptionId" type="xs:long"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:keyValueDescriptor"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="contextDescriptor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="contextDescription" type="xs:string"/>
+          <xs:element minOccurs="0" name="contextId" type="xs:string"/>
+          <xs:element minOccurs="0" name="contextName" type="xs:string"/>
+          <xs:element minOccurs="0" name="realmId" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="crossmapDescriptor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="healthtermCrossmapId" type="xs:long"/>
+          <xs:element minOccurs="0" name="healthtermMapsetId" type="xs:long"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:keyValueDescriptor"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="sourceConcepts" type="tns:conceptDescriptor"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="targetConcepts" type="tns:conceptDescriptor"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="datasetDescriptor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="datasetContextId" type="xs:string"/>
+          <xs:element minOccurs="0" name="datasetCurrentVersionNumber" type="xs:int"/>
+          <xs:element minOccurs="0" name="datasetName" type="xs:string"/>
+          <xs:element minOccurs="0" name="datasetRealmId" type="xs:string"/>
+          <xs:element minOccurs="0" name="datasetStatus" type="xs:string"/>
+          <xs:element minOccurs="0" name="datasetType" type="xs:int"/>
+          <xs:element minOccurs="0" name="healthtermOriginalDatasetId" type="xs:long"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:keyValueDescriptor"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="memberId" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="datasetPathDescriptor">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="contextDescriptor" nillable="true" type="tns:contextDescriptor"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="realmDescriptor" nillable="true" type="tns:realmDescriptor"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="realmDescriptor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="realmDescription" type="xs:string"/>
+          <xs:element minOccurs="0" name="realmId" type="xs:string"/>
+          <xs:element minOccurs="0" name="realmName" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="groupedConceptIdentificatorDescriptor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="conceptIdentificator" type="tns:conceptIdentificatorDescriptor"/>
+          <xs:element minOccurs="0" name="conceptIdentificatorCollection" type="tns:conceptIdentificatorCollectionDescriptor"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="conceptIdentificatorCollectionDescriptor">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="conceptIdentificator" type="tns:conceptIdentificatorDescriptor"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="localeDescriptor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="countryCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="languageCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="localeName" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="mapsetDescriptor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="healthtermMapsetId" type="xs:long"/>
+          <xs:element minOccurs="0" name="mapsetName" type="xs:string"/>
+          <xs:element minOccurs="0" name="namespace" type="tns:namespaceDescriptor"/>
+          <xs:element minOccurs="0" name="realm" type="tns:realmDescriptor"/>
+          <xs:element minOccurs="0" name="sourceCodeSystem" type="tns:codeSystemDescriptor"/>
+          <xs:element minOccurs="0" name="targetCodeSystem" type="tns:codeSystemDescriptor"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="namespaceDescriptor">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="keyValueDescriptor" nillable="true" type="tns:keyValueDescriptor"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="localeDescriptor" nillable="true" type="tns:localeDescriptor"/>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+          <xs:element minOccurs="0" name="namespaceId" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="relationshipTypeDescriptor">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="tns:conceptDescriptor"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getAllCodeSystems">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="getAllCodeSystemsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="tns:result"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getCodeSystemVersionsByOID">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codeSystemOID" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getCodeSystemVersionsByOIDResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="tns:result"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getAllConceptsByCodeSystemAndLocale">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codeSystemOID" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="contentLocaleCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="pageNumber" type="xs:int"/>
+          <xs:element minOccurs="0" name="pageSize" type="xs:int"/>
+          <xs:element minOccurs="0" name="validFrom" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getAllConceptsByCodeSystemAndLocaleResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="tns:result"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getCodeSystemRootConceptsByOID">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codeSystemOID" type="xs:string"/>
+          <xs:element minOccurs="0" name="pageNumber" type="xs:int"/>
+          <xs:element minOccurs="0" name="pageSize" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getCodeSystemRootConceptsByOIDResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="tns:result"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getCodeSystemRelationshipTypesByOID">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codeSystemOID" type="xs:string"/>
+          <xs:element minOccurs="0" name="pageNumber" type="xs:int"/>
+          <xs:element minOccurs="0" name="pageSize" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getCodeSystemRelationshipTypesByOIDResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="tns:result"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getAllConceptsByCodeSystemAndNamespace">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codeSystemOID" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="namespaceId" type="xs:string"/>
+          <xs:element minOccurs="0" name="pageNumber" type="xs:int"/>
+          <xs:element minOccurs="0" name="pageSize" type="xs:int"/>
+          <xs:element minOccurs="0" name="validFrom" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getAllConceptsByCodeSystemAndNamespaceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="tns:result"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="HealthtermAbstractException" type="tns:HealthtermAbstractException"/>
+      <xs:complexType name="HealthtermAbstractException">
+        <xs:sequence>
+          <xs:element name="status" nillable="true" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getAllConceptsByCodeSystemAndNamespaceResponse">
+    <wsdl:part element="tns:getAllConceptsByCodeSystemAndNamespaceResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllCodeSystems">
+    <wsdl:part element="tns:getAllCodeSystems" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllConceptsByCodeSystem">
+    <wsdl:part element="tns:getAllConceptsByCodeSystem" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllConceptsByCodeSystemAndNamespace">
+    <wsdl:part element="tns:getAllConceptsByCodeSystemAndNamespace" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllConceptsByCodeSystemAndLocaleResponse">
+    <wsdl:part element="tns:getAllConceptsByCodeSystemAndLocaleResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCodeSystemVersionsByOIDResponse">
+    <wsdl:part element="tns:getCodeSystemVersionsByOIDResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCodeSystemRelationshipTypesByOID">
+    <wsdl:part element="tns:getCodeSystemRelationshipTypesByOID" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCodeSystemRootConceptsByOIDResponse">
+    <wsdl:part element="tns:getCodeSystemRootConceptsByOIDResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllCodeSystemsResponse">
+    <wsdl:part element="tns:getAllCodeSystemsResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCodeSystemVersionsByOID">
+    <wsdl:part element="tns:getCodeSystemVersionsByOID" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllConceptsByCodeSystemAndLocale">
+    <wsdl:part element="tns:getAllConceptsByCodeSystemAndLocale" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCodeSystemRootConceptsByOID">
+    <wsdl:part element="tns:getCodeSystemRootConceptsByOID" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="HealthtermAbstractException">
+    <wsdl:part element="tns:HealthtermAbstractException" name="HealthtermAbstractException"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCodeSystemRelationshipTypesByOIDResponse">
+    <wsdl:part element="tns:getCodeSystemRelationshipTypesByOIDResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllConceptsByCodeSystemResponse">
+    <wsdl:part element="tns:getAllConceptsByCodeSystemResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CodeSystemOverviewSOAPWebService">
+    <wsdl:operation name="getAllConceptsByCodeSystem">
+      <wsdl:input message="tns:getAllConceptsByCodeSystem" name="getAllConceptsByCodeSystem"></wsdl:input>
+      <wsdl:output message="tns:getAllConceptsByCodeSystemResponse" name="getAllConceptsByCodeSystemResponse"></wsdl:output>
+      <wsdl:fault message="tns:HealthtermAbstractException" name="HealthtermAbstractException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAllCodeSystems">
+      <wsdl:input message="tns:getAllCodeSystems" name="getAllCodeSystems"></wsdl:input>
+      <wsdl:output message="tns:getAllCodeSystemsResponse" name="getAllCodeSystemsResponse"></wsdl:output>
+      <wsdl:fault message="tns:HealthtermAbstractException" name="HealthtermAbstractException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getCodeSystemVersionsByOID">
+      <wsdl:input message="tns:getCodeSystemVersionsByOID" name="getCodeSystemVersionsByOID"></wsdl:input>
+      <wsdl:output message="tns:getCodeSystemVersionsByOIDResponse" name="getCodeSystemVersionsByOIDResponse"></wsdl:output>
+      <wsdl:fault message="tns:HealthtermAbstractException" name="HealthtermAbstractException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAllConceptsByCodeSystemAndLocale">
+      <wsdl:input message="tns:getAllConceptsByCodeSystemAndLocale" name="getAllConceptsByCodeSystemAndLocale"></wsdl:input>
+      <wsdl:output message="tns:getAllConceptsByCodeSystemAndLocaleResponse" name="getAllConceptsByCodeSystemAndLocaleResponse"></wsdl:output>
+      <wsdl:fault message="tns:HealthtermAbstractException" name="HealthtermAbstractException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getCodeSystemRootConceptsByOID">
+      <wsdl:input message="tns:getCodeSystemRootConceptsByOID" name="getCodeSystemRootConceptsByOID"></wsdl:input>
+      <wsdl:output message="tns:getCodeSystemRootConceptsByOIDResponse" name="getCodeSystemRootConceptsByOIDResponse"></wsdl:output>
+      <wsdl:fault message="tns:HealthtermAbstractException" name="HealthtermAbstractException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getCodeSystemRelationshipTypesByOID">
+      <wsdl:input message="tns:getCodeSystemRelationshipTypesByOID" name="getCodeSystemRelationshipTypesByOID"></wsdl:input>
+      <wsdl:output message="tns:getCodeSystemRelationshipTypesByOIDResponse" name="getCodeSystemRelationshipTypesByOIDResponse"></wsdl:output>
+      <wsdl:fault message="tns:HealthtermAbstractException" name="HealthtermAbstractException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAllConceptsByCodeSystemAndNamespace">
+      <wsdl:input message="tns:getAllConceptsByCodeSystemAndNamespace" name="getAllConceptsByCodeSystemAndNamespace"></wsdl:input>
+      <wsdl:output message="tns:getAllConceptsByCodeSystemAndNamespaceResponse" name="getAllConceptsByCodeSystemAndNamespaceResponse"></wsdl:output>
+      <wsdl:fault message="tns:HealthtermAbstractException" name="HealthtermAbstractException"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="codesystemoverviewsoapwebserviceSoapBinding" type="tns:CodeSystemOverviewSOAPWebService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getAllCodeSystems">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAllCodeSystems">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAllCodeSystemsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="HealthtermAbstractException">
+        <soap:fault name="HealthtermAbstractException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAllConceptsByCodeSystem">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAllConceptsByCodeSystem">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAllConceptsByCodeSystemResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="HealthtermAbstractException">
+        <soap:fault name="HealthtermAbstractException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getCodeSystemVersionsByOID">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getCodeSystemVersionsByOID">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getCodeSystemVersionsByOIDResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="HealthtermAbstractException">
+        <soap:fault name="HealthtermAbstractException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAllConceptsByCodeSystemAndLocale">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAllConceptsByCodeSystemAndLocale">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAllConceptsByCodeSystemAndLocaleResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="HealthtermAbstractException">
+        <soap:fault name="HealthtermAbstractException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getCodeSystemRootConceptsByOID">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getCodeSystemRootConceptsByOID">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getCodeSystemRootConceptsByOIDResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="HealthtermAbstractException">
+        <soap:fault name="HealthtermAbstractException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAllConceptsByCodeSystemAndNamespace">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAllConceptsByCodeSystemAndNamespace">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAllConceptsByCodeSystemAndNamespaceResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="HealthtermAbstractException">
+        <soap:fault name="HealthtermAbstractException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getCodeSystemRelationshipTypesByOID">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getCodeSystemRelationshipTypesByOID">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getCodeSystemRelationshipTypesByOIDResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="HealthtermAbstractException">
+        <soap:fault name="HealthtermAbstractException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="codesystemoverviewsoapwebservice">
+    <wsdl:port binding="tns:codesystemoverviewsoapwebserviceSoapBinding" name="CodeSystemOverviewSOAPWebServicePort">
+      <soap:address location="https://terminologyservices.htte.orionhealth-saas-svcs.com/webservice/codesystemoverviewsoapwebservice"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://terminologyservices.htte.orionhealth-saas-svcs.com/webservice/codesystemoverviewsoapwebservice</con:endpoint></con:endpoints><con:operation id="afc4a7e4-d7dc-4fe1-ab83-8720f6ae8187" isOneWay="false" action="" name="getAllCodeSystems" bindingOperationName="getAllCodeSystems" type="Request-Response" outputName="getAllCodeSystemsResponse" inputName="getAllCodeSystems" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="da32cd75-1116-4eec-8a98-4079fd283274" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://terminologyservices.htte.orionhealth-saas-svcs.com/webservice/codesystemoverviewsoapwebservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservices.ht.carecom.dk/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:getAllCodeSystems/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:username>orionws-ama</con:username><con:password>bh64X!c6k5lhRqag</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.ht.carecom.dk/CodeSystemOverviewSOAPWebService/getAllCodeSystems"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="9703e7f6-37db-4b11-b3c9-7f5e90e405ef" isOneWay="false" action="" name="getAllConceptsByCodeSystem" bindingOperationName="getAllConceptsByCodeSystem" type="Request-Response" outputName="getAllConceptsByCodeSystemResponse" inputName="getAllConceptsByCodeSystem" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="dae9e6f7-a418-4d69-8b16-54c6f6bb255d" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://terminologyservices.htte.orionhealth-saas-svcs.com/webservice/codesystemoverviewsoapwebservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservices.ht.carecom.dk/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:getAllConceptsByCodeSystem>\r
+         <!--Optional:-->\r
+         <codeSystemOID>?</codeSystemOID>\r
+         <!--Optional:-->\r
+         <pageNumber>?</pageNumber>\r
+         <!--Optional:-->\r
+         <pageSize>?</pageSize>\r
+         <!--Optional:-->\r
+         <validFrom>?</validFrom>\r
+      </web:getAllConceptsByCodeSystem>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.ht.carecom.dk/CodeSystemOverviewSOAPWebService/getAllConceptsByCodeSystem"/></con:call></con:operation><con:operation id="a77b9055-5e63-4a2b-8e24-029a12a1c6f1" isOneWay="false" action="" name="getAllConceptsByCodeSystemAndLocale" bindingOperationName="getAllConceptsByCodeSystemAndLocale" type="Request-Response" outputName="getAllConceptsByCodeSystemAndLocaleResponse" inputName="getAllConceptsByCodeSystemAndLocale" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="64bc06ea-8ecc-477a-90fb-145f3cff0a35" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://terminologyservices.htte.orionhealth-saas-svcs.com/webservice/codesystemoverviewsoapwebservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservices.ht.carecom.dk/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:getAllConceptsByCodeSystemAndLocale>\r
+         <!--Optional:-->\r
+         <codeSystemOID>?</codeSystemOID>\r
+         <!--Zero or more repetitions:-->\r
+         <contentLocaleCode>?</contentLocaleCode>\r
+         <!--Optional:-->\r
+         <pageNumber>?</pageNumber>\r
+         <!--Optional:-->\r
+         <pageSize>?</pageSize>\r
+         <!--Optional:-->\r
+         <validFrom>?</validFrom>\r
+      </web:getAllConceptsByCodeSystemAndLocale>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.ht.carecom.dk/CodeSystemOverviewSOAPWebService/getAllConceptsByCodeSystemAndLocale"/></con:call></con:operation><con:operation id="60f17d0c-81a8-4650-93d6-c3a369bfba6b" isOneWay="false" action="" name="getAllConceptsByCodeSystemAndNamespace" bindingOperationName="getAllConceptsByCodeSystemAndNamespace" type="Request-Response" outputName="getAllConceptsByCodeSystemAndNamespaceResponse" inputName="getAllConceptsByCodeSystemAndNamespace" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="3d48abcf-4301-45f7-b984-d10117d1e6fb" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://terminologyservices.htte.orionhealth-saas-svcs.com/webservice/codesystemoverviewsoapwebservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservices.ht.carecom.dk/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:getAllConceptsByCodeSystemAndNamespace>\r
+         <!--Optional:-->\r
+         <codeSystemOID>?</codeSystemOID>\r
+         <!--Zero or more repetitions:-->\r
+         <namespaceId>?</namespaceId>\r
+         <!--Optional:-->\r
+         <pageNumber>?</pageNumber>\r
+         <!--Optional:-->\r
+         <pageSize>?</pageSize>\r
+         <!--Optional:-->\r
+         <validFrom>?</validFrom>\r
+      </web:getAllConceptsByCodeSystemAndNamespace>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.ht.carecom.dk/CodeSystemOverviewSOAPWebService/getAllConceptsByCodeSystemAndNamespace"/></con:call></con:operation><con:operation id="deaa509e-0df1-46b4-ac49-3c2bf6f1a468" isOneWay="false" action="" name="getCodeSystemRelationshipTypesByOID" bindingOperationName="getCodeSystemRelationshipTypesByOID" type="Request-Response" outputName="getCodeSystemRelationshipTypesByOIDResponse" inputName="getCodeSystemRelationshipTypesByOID" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="b0f732e2-a993-433c-ad45-c0d37effaa99" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://terminologyservices.htte.orionhealth-saas-svcs.com/webservice/codesystemoverviewsoapwebservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservices.ht.carecom.dk/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:getCodeSystemRelationshipTypesByOID>\r
+         <!--Optional:-->\r
+         <codeSystemOID>?</codeSystemOID>\r
+         <!--Optional:-->\r
+         <pageNumber>?</pageNumber>\r
+         <!--Optional:-->\r
+         <pageSize>?</pageSize>\r
+      </web:getCodeSystemRelationshipTypesByOID>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.ht.carecom.dk/CodeSystemOverviewSOAPWebService/getCodeSystemRelationshipTypesByOID"/></con:call></con:operation><con:operation id="8a72835a-e1e8-49ce-9cda-f204fd9d1e56" isOneWay="false" action="" name="getCodeSystemRootConceptsByOID" bindingOperationName="getCodeSystemRootConceptsByOID" type="Request-Response" outputName="getCodeSystemRootConceptsByOIDResponse" inputName="getCodeSystemRootConceptsByOID" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="d0820997-99cc-4a04-9978-5158edf0b377" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://terminologyservices.htte.orionhealth-saas-svcs.com/webservice/codesystemoverviewsoapwebservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservices.ht.carecom.dk/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:getCodeSystemRootConceptsByOID>\r
+         <!--Optional:-->\r
+         <codeSystemOID>?</codeSystemOID>\r
+         <!--Optional:-->\r
+         <pageNumber>?</pageNumber>\r
+         <!--Optional:-->\r
+         <pageSize>?</pageSize>\r
+      </web:getCodeSystemRootConceptsByOID>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.ht.carecom.dk/CodeSystemOverviewSOAPWebService/getCodeSystemRootConceptsByOID"/></con:call></con:operation><con:operation id="53d2f9cf-d321-4864-9254-1f71dbb03c3a" isOneWay="false" action="" name="getCodeSystemVersionsByOID" bindingOperationName="getCodeSystemVersionsByOID" type="Request-Response" outputName="getCodeSystemVersionsByOIDResponse" inputName="getCodeSystemVersionsByOID" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="de8c5767-86b4-4257-90ce-b14152af7e10" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://terminologyservices.htte.orionhealth-saas-svcs.com/webservice/codesystemoverviewsoapwebservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservices.ht.carecom.dk/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:getCodeSystemVersionsByOID>\r
+         <!--Optional:-->\r
+         <codeSystemOID>?</codeSystemOID>\r
+      </web:getCodeSystemVersionsByOID>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.ht.carecom.dk/CodeSystemOverviewSOAPWebService/getCodeSystemVersionsByOID"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

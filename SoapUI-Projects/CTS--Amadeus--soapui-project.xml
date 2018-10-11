@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="918f6eeb-1f35-46c9-bb7b-8e668eb45463" activeEnvironment="Default" name="CTS (Amadeus)" resourceRoot="" soapui-version="5.4.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="34f2f671-871a-4bcb-8f5b-4db750631f79" wsaVersion="NONE" name="terminologyServicePortBinding" type="wsdl" bindingName="{http://com/orchestral/terminology/ws/}terminologyServicePortBinding" soapVersion="1_2" anonymous="optional" definition="https://35.165.176.242:19043/ws/terminologyService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://35.165.176.242:19043/ws/terminologyService?wsdl"><con:part><con:url>https://35.165.176.242:19043/ws/terminologyService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="terminologyService" targetNamespace="http://com/orchestral/terminology/ws/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://com/orchestral/terminology/ws/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://com/orchestral/terminology/ws/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="Exception" type="tns:Exception"/>
+      <xs:element name="clinicalCodeIdentifier" type="tns:clinicalCodeIdentifier"/>
+      <xs:element name="resolveClinicalTerms" type="tns:resolveClinicalTerms"/>
+      <xs:element name="resolveClinicalTermsResponse" type="tns:resolveClinicalTermsResponse"/>
+      <xs:complexType name="resolveClinicalTerms">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:clinicalCodeIdentifier"/>
+          <xs:element form="qualified" minOccurs="0" name="locale" type="tns:locale"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="clinicalCodeIdentifier">
+        <xs:sequence>
+          <xs:element name="code" type="xs:string"/>
+          <xs:element name="codingSystem" type="xs:string"/>
+          <xs:element name="valueSetIdentifier" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="locale">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="language" type="xs:string"/>
+          <xs:element minOccurs="0" name="country" type="xs:string"/>
+          <xs:element minOccurs="0" name="variant" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="resolveClinicalTermsResponse">
+        <xs:sequence>
+          <xs:element name="return">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" name="entry">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element minOccurs="0" name="key" type="tns:clinicalCodeIdentifier"/>
+                      <xs:element minOccurs="0" name="value" type="tns:clinicalTermResult"/>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="clinicalTermResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="originalTerm" type="tns:clinicalTerm"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="alternativeTerms" type="tns:clinicalTerm"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="clinicalTerm">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="tns:clinicalCodeIdentifier"/>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
+          <xs:element minOccurs="0" name="shortDescription" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="sensitivities" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Exception">
+        <xs:sequence>
+          <xs:element form="qualified" minOccurs="0" name="type" type="xs:string"/>
+          <xs:element form="qualified" minOccurs="0" name="message" type="xs:string"/>
+          <xs:element form="qualified" minOccurs="0" name="cause" type="tns:Exception"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema version="1.0" xmlns:ns1="http://com/orchestral/terminology/ws/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="clinicalTermResult" type="ns1:clinicalTermResult"/>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="resolveClinicalTerms">
+    <wsdl:part element="tns:resolveClinicalTerms" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Exception">
+    <wsdl:part element="tns:Exception" name="fault"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="resolveClinicalTermsResponse">
+    <wsdl:part element="tns:resolveClinicalTermsResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="terminologyService">
+    <wsdl:operation name="resolveClinicalTerms">
+      <wsdl:input message="tns:resolveClinicalTerms" name="resolveClinicalTerms"></wsdl:input>
+      <wsdl:output message="tns:resolveClinicalTermsResponse" name="resolveClinicalTermsResponse"></wsdl:output>
+      <wsdl:fault message="tns:Exception" name="Exception"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="terminologyServicePortBinding" type="tns:terminologyService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="resolveClinicalTerms">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="resolveClinicalTerms">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="resolveClinicalTermsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="terminologyService">
+    <wsdl:port binding="tns:terminologyServicePortBinding" name="terminologyServicePort">
+      <soap:address location="https://35.165.176.242:19043/ws/terminologyService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://35.165.176.242:19043/ws/terminologyService</con:endpoint></con:endpoints><con:operation id="1480515a-111f-40bb-b139-bd2473520b06" isOneWay="false" action="" name="resolveClinicalTerms" bindingOperationName="resolveClinicalTerms" type="Request-Response" outputName="resolveClinicalTermsResponse" inputName="resolveClinicalTerms" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="29666805-7bbd-4281-bb96-ed5a9fb765ef" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://35.165.176.242:19043/ws/terminologyService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ws="http://com/orchestral/terminology/ws/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ws:resolveClinicalTerms>\r
+         <!--Zero or more repetitions:-->\r
+         <ws:clinicalCodeIdentifier>\r
+            <code>?</code>\r
+            <codingSystem>?</codingSystem>\r
+            <valueSetIdentifier>?</valueSetIdentifier>\r
+         </ws:clinicalCodeIdentifier>\r
+         <!--Optional:-->\r
+         <ws:locale>\r
+            <!--Optional:-->\r
+            <language>?</language>\r
+            <!--Optional:-->\r
+            <country>?</country>\r
+            <!--Optional:-->\r
+            <variant>?</variant>\r
+         </ws:locale>\r
+      </ws:resolveClinicalTerms>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://com/orchestral/terminology/ws/terminologyService/resolveClinicalTerms"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

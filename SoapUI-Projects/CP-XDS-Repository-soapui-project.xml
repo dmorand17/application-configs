@@ -1,0 +1,921 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="CP XDS Repository" resourceRoot="" soapui-version="5.0.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="xdsrepositorybPortBinding" type="wsdl" bindingName="{urn:oasis:names:tc:ebxml-regrep:xsd:lcm:3.0}xdsrepositorybPortBinding" soapVersion="1_2" anonymous="optional" definition="http://orion-mwh-devmessage1v:19080/mwh-dev/backend/ws/xdsrepositoryb?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://orion-mwh-devmessage1v:19080/mwh-dev/backend/ws/xdsrepositoryb?wsdl"><con:part><con:url>http://orion-mwh-devmessage1v:19080/mwh-dev/backend/ws/xdsrepositoryb?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="xdsrepositorybService" targetNamespace="urn:oasis:names:tc:ebxml-regrep:xsd:lcm:3.0" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="urn:ihe:iti:xds-b:2007" xmlns:ns1="urn:oasis:names:tc:ebxml-regrep:xsd:query:3.0" xmlns:ns2="urn:oasis:names:tc:ebxml-regrep:xsd:rs:3.0" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="urn:oasis:names:tc:ebxml-regrep:xsd:lcm:3.0" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="urn:oasis:names:tc:ebxml-regrep:xsd:query:3.0" version="1.0" xmlns:ns1="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0" xmlns:tns="urn:oasis:names:tc:ebxml-regrep:xsd:query:3.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="AdhocQueryRequest">
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="ns2:RegistryRequestType">
+              <xs:sequence>
+                <xs:element name="ResponseOption" type="tns:ResponseOptionType"/>
+                <xs:element name="AdhocQuery" type="ns1:AdhocQueryType"/>
+              </xs:sequence>
+              <xs:attribute name="federated" type="xs:boolean"/>
+              <xs:attribute name="federation" type="xs:anyURI"/>
+              <xs:attribute name="startIndex" type="xs:integer"/>
+              <xs:attribute name="maxResults" type="xs:integer"/>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AdhocQueryResponse">
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="ns2:RegistryResponseType">
+              <xs:sequence>
+                <xs:element name="RegistryObjectList" type="ns1:RegistryObjectListType"/>
+              </xs:sequence>
+              <xs:attribute name="startIndex" type="xs:integer"/>
+              <xs:attribute name="totalResultCount" type="xs:integer"/>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="ResponseOptionType">
+        <xs:sequence/>
+        <xs:attribute name="returnType" type="xs:string"/>
+        <xs:attribute name="returnComposedObjects" type="xs:boolean"/>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema elementFormDefault="qualified" targetNamespace="urn:ihe:iti:xds-b:2007" version="1.0" xmlns:ns1="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0" xmlns:ns3="urn:oasis:names:tc:ebxml-regrep:xsd:lcm:3.0" xmlns:tns="urn:ihe:iti:xds-b:2007" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="ProvideAndRegisterDocumentSetRequest" type="tns:ProvideAndRegisterDocumentSetRequestType"/>
+      <xs:complexType name="RetrieveDocumentSetRequestType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="DocumentRequest">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" name="HomeCommunityId" type="xs:string"/>
+                <xs:element name="RepositoryUniqueId" type="xs:string"/>
+                <xs:element name="DocumentUniqueId" type="xs:string"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="RetrieveDocumentSetResponseType">
+        <xs:sequence>
+          <xs:element ref="ns2:RegistryResponse"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="DocumentResponse">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" name="HomeCommunityId" type="xs:string"/>
+                <xs:element name="RepositoryUniqueId" type="xs:string"/>
+                <xs:element name="DocumentUniqueId" type="xs:string"/>
+                <xs:element name="mimeType" type="xs:string"/>
+                <xs:element name="Document" type="xs:base64Binary"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ProvideAndRegisterDocumentSetRequestType">
+        <xs:sequence>
+          <xs:element ref="ns3:SubmitObjectsRequest"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="Document">
+            <xs:complexType>
+              <xs:simpleContent>
+                <xs:extension base="xs:base64Binary">
+                  <xs:attribute name="id" type="xs:anyURI" use="required"/>
+                </xs:extension>
+              </xs:simpleContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema elementFormDefault="qualified" targetNamespace="urn:oasis:names:tc:ebxml-regrep:xsd:lcm:3.0" version="1.0" xmlns:ns1="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="AcceptObjectsRequest">
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="ns2:RegistryRequestType">
+              <xs:sequence/>
+              <xs:attribute name="correlationId" type="xs:anyURI" use="required"/>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ApproveObjectsRequest">
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="ns2:RegistryRequestType">
+              <xs:sequence>
+                <xs:element minOccurs="0" name="AdhocQuery" type="ns1:AdhocQueryType"/>
+                <xs:element minOccurs="0" name="ObjectRefList" type="ns1:ObjectRefListType"/>
+              </xs:sequence>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeprecateObjectsRequest">
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="ns2:RegistryRequestType">
+              <xs:sequence>
+                <xs:element minOccurs="0" name="AdhocQuery" type="ns1:AdhocQueryType"/>
+                <xs:element minOccurs="0" name="ObjectRefList" type="ns1:ObjectRefListType"/>
+              </xs:sequence>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Exception" type="tns:Exception"/>
+      <xs:element name="RelocateObjectsRequest">
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="ns2:RegistryRequestType">
+              <xs:sequence>
+                <xs:element name="AdhocQuery" type="ns1:AdhocQueryType"/>
+                <xs:element name="SourceRegistry" type="ns1:ObjectRefType"/>
+                <xs:element name="DestinationRegistry" type="ns1:ObjectRefType"/>
+                <xs:element name="OwnerAtSource" type="ns1:ObjectRefType"/>
+                <xs:element name="OwnerAtDestination" type="ns1:ObjectRefType"/>
+              </xs:sequence>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RemoveObjectsRequest">
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="ns2:RegistryRequestType">
+              <xs:sequence>
+                <xs:element minOccurs="0" name="AdhocQuery" type="ns1:AdhocQueryType"/>
+                <xs:element minOccurs="0" name="ObjectRefList" type="ns1:ObjectRefListType"/>
+              </xs:sequence>
+              <xs:attribute name="deletionScope" type="xs:string"/>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SubmitObjectsRequest">
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="ns2:RegistryRequestType">
+              <xs:sequence>
+                <xs:element name="RegistryObjectList" type="ns1:RegistryObjectListType"/>
+              </xs:sequence>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UndeprecateObjectsRequest">
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="ns2:RegistryRequestType">
+              <xs:sequence>
+                <xs:element minOccurs="0" name="AdhocQuery" type="ns1:AdhocQueryType"/>
+                <xs:element minOccurs="0" name="ObjectRefList" type="ns1:ObjectRefListType"/>
+              </xs:sequence>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UpdateObjectsRequest">
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="ns2:RegistryRequestType">
+              <xs:sequence>
+                <xs:element name="RegistryObjectList" type="ns1:RegistryObjectListType"/>
+              </xs:sequence>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="Exception">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="type" type="xs:string"/>
+          <xs:element minOccurs="0" name="message" type="xs:string"/>
+          <xs:element minOccurs="0" name="cause" type="tns:Exception"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema elementFormDefault="qualified" targetNamespace="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0" version="1.0" xmlns:lcm="urn:oasis:names:tc:ebxml-regrep:xsd:lcm:3.0" xmlns:query="urn:oasis:names:tc:ebxml-regrep:xsd:query:3.0" xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0" xmlns:rs="urn:oasis:names:tc:ebxml-regrep:xsd:rs:3.0" xmlns:tns="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0" xmlns:xds-b="urn:ihe:iti:xds-b:2007" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <xs:element name="Action" type="tns:ActionType"/>
+      <xs:element name="Address" type="tns:PostalAddressType"/>
+      <xs:element name="AdhocQuery" type="tns:AdhocQueryType"/>
+      <xs:element name="Association" type="tns:AssociationType1"/>
+      <xs:element name="AuditableEvent" type="tns:AuditableEventType"/>
+      <xs:element name="Classification" type="tns:ClassificationType"/>
+      <xs:element name="ClassificationNode" type="tns:ClassificationNodeType"/>
+      <xs:element name="ClassificationScheme" type="tns:ClassificationSchemeType"/>
+      <xs:element name="Description" type="tns:InternationalStringType"/>
+      <xs:element name="EmailAddress" type="tns:EmailAddressType"/>
+      <xs:element name="ExternalIdentifier" type="tns:ExternalIdentifierType"/>
+      <xs:element name="ExternalLink" type="tns:ExternalLinkType"/>
+      <xs:element name="ExtrinsicObject" type="tns:ExtrinsicObjectType"/>
+      <xs:element name="Federation" type="tns:FederationType"/>
+      <xs:element name="Identifiable" type="tns:IdentifiableType"/>
+      <xs:element name="InternationalString" type="tns:InternationalStringType"/>
+      <xs:element name="LocalizedString" type="tns:LocalizedStringType"/>
+      <xs:element name="Name" type="tns:InternationalStringType"/>
+      <xs:element name="Notification" type="tns:NotificationType"/>
+      <xs:element name="NotifyAction" type="tns:NotifyActionType"/>
+      <xs:element name="ObjectRef" type="tns:ObjectRefType"/>
+      <xs:element name="ObjectRefList" type="tns:ObjectRefListType"/>
+      <xs:element name="Organization" type="tns:OrganizationType"/>
+      <xs:element name="Person" type="tns:PersonType"/>
+      <xs:element name="PersonName" type="tns:PersonNameType"/>
+      <xs:element name="PostalAddress" type="tns:PostalAddressType"/>
+      <xs:element name="QueryExpression" type="tns:QueryExpressionType"/>
+      <xs:element name="Registry" type="tns:RegistryType"/>
+      <xs:element name="RegistryObject" type="tns:RegistryObjectType"/>
+      <xs:element name="RegistryObjectList" type="tns:RegistryObjectListType"/>
+      <xs:element name="RegistryPackage" type="tns:RegistryPackageType"/>
+      <xs:element name="Service" type="tns:ServiceType"/>
+      <xs:element name="ServiceBinding" type="tns:ServiceBindingType"/>
+      <xs:element name="Slot" type="tns:SlotType1"/>
+      <xs:element name="SlotList" type="tns:SlotListType"/>
+      <xs:element name="SpecificationLink" type="tns:SpecificationLinkType"/>
+      <xs:element name="Subscription" type="tns:SubscriptionType"/>
+      <xs:element name="TelephoneNumber" type="tns:TelephoneNumberType"/>
+      <xs:element name="UsageDescription" type="tns:InternationalStringType"/>
+      <xs:element name="UsageParameter" type="xs:string"/>
+      <xs:element name="User" type="tns:UserType"/>
+      <xs:element name="Value" type="xs:string"/>
+      <xs:element name="ValueList" type="tns:ValueListType"/>
+      <xs:complexType name="SlotListType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="Slot" type="tns:SlotType1"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SlotType1">
+        <xs:sequence>
+          <xs:element name="ValueList" type="tns:ValueListType"/>
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string" use="required"/>
+        <xs:attribute name="slotType" type="xs:string"/>
+      </xs:complexType>
+      <xs:complexType name="ValueListType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="Value" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="RegistryObjectListType">
+        <xs:sequence>
+          <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element ref="tns:Identifiable"/>
+            <xs:element ref="tns:Person"/>
+            <xs:element ref="tns:ServiceBinding"/>
+            <xs:element ref="tns:ExternalIdentifier"/>
+            <xs:element ref="tns:Organization"/>
+            <xs:element ref="tns:Association"/>
+            <xs:element ref="tns:Subscription"/>
+            <xs:element ref="tns:SpecificationLink"/>
+            <xs:element ref="tns:ExtrinsicObject"/>
+            <xs:element ref="tns:ClassificationNode"/>
+            <xs:element ref="tns:ObjectRef"/>
+            <xs:element ref="tns:ClassificationScheme"/>
+            <xs:element ref="tns:RegistryPackage"/>
+            <xs:element ref="tns:Federation"/>
+            <xs:element ref="tns:ExternalLink"/>
+            <xs:element ref="tns:Classification"/>
+            <xs:element ref="tns:AuditableEvent"/>
+            <xs:element ref="tns:RegistryObject"/>
+            <xs:element ref="tns:AdhocQuery"/>
+            <xs:element ref="tns:Registry"/>
+            <xs:element ref="tns:User"/>
+            <xs:element ref="tns:Service"/>
+          </xs:choice>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PersonType">
+        <xs:complexContent>
+          <xs:extension base="tns:RegistryObjectType">
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="Address" type="tns:PostalAddressType"/>
+              <xs:element minOccurs="0" name="PersonName" type="tns:PersonNameType"/>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="TelephoneNumber" type="tns:TelephoneNumberType"/>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="EmailAddress" type="tns:EmailAddressType"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="RegistryObjectType">
+        <xs:complexContent>
+          <xs:extension base="tns:IdentifiableType">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="Name" type="tns:InternationalStringType"/>
+              <xs:element minOccurs="0" name="Description" type="tns:InternationalStringType"/>
+              <xs:element minOccurs="0" name="VersionInfo" type="tns:VersionInfoType"/>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="Classification" type="tns:ClassificationType"/>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="ExternalIdentifier" type="tns:ExternalIdentifierType"/>
+            </xs:sequence>
+            <xs:attribute name="lid" type="xs:anyURI"/>
+            <xs:attribute name="objectType" type="xs:string"/>
+            <xs:attribute name="status" type="xs:string"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="IdentifiableType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="Slot" type="tns:SlotType1"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:anyURI" use="required"/>
+        <xs:attribute name="home" type="xs:anyURI"/>
+      </xs:complexType>
+      <xs:complexType name="PostalAddressType">
+        <xs:sequence/>
+        <xs:attribute name="city" type="xs:string"/>
+        <xs:attribute name="country" type="xs:string"/>
+        <xs:attribute name="postalCode" type="xs:string"/>
+        <xs:attribute name="stateOrProvince" type="xs:string"/>
+        <xs:attribute name="street" type="xs:string"/>
+        <xs:attribute name="streetNumber" type="xs:string"/>
+      </xs:complexType>
+      <xs:complexType name="PersonNameType">
+        <xs:sequence/>
+        <xs:attribute name="firstName" type="xs:string"/>
+        <xs:attribute name="middleName" type="xs:string"/>
+        <xs:attribute name="lastName" type="xs:string"/>
+      </xs:complexType>
+      <xs:complexType name="TelephoneNumberType">
+        <xs:sequence/>
+        <xs:attribute name="areaCode" type="xs:string"/>
+        <xs:attribute name="countryCode" type="xs:string"/>
+        <xs:attribute name="extension" type="xs:string"/>
+        <xs:attribute name="number" type="xs:string"/>
+        <xs:attribute name="phoneType" type="xs:string"/>
+      </xs:complexType>
+      <xs:complexType name="EmailAddressType">
+        <xs:sequence/>
+        <xs:attribute name="address" type="xs:string" use="required"/>
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:complexType>
+      <xs:complexType name="InternationalStringType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="LocalizedString" type="tns:LocalizedStringType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LocalizedStringType">
+        <xs:sequence/>
+        <xs:attribute ref="xml:lang"/>
+        <xs:attribute name="charset" type="xs:anySimpleType"/>
+        <xs:attribute name="value" type="xs:string" use="required"/>
+      </xs:complexType>
+      <xs:complexType name="VersionInfoType">
+        <xs:sequence/>
+        <xs:attribute name="versionName" type="xs:string"/>
+        <xs:attribute name="comment" type="xs:string"/>
+      </xs:complexType>
+      <xs:complexType name="ClassificationType">
+        <xs:complexContent>
+          <xs:extension base="tns:RegistryObjectType">
+            <xs:sequence/>
+            <xs:attribute name="classificationScheme" type="xs:string"/>
+            <xs:attribute name="classifiedObject" type="xs:string" use="required"/>
+            <xs:attribute name="classificationNode" type="xs:string"/>
+            <xs:attribute name="nodeRepresentation" type="xs:string"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ExternalIdentifierType">
+        <xs:complexContent>
+          <xs:extension base="tns:RegistryObjectType">
+            <xs:sequence/>
+            <xs:attribute name="registryObject" type="xs:string" use="required"/>
+            <xs:attribute name="identificationScheme" type="xs:string" use="required"/>
+            <xs:attribute name="value" type="xs:string" use="required"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ObjectRefType">
+        <xs:complexContent>
+          <xs:extension base="tns:IdentifiableType">
+            <xs:sequence/>
+            <xs:attribute name="createReplica" type="xs:boolean"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="AdhocQueryType">
+        <xs:complexContent>
+          <xs:extension base="tns:RegistryObjectType">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="QueryExpression" type="tns:QueryExpressionType"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType mixed="true" name="QueryExpressionType">
+        <xs:sequence>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+        <xs:attribute name="queryLanguage" type="xs:string" use="required"/>
+      </xs:complexType>
+      <xs:complexType name="ClassificationSchemeType">
+        <xs:complexContent>
+          <xs:extension base="tns:RegistryObjectType">
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="ClassificationNode" type="tns:ClassificationNodeType"/>
+            </xs:sequence>
+            <xs:attribute name="isInternal" type="xs:boolean" use="required"/>
+            <xs:attribute name="nodeType" type="xs:string" use="required"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ClassificationNodeType">
+        <xs:complexContent>
+          <xs:extension base="tns:RegistryObjectType">
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="ClassificationNode" type="tns:ClassificationNodeType"/>
+            </xs:sequence>
+            <xs:attribute name="parent" type="xs:string"/>
+            <xs:attribute name="code" type="xs:string"/>
+            <xs:attribute name="path" type="xs:string"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ServiceType">
+        <xs:complexContent>
+          <xs:extension base="tns:RegistryObjectType">
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="ServiceBinding" type="tns:ServiceBindingType"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ServiceBindingType">
+        <xs:complexContent>
+          <xs:extension base="tns:RegistryObjectType">
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="SpecificationLink" type="tns:SpecificationLinkType"/>
+            </xs:sequence>
+            <xs:attribute name="service" type="xs:string" use="required"/>
+            <xs:attribute name="accessURI" type="xs:anyURI"/>
+            <xs:attribute name="targetBinding" type="xs:string"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="SpecificationLinkType">
+        <xs:complexContent>
+          <xs:extension base="tns:RegistryObjectType">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="UsageDescription" type="tns:InternationalStringType"/>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="UsageParameter" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="serviceBinding" type="xs:string" use="required"/>
+            <xs:attribute name="specificationObject" type="xs:string" use="required"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="AssociationType1">
+        <xs:complexContent>
+          <xs:extension base="tns:RegistryObjectType">
+            <xs:sequence/>
+            <xs:attribute name="associationType" type="xs:string" use="required"/>
+            <xs:attribute name="sourceObject" type="xs:string" use="required"/>
+            <xs:attribute name="targetObject" type="xs:string" use="required"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ExtrinsicObjectType">
+        <xs:complexContent>
+          <xs:extension base="tns:RegistryObjectType">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="ContentVersionInfo" type="tns:VersionInfoType"/>
+            </xs:sequence>
+            <xs:attribute name="mimeType" type="xs:string"/>
+            <xs:attribute name="isOpaque" type="xs:boolean"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="OrganizationType">
+        <xs:complexContent>
+          <xs:extension base="tns:RegistryObjectType">
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="Address" type="tns:PostalAddressType"/>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="TelephoneNumber" type="tns:TelephoneNumberType"/>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="EmailAddress" type="tns:EmailAddressType"/>
+            </xs:sequence>
+            <xs:attribute name="parent" type="xs:string"/>
+            <xs:attribute name="primaryContact" type="xs:string"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="RegistryType">
+        <xs:complexContent>
+          <xs:extension base="tns:RegistryObjectType">
+            <xs:sequence/>
+            <xs:attribute name="operator" type="xs:string" use="required"/>
+            <xs:attribute name="specificationVersion" type="xs:string" use="required"/>
+            <xs:attribute name="replicationSyncLatency" type="xs:duration"/>
+            <xs:attribute name="catalogingLatency" type="xs:duration"/>
+            <xs:attribute name="conformanceProfile" type="xs:string"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="FederationType">
+        <xs:complexContent>
+          <xs:extension base="tns:RegistryObjectType">
+            <xs:sequence/>
+            <xs:attribute name="replicationSyncLatency" type="xs:duration"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="RegistryPackageType">
+        <xs:complexContent>
+          <xs:extension base="tns:RegistryObjectType">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="RegistryObjectList" type="tns:RegistryObjectListType"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="NotificationType">
+        <xs:complexContent>
+          <xs:extension base="tns:RegistryObjectType">
+            <xs:sequence>
+              <xs:element name="RegistryObjectList" type="tns:RegistryObjectListType"/>
+            </xs:sequence>
+            <xs:attribute name="subscription" type="xs:string" use="required"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ExternalLinkType">
+        <xs:complexContent>
+          <xs:extension base="tns:RegistryObjectType">
+            <xs:sequence/>
+            <xs:attribute name="externalURI" type="xs:anyURI" use="required"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="AuditableEventType">
+        <xs:complexContent>
+          <xs:extension base="tns:RegistryObjectType">
+            <xs:sequence>
+              <xs:element name="affectedObjects" type="tns:ObjectRefListType"/>
+            </xs:sequence>
+            <xs:attribute name="eventType" type="xs:string" use="required"/>
+            <xs:attribute name="timestamp" type="xs:dateTime" use="required"/>
+            <xs:attribute name="user" type="xs:string" use="required"/>
+            <xs:attribute name="requestId" type="xs:string" use="required"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ObjectRefListType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="ObjectRef" type="tns:ObjectRefType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SubscriptionType">
+        <xs:complexContent>
+          <xs:extension base="tns:RegistryObjectType">
+            <xs:sequence>
+              <xs:choice maxOccurs="unbounded" minOccurs="0">
+                <xs:element ref="tns:Action"/>
+                <xs:element ref="tns:NotifyAction"/>
+              </xs:choice>
+            </xs:sequence>
+            <xs:attribute name="selector" type="xs:string" use="required"/>
+            <xs:attribute name="startTime" type="xs:dateTime"/>
+            <xs:attribute name="endTime" type="xs:dateTime"/>
+            <xs:attribute name="notificationInterval" type="xs:duration"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="UserType">
+        <xs:complexContent>
+          <xs:extension base="tns:PersonType">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="TelephoneNumberListType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="TelephoneNumber" type="tns:TelephoneNumberType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="NotifyActionType">
+        <xs:complexContent>
+          <xs:extension base="tns:ActionType">
+            <xs:sequence/>
+            <xs:attribute name="notificationOption" type="xs:string"/>
+            <xs:attribute name="endPoint" type="xs:anyURI" use="required"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType abstract="true" name="ActionType">
+        <xs:sequence/>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://www.w3.org/XML/1998/namespace" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:attribute name="lang" type="xs:string"/>
+    </xs:schema>
+    <xs:schema elementFormDefault="qualified" targetNamespace="urn:oasis:names:tc:ebxml-regrep:xsd:rs:3.0" version="1.0" xmlns:ns1="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0" xmlns:tns="urn:oasis:names:tc:ebxml-regrep:xsd:rs:3.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="RegistryError">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="codeContext" type="xs:string" use="required"/>
+              <xs:attribute name="errorCode" type="xs:string" use="required"/>
+              <xs:attribute name="severity" type="xs:string"/>
+              <xs:attribute name="location" type="xs:string"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RegistryErrorList">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" ref="tns:RegistryError"/>
+          </xs:sequence>
+          <xs:attribute name="highestSeverity" type="xs:string"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RegistryResponse" type="tns:RegistryResponseType"/>
+      <xs:complexType name="RegistryResponseType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ResponseSlotList" type="ns1:SlotListType"/>
+          <xs:element minOccurs="0" ref="tns:RegistryErrorList"/>
+        </xs:sequence>
+        <xs:attribute name="status" type="xs:string" use="required"/>
+        <xs:attribute name="requestId" type="xs:anyURI"/>
+      </xs:complexType>
+      <xs:complexType name="RegistryRequestType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="RequestSlotList" type="ns1:SlotListType"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:anyURI"/>
+        <xs:attribute name="comment" type="xs:string"/>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="ProvideAndRegisterDocumentSetRequest">
+    <wsdl:part element="ns1:ProvideAndRegisterDocumentSetRequest" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RetrieveDocumentSetRequestResponse">
+    <wsdl:part element="ns:RetrieveDocumentSetResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RetrieveDocumentSetRequest">
+    <wsdl:part element="ns:RetrieveDocumentSetRequest" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ProvideAndRegisterDocumentSetRequestResponse">
+    <wsdl:part element="ns2:RegistryResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Exception">
+    <wsdl:part element="tns:Exception" name="fault"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="xdsrepositoryb">
+    <wsdl:operation name="RetrieveDocumentSetRequest">
+      <wsdl:input message="tns:RetrieveDocumentSetRequest" name="RetrieveDocumentSetRequest"></wsdl:input>
+      <wsdl:output message="tns:RetrieveDocumentSetRequestResponse" name="RetrieveDocumentSetRequestResponse" wsaw:Action="urn:ihe:iti:2007:RetrieveDocumentSetResponse"></wsdl:output>
+      <wsdl:fault message="tns:Exception" name="Exception"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ProvideAndRegisterDocumentSetRequest">
+      <wsdl:input message="tns:ProvideAndRegisterDocumentSetRequest" name="ProvideAndRegisterDocumentSetRequest"></wsdl:input>
+      <wsdl:output message="tns:ProvideAndRegisterDocumentSetRequestResponse" name="ProvideAndRegisterDocumentSetRequestResponse" wsaw:Action="urn:ihe:iti:2007:ProvideAndRegisterDocumentSet-bResponse"></wsdl:output>
+      <wsdl:fault message="tns:Exception" name="Exception"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="xdsrepositorybPortBinding" type="tns:xdsrepositoryb">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="RetrieveDocumentSetRequest">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="RetrieveDocumentSetRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="RetrieveDocumentSetRequestResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ProvideAndRegisterDocumentSetRequest">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="ProvideAndRegisterDocumentSetRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="ProvideAndRegisterDocumentSetRequestResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="xdsrepositorybService">
+    <wsdl:port binding="tns:xdsrepositorybPortBinding" name="xdsrepositorybPort">
+      <soap:address location="http://orion-mwh-devmessage1v:19080/mwh-dev/backend/ws/xdsrepositoryb"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://orion-mwh-devmessage1v:19080/mwh-dev/backend/ws/xdsrepositoryb</con:endpoint><con:endpoint>http://orion-mwh-testmessage1v:19080/mwh-test/backend/ws/xdsrepositoryb</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="ProvideAndRegisterDocumentSetRequest" bindingOperationName="ProvideAndRegisterDocumentSetRequest" type="Request-Response" outputName="ProvideAndRegisterDocumentSetRequestResponse" inputName="ProvideAndRegisterDocumentSetRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://orion-mwh-devmessage1v:19080/mwh-dev/backend/ws/xdsrepositoryb</con:endpoint><con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+   <soap:Header/>
+
+   <soap:Body>
+      <ProvideAndRegisterDocumentSetRequest xmlns="urn:ihe:iti:xds-b:2007">
+         <SubmitObjectsRequest xmlns="urn:oasis:names:tc:ebxml-regrep:xsd:lcm:3.0">
+            <RegistryObjectList xmlns="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0">
+               <RegistryPackage id="urn:uuid:0c840193-7e63-4550-9bc3-0933c12b1927">
+                  <Slot name="submissionTime">
+                     <ValueList>
+                        <Value>20140318180000</Value>
+                     </ValueList>
+                  </Slot>
+
+                  <Name/>
+                  <Description/>
+
+                  <Classification classificationScheme="urn:uuid:aa543740-bdda-424e-8c96-df4873be8500" classifiedObject="urn:uuid:0c840193-7e63-4550-9bc3-0933c12b1927" id="cs134937247692255692037706389444871" nodeRepresentation="34133-9">
+                     <Slot name="codingScheme">
+                        <ValueList>
+                           <Value>2.16.840.1.113883.6.1</Value>
+                        </ValueList>
+                     </Slot>
+
+                     <Name>
+                        <LocalizedString charset="UTF-8" value="Summarization of episode note" xml:lang="en-us"/>
+                     </Name>
+                  </Classification>
+
+                  <ExternalIdentifier id="i1349372476923-90277606569548664251" identificationScheme="urn:uuid:6b5aea1a-874d-4603-a4bc-96a0a7b38446" registryObject="urn:uuid:0c840193-7e63-4550-9bc3-0933c12b1927" value="30103424^^^&amp;1.3.6.1.4.1.41785.99.2.1.3.7.1&amp;ISO">
+                     <Name>
+                        <LocalizedString value="XDSSubmissionSet.patientId"/>
+                     </Name>
+                  </ExternalIdentifier>
+
+                  <ExternalIdentifier id="i1349372476924-61237152293062952652" identificationScheme="urn:uuid:554ac39e-e3fe-47fe-b233-965d2a147832" registryObject="urn:uuid:0c840193-7e63-4550-9bc3-0933c12b1927" value="2.16.840.1.113883.4.391.68.16640">
+                     <Name>
+                        <LocalizedString value="XDSSubmissionSet.sourceId"/>
+                     </Name>
+                  </ExternalIdentifier>
+
+                  <ExternalIdentifier id="i1349372476924-11410628669331445203" identificationScheme="urn:uuid:96fdda7c-d067-4183-912e-bf5ee74998a8" registryObject="urn:uuid:0c840193-7e63-4550-9bc3-0933c12b1927" value="2.25.184176908116829005486395442532687547165.1.4">
+                     <Name>
+                        <LocalizedString value="XDSSubmissionSet.uniqueId"/>
+                     </Name>
+                  </ExternalIdentifier>
+
+                  <Classification classificationScheme="urn:uuid:a7058bb9-b4e4-4307-ba5b-e3f0ab85e12d" classifiedObject="urn:uuid:0c840193-7e63-4550-9bc3-0933c12b1927" id="c134937247699853678829742339815897" nodeRepresentation="">
+                     <Slot name="authorPerson">
+                        <ValueList>
+                           <Value>HCS Clinic^Generated^Auto^^^^^^&amp;1.1.1.1.1.1.1.1.4&amp;ISO</Value>
+                        </ValueList>
+                     </Slot>
+                  </Classification>
+               </RegistryPackage>
+
+               <Classification classificationNode="urn:uuid:a54d6aa5-d40d-43f9-88c5-b4633d873bdd" classifiedObject="urn:uuid:0c840193-7e63-4550-9bc3-0933c12b1927" id="cl1349372476948-59801419553331485560" nodeRepresentation=""/>
+
+               <ExtrinsicObject id="urn:uuid:0c840193-7e63-4550-9bc3-0933c12b1927" mimeType="text/xml" objectType="urn:uuid:7edca82f-054d-47f2-a032-9b2a5b5186c1">
+                  <Slot name="creationTime">
+                     <ValueList>
+                        <Value>20140318180000</Value>
+                     </ValueList>
+                  </Slot>
+
+                  <Slot name="languageCode">
+                     <ValueList>
+                        <Value>en-US</Value>
+                     </ValueList>
+                  </Slot>
+
+                  <Slot name="serviceStartTime">
+                     <ValueList>
+                        <Value>20140318</Value>
+                     </ValueList>
+                  </Slot>
+
+                  <Slot name="serviceStopTime">
+                     <ValueList>
+                        <Value>20140318</Value>
+                     </ValueList>
+                  </Slot>
+
+                  <Slot name="sourcePatientId">
+                     <ValueList>
+                        <Value>30103424^^^&amp;1.3.6.1.4.1.41785.99.2.1.3.7.1&amp;ISO</Value>
+                     </ValueList>
+                  </Slot>
+
+                  <Slot name="sourcePatientInfo">
+                     <ValueList>
+                     <Value>PID-3|30103424^^^&amp;1.3.6.1.4.1.41785.99.2.1.3.7.1&amp;ISO</Value>
+                     <Value>PID-5|CARTER^LANI^^^^^^</Value>
+                     <Value>PID-7|19460530</Value>
+                     <Value>PID-8|F</Value>
+                     <Value>PID-11|910 ALPINE WOODS DRIVE^^PHILADELPHIA^PA^19181^USA</Value>
+                  </ValueList>
+                  </Slot>
+
+                  <Name>
+                     <LocalizedString charset="UTF-8" value="HCS Clinic: Health Summary" xml:lang="en-us"/>
+                  </Name>
+
+                  <Description/>
+
+                  <Classification classificationScheme="urn:uuid:41a5887f-8865-4c09-adf7-e362475b143a" classifiedObject="urn:uuid:0c840193-7e63-4550-9bc3-0933c12b1927" id="c1349372476997-24257687020619851161" nodeRepresentation="34133-9">
+                     <Slot name="codingScheme">
+                        <ValueList>
+                           <Value>2.16.840.1.113883.6.1</Value>
+                        </ValueList>
+                     </Slot>
+
+                     <Name>
+                        <LocalizedString charset="UTF-8" value="SUMMARIZATION OF EPISODE NOTE" xml:lang="en-us"/>
+                     </Name>
+                  </Classification>
+
+                 <!-- N = Normal
+                      R = Restricted
+                      CodingSystem = 2.16.840.1.113883.5.25 -->
+                  <Classification classificationScheme="urn:uuid:f4f85eac-e6cb-4883-b524-f2705394840f" classifiedObject="urn:uuid:0c840193-7e63-4550-9bc3-0933c12b1927" id="c134937247699716543101106710976782" nodeRepresentation="N">
+                     <Slot name="codingScheme">
+                        <ValueList>
+                           <Value>Connect-a-thon confidentialityCodes</Value>
+                        </ValueList>
+                     </Slot>
+
+                     <Name>
+                        <LocalizedString charset="UTF-8" value="Normal" xml:lang="en-us"/>
+                     </Name>
+                  </Classification>
+
+                  <Classification classificationScheme="urn:uuid:a09d5840-386c-46f2-b5ad-9c3699a4309d" classifiedObject="urn:uuid:0c840193-7e63-4550-9bc3-0933c12b1927" id="c1349372476997-86360806873785070973" nodeRepresentation="POCD_HD000040">
+                     <Slot name="codingScheme">
+                        <ValueList>
+                           <Value>2.16.840.1.113883.1.3</Value>
+                        </ValueList>
+                     </Slot>
+
+                     <Name>
+                        <LocalizedString charset="UTF-8" value="CCD Document" xml:lang="en-us"/>
+                     </Name>
+                  </Classification>
+
+                  <Classification classificationScheme="urn:uuid:f33fb8ac-18af-42cc-ae0e-ed0b0bdb91e1" classifiedObject="urn:uuid:0c840193-7e63-4550-9bc3-0933c12b1927" id="c1349372476997-24394252352375301664" nodeRepresentation="Acute care hospital">
+                     <Slot name="codingScheme">
+                        <ValueList>
+                           <Value>Connect-a-thon healthcareFacilityTypeCodes</Value>
+                        </ValueList>
+                     </Slot>
+
+                     <Name>
+                        <LocalizedString charset="UTF-8" value="Acute care hospital" xml:lang="en-us"/>
+                     </Name>
+                  </Classification>
+
+                  <Classification classificationScheme="urn:uuid:cccf5598-8b07-4b77-a05e-ae952c785ead" classifiedObject="urn:uuid:0c840193-7e63-4550-9bc3-0933c12b1927" id="c13493724769989678997850599014725" nodeRepresentation="Anesthesia">
+                     <Slot name="codingScheme">
+                        <ValueList>
+                           <Value>Connect-a-thon practiceSettingCodes</Value>
+                        </ValueList>
+                     </Slot>
+
+                     <Name>
+                        <LocalizedString charset="UTF-8" value="Anesthesia" xml:lang="en-us"/>
+                     </Name>
+                  </Classification>
+
+                  <Classification classificationScheme="urn:uuid:f0306f51-975f-434e-a61c-c59651d33983" classifiedObject="urn:uuid:0c840193-7e63-4550-9bc3-0933c12b1927" id="c134937247699888237801525929510726" nodeRepresentation="34133-9">
+                     <Slot name="codingScheme">
+                        <ValueList>
+                           <Value>2.16.840.1.113883.6.1</Value>
+                        </ValueList>
+                     </Slot>
+
+                     <Name>
+                        <LocalizedString charset="UTF-8" value="SUMMARIZATION OF EPISODE NOTE" xml:lang="en-us"/>
+                     </Name>
+                  </Classification>
+
+                  <Classification classificationScheme="urn:uuid:93606bcf-9494-43ec-9b4e-a7748d1a838d" classifiedObject="urn:uuid:0c840193-7e63-4550-9bc3-0933c12b1927" id="c134937247699853678829742339815897" nodeRepresentation="">
+                     <Slot name="authorPerson">
+                        <ValueList>
+                           <Value>HCS Clinic^Generated^Auto^^^^^^&amp;1.1.1.1.1.1.1.1.4&amp;ISO</Value>
+                        </ValueList>
+                     </Slot>
+                  </Classification>
+
+                  <ExternalIdentifier id="i13493724769982188815820164126081" identificationScheme="urn:uuid:58a6f841-87b3-4a3e-92fd-a8ffeff98427" registryObject="urn:uuid:0c840193-7e63-4550-9bc3-0933c12b1927" value="30103424^^^&amp;1.3.6.1.4.1.41785.99.2.1.3.7.1&amp;ISO">
+                     <Name>
+                        <LocalizedString value="XDSDocumentEntry.patientId"/>
+                     </Name>
+                  </ExternalIdentifier>
+
+                  <ExternalIdentifier id="i134937247699849512084450966958392" identificationScheme="urn:uuid:2e82c1f6-a085-4c72-9da3-8640a32e42ab" registryObject="urn:uuid:0c840193-7e63-4550-9bc3-0933c12b1927" value="2.25.184176908116829005486395442532687547165.2.4">
+                     <Name>
+                        <LocalizedString value="XDSDocumentEntry.uniqueId"/>
+                     </Name>
+                  </ExternalIdentifier>
+               </ExtrinsicObject>
+
+               <Association associationType="urn:oasis:names:tc:ebxml-regrep:AssociationType:HasMember" id="a1349372476998-3184131094448484900" sourceObject="urn:uuid:0c840193-7e63-4550-9bc3-0933c12b1927" targetObject="urn:uuid:0c840193-7e63-4550-9bc3-0933c12b1927">
+                  <Slot name="SubmissionSetStatus">
+                     <ValueList>
+                        <Value>Original</Value>
+                     </ValueList>
+                  </Slot>
+               </Association>
+            </RegistryObjectList>
+         </SubmitObjectsRequest>
+
+         <Document id="urn:uuid:0c840193-7e63-4550-9bc3-0933c12b1927"><<ADD DOCUMENT HERE>></Document>
+      </ProvideAndRegisterDocumentSetRequest>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:oasis:names:tc:ebxml-regrep:xsd:lcm:3.0/xdsrepositoryb/ProvideAndRegisterDocumentSetRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="RetrieveDocumentSetRequest" bindingOperationName="RetrieveDocumentSetRequest" type="Request-Response" outputName="RetrieveDocumentSetRequestResponse" inputName="RetrieveDocumentSetRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://orion-mwh-devmessage1v:19080/mwh-dev/backend/ws/xdsrepositoryb</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:ihe:iti:xds-b:2007">
+   <soap:Header/>
+   <soap:Body>
+      <urn:RetrieveDocumentSetRequest/>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:oasis:names:tc:ebxml-regrep:xsd:lcm:3.0/xdsrepositoryb/RetrieveDocumentSetRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

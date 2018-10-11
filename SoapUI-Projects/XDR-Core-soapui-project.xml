@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="eb489df0-cb66-4b44-8f54-f0ba498e1550" activeEnvironment="Default" name="XDR Core" resourceRoot="" soapui-version="5.3.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="65d97bfe-f80c-4774-b2d2-107ad20a910a" wsaVersion="NONE" name="XDR_CoreSoap12Binding" type="wsdl" bindingName="{xdrcore}XDR_CoreSoap12Binding" soapVersion="1_2" anonymous="optional" definition="http://172.24.1.128:9100/services/XDR_Core?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://172.24.1.128:9100/services/XDR_Core?wsdl"><con:part><con:url>http://172.24.1.128:9100/services/XDR_Core?wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="xdrcore" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns0="xdrcore" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="xdrcore">
+      <xs:element name="XDROut">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="metaDataSpec" type="xs:string"/>
+            <xs:element minOccurs="0" name="authorInstitution" type="xs:string"/>
+            <xs:element minOccurs="0" name="authorPerson" type="xs:string"/>
+            <xs:element minOccurs="0" name="authorRole" type="xs:string"/>
+            <xs:element minOccurs="0" name="authorSpecialty" type="xs:string"/>
+            <xs:element minOccurs="0" name="availabilityStatus" type="xs:string"/>
+            <xs:element minOccurs="0" name="classCode" type="xs:string"/>
+            <xs:element minOccurs="0" name="classCodeDisplayName" type="xs:string"/>
+            <xs:element minOccurs="0" name="comments" type="xs:string"/>
+            <xs:element minOccurs="0" name="confidentialityCode" type="xs:string"/>
+            <xs:element minOccurs="0" name="creationTime" type="xs:string"/>
+            <xs:element minOccurs="0" name="entryUUID" type="xs:string"/>
+            <xs:element minOccurs="0" name="eventCodeList" type="xs:string"/>
+            <xs:element minOccurs="0" name="eventCodeListDisplayName" type="xs:string"/>
+            <xs:element minOccurs="0" name="formatCode" type="xs:string"/>
+            <xs:element minOccurs="0" name="formatCodeDisplayName" type="xs:string"/>
+            <xs:element minOccurs="0" name="hash" type="xs:string"/>
+            <xs:element minOccurs="0" name="healthcareFacilityTypeCode" type="xs:string"/>
+            <xs:element minOccurs="0" name="healthcareFacilityTypeCodeDisplayName" type="xs:string"/>
+            <xs:element minOccurs="0" name="homeCommunityId" type="xs:string"/>
+            <xs:element minOccurs="0" name="languageCode" type="xs:string"/>
+            <xs:element minOccurs="0" name="legalAuthenticator" type="xs:string"/>
+            <xs:element name="mimeType" type="xs:string"/>
+            <xs:element minOccurs="0" name="patientId" type="xs:string"/>
+            <xs:element minOccurs="0" name="practiceSettingCode" type="xs:string"/>
+            <xs:element minOccurs="0" name="practiceSettingCodeDisplayName" type="xs:string"/>
+            <xs:element minOccurs="0" name="repositoryUniqueId" type="xs:string"/>
+            <xs:element minOccurs="0" name="serviceStartTime" type="xs:string"/>
+            <xs:element minOccurs="0" name="serviceStopTime" type="xs:string"/>
+            <xs:element minOccurs="0" name="size" type="xs:string"/>
+            <xs:element minOccurs="0" name="sourcePatientId" type="xs:string"/>
+            <xs:element minOccurs="0" name="title" type="xs:string"/>
+            <xs:element minOccurs="0" name="typeCode" type="xs:string"/>
+            <xs:element minOccurs="0" name="typeCodeDisplayName" type="xs:string"/>
+            <xs:element minOccurs="0" name="uniqueId" type="xs:string"/>
+            <xs:element minOccurs="0" name="URI" type="xs:string"/>
+            <xs:element name="Document" type="xs:base64Binary"/>
+            <xs:element name="to" type="xs:string"/>
+            <xs:element name="from" type="xs:string"/>
+            <xs:element minOccurs="0" name="contentTypeCode" type="xs:string"/>
+            <xs:element minOccurs="0" name="contentTypeCodeDisplayName" type="xs:string"/>
+            <xs:element minOccurs="0" name="sourceId" type="xs:string"/>
+            <xs:element minOccurs="0" name="patInfoFirstName" type="xs:string"/>
+            <xs:element minOccurs="0" name="patInfoLastName" type="xs:string"/>
+            <xs:element minOccurs="0" name="patInfoDOB" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="patInfoSex" type="xs:string"/>
+            <xs:element minOccurs="0" name="patInfoStAddress" type="xs:string"/>
+            <xs:element minOccurs="0" name="patInfoCity" type="xs:string"/>
+            <xs:element minOccurs="0" name="patInfoState" type="xs:string"/>
+            <xs:element minOccurs="0" name="patInfoZipcode" type="xs:string"/>
+            <xs:element minOccurs="0" name="authorId" type="xs:string"/>
+            <xs:element minOccurs="0" name="authorLastName" type="xs:string"/>
+            <xs:element minOccurs="0" name="authorFirstName" type="xs:string"/>
+            <xs:element minOccurs="0" name="authorSourceId" type="xs:string"/>
+            <xs:element minOccurs="0" name="authorTelecom" type="xs:string"/>
+            <xs:element minOccurs="0" name="intendedRecipient" type="xs:string"/>
+            <xs:element minOccurs="0" name="submissionTime" type="xs:string"/>
+            <xs:element minOccurs="0" name="confidentialityCodeDisplayName" type="xs:string"/>
+            <xs:element minOccurs="0" name="confidentialityCodeCodingScheme" type="xs:string"/>
+            <xs:element minOccurs="0" name="classCodeCodingScheme" type="xs:string"/>
+            <xs:element minOccurs="0" name="typeCodeCodingScheme" type="xs:string"/>
+            <xs:element minOccurs="0" name="formatCodeCodingScheme" type="xs:string"/>
+            <xs:element minOccurs="0" name="contentTypeCodeCodingScheme" type="xs:string"/>
+            <xs:element minOccurs="0" name="healthcareFacilityCodeCodingScheme" type="xs:string"/>
+            <xs:element minOccurs="0" name="practieSettingCodeCodingScheme" type="xs:string"/>
+            <xs:element minOccurs="0" name="eventCodeListCodingScheme" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="XDROutResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="payload" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="XDROutFault">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="payload" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="XDROutResponse">
+    <wsdl:part name="parameters" element="ns0:XDROutResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="XDROutRequest">
+    <wsdl:part name="parameters" element="ns0:XDROut"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="XDROutFault">
+    <wsdl:part name="parameters" element="ns0:XDROutFault"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="XDR_CorePortType" wsp:PolicyURIs="#servicePolicy">
+    <wsdl:operation name="XDROut">
+      <wsdl:input message="ns0:XDROutRequest" wsaw:Action="urn:XDROut"></wsdl:input>
+      <wsdl:output message="ns0:XDROutResponse" wsaw:Action="xdrcore/XDR_CorePortType/XDROutResponse"></wsdl:output>
+      <wsdl:fault name="XDROutFault" message="ns0:XDROutFault" wsaw:Action="xdrcore/XDR_CorePortType/XDROutFault"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="XDR_CoreSoap12Binding" type="ns0:XDR_CorePortType">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsaw:UsingAddressing wsdl:required="false"/>
+    <wsdl:operation name="XDROut">
+      <soap12:operation soapAction="urn:XDROut" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="XDROutFault">
+        <soap12:fault name="XDROutFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="XDR_Core">
+    <wsdl:port name="XDR_CoreHttpSoap12Endpoint" binding="ns0:XDR_CoreSoap12Binding">
+      <soap12:address location="http://172.24.1.128:9101/services/XDR_Core.XDR_CoreHttpSoap12Endpoint"/>
+    </wsdl:port>
+  </wsdl:service>
+  <wsp:Policy wsu:Id="servicePolicy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsam:Addressing wsp:Optional="true" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata">
+          <wsp:Policy>
+            <wsam:AnonymousResponses/>
+          </wsp:Policy>
+        </wsam:Addressing>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://172.24.1.128:9101/services/XDR_Core.XDR_CoreHttpSoap12Endpoint</con:endpoint></con:endpoints><con:operation id="a2f976e6-5f92-49e2-b1b9-54797bdc96e7" isOneWay="false" action="urn:XDROut" name="XDROut" bindingOperationName="XDROut" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c31fa915-12ff-436d-ad69-4a7bf137d665" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://172.24.1.128:9101/services/XDR_Core.XDR_CoreHttpSoap12Endpoint</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:xdr="xdrcore">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <xdr:XDROut>\r
+         <xdr:metaDataSpec>?</xdr:metaDataSpec>\r
+         <!--Optional:-->\r
+         <xdr:authorInstitution>?</xdr:authorInstitution>\r
+         <!--Optional:-->\r
+         <xdr:authorPerson>?</xdr:authorPerson>\r
+         <!--Optional:-->\r
+         <xdr:authorRole>?</xdr:authorRole>\r
+         <!--Optional:-->\r
+         <xdr:authorSpecialty>?</xdr:authorSpecialty>\r
+         <!--Optional:-->\r
+         <xdr:availabilityStatus>?</xdr:availabilityStatus>\r
+         <!--Optional:-->\r
+         <xdr:classCode>?</xdr:classCode>\r
+         <!--Optional:-->\r
+         <xdr:classCodeDisplayName>?</xdr:classCodeDisplayName>\r
+         <!--Optional:-->\r
+         <xdr:comments>?</xdr:comments>\r
+         <!--Optional:-->\r
+         <xdr:confidentialityCode>?</xdr:confidentialityCode>\r
+         <!--Optional:-->\r
+         <xdr:creationTime>?</xdr:creationTime>\r
+         <!--Optional:-->\r
+         <xdr:entryUUID>?</xdr:entryUUID>\r
+         <!--Optional:-->\r
+         <xdr:eventCodeList>?</xdr:eventCodeList>\r
+         <!--Optional:-->\r
+         <xdr:eventCodeListDisplayName>?</xdr:eventCodeListDisplayName>\r
+         <!--Optional:-->\r
+         <xdr:formatCode>?</xdr:formatCode>\r
+         <!--Optional:-->\r
+         <xdr:formatCodeDisplayName>?</xdr:formatCodeDisplayName>\r
+         <!--Optional:-->\r
+         <xdr:hash>?</xdr:hash>\r
+         <!--Optional:-->\r
+         <xdr:healthcareFacilityTypeCode>?</xdr:healthcareFacilityTypeCode>\r
+         <!--Optional:-->\r
+         <xdr:healthcareFacilityTypeCodeDisplayName>?</xdr:healthcareFacilityTypeCodeDisplayName>\r
+         <!--Optional:-->\r
+         <xdr:homeCommunityId>?</xdr:homeCommunityId>\r
+         <!--Optional:-->\r
+         <xdr:languageCode>?</xdr:languageCode>\r
+         <!--Optional:-->\r
+         <xdr:legalAuthenticator>?</xdr:legalAuthenticator>\r
+         <xdr:mimeType>?</xdr:mimeType>\r
+         <!--Optional:-->\r
+         <xdr:patientId>?</xdr:patientId>\r
+         <!--Optional:-->\r
+         <xdr:practiceSettingCode>?</xdr:practiceSettingCode>\r
+         <!--Optional:-->\r
+         <xdr:practiceSettingCodeDisplayName>?</xdr:practiceSettingCodeDisplayName>\r
+         <!--Optional:-->\r
+         <xdr:repositoryUniqueId>?</xdr:repositoryUniqueId>\r
+         <!--Optional:-->\r
+         <xdr:serviceStartTime>?</xdr:serviceStartTime>\r
+         <!--Optional:-->\r
+         <xdr:serviceStopTime>?</xdr:serviceStopTime>\r
+         <!--Optional:-->\r
+         <xdr:size>?</xdr:size>\r
+         <!--Optional:-->\r
+         <xdr:sourcePatientId>?</xdr:sourcePatientId>\r
+         <!--Optional:-->\r
+         <xdr:title>?</xdr:title>\r
+         <!--Optional:-->\r
+         <xdr:typeCode>?</xdr:typeCode>\r
+         <!--Optional:-->\r
+         <xdr:typeCodeDisplayName>?</xdr:typeCodeDisplayName>\r
+         <!--Optional:-->\r
+         <xdr:uniqueId>?</xdr:uniqueId>\r
+         <!--Optional:-->\r
+         <xdr:URI>?</xdr:URI>\r
+         <xdr:Document>cid:361429570466</xdr:Document>\r
+         <xdr:to>?</xdr:to>\r
+         <xdr:from>?</xdr:from>\r
+         <!--Optional:-->\r
+         <xdr:contentTypeCode>?</xdr:contentTypeCode>\r
+         <!--Optional:-->\r
+         <xdr:contentTypeCodeDisplayName>?</xdr:contentTypeCodeDisplayName>\r
+         <!--Optional:-->\r
+         <xdr:sourceId>?</xdr:sourceId>\r
+         <!--Optional:-->\r
+         <xdr:patInfoFirstName>?</xdr:patInfoFirstName>\r
+         <!--Optional:-->\r
+         <xdr:patInfoLastName>?</xdr:patInfoLastName>\r
+         <!--Optional:-->\r
+         <xdr:patInfoDOB>?</xdr:patInfoDOB>\r
+         <!--Optional:-->\r
+         <xdr:patInfoSex>?</xdr:patInfoSex>\r
+         <!--Optional:-->\r
+         <xdr:patInfoStAddress>?</xdr:patInfoStAddress>\r
+         <!--Optional:-->\r
+         <xdr:patInfoCity>?</xdr:patInfoCity>\r
+         <!--Optional:-->\r
+         <xdr:patInfoState>?</xdr:patInfoState>\r
+         <!--Optional:-->\r
+         <xdr:patInfoZipcode>?</xdr:patInfoZipcode>\r
+         <!--Optional:-->\r
+         <xdr:authorId>?</xdr:authorId>\r
+         <!--Optional:-->\r
+         <xdr:authorLastName>?</xdr:authorLastName>\r
+         <!--Optional:-->\r
+         <xdr:authorFirstName>?</xdr:authorFirstName>\r
+         <!--Optional:-->\r
+         <xdr:authorSourceId>?</xdr:authorSourceId>\r
+         <!--Optional:-->\r
+         <xdr:authorTelecom>?</xdr:authorTelecom>\r
+         <!--Optional:-->\r
+         <xdr:intendedRecipient>?</xdr:intendedRecipient>\r
+         <!--Optional:-->\r
+         <xdr:submissionTime>?</xdr:submissionTime>\r
+         <!--Optional:-->\r
+         <xdr:confidentialityCodeDisplayName>?</xdr:confidentialityCodeDisplayName>\r
+         <!--Optional:-->\r
+         <xdr:confidentialityCodeCodingScheme>?</xdr:confidentialityCodeCodingScheme>\r
+         <!--Optional:-->\r
+         <xdr:classCodeCodingScheme>?</xdr:classCodeCodingScheme>\r
+         <!--Optional:-->\r
+         <xdr:typeCodeCodingScheme>?</xdr:typeCodeCodingScheme>\r
+         <!--Optional:-->\r
+         <xdr:formatCodeCodingScheme>?</xdr:formatCodeCodingScheme>\r
+         <!--Optional:-->\r
+         <xdr:contentTypeCodeCodingScheme>?</xdr:contentTypeCodeCodingScheme>\r
+         <!--Optional:-->\r
+         <xdr:healthcareFacilityCodeCodingScheme>?</xdr:healthcareFacilityCodeCodingScheme>\r
+         <!--Optional:-->\r
+         <xdr:practieSettingCodeCodingScheme>?</xdr:practieSettingCodeCodingScheme>\r
+         <!--Optional:-->\r
+         <xdr:eventCodeListCodingScheme>?</xdr:eventCodeListCodingScheme>\r
+      </xdr:XDROut>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:XDROut"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

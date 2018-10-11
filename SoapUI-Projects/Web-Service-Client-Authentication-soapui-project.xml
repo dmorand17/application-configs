@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="b68dd664-99b2-4b0e-8477-683d02e057d7" activeEnvironment="Default" name="Web Service Client Authentication" resourceRoot="" soapui-version="5.2.1" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>

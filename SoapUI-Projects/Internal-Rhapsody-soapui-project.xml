@@ -1,0 +1,1438 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="Internal Rhapsody" resourceRoot="" soapui-version="5.2.1" abortOnError="false" runType="SEQUENTIAL" id="ff0f460e-7fd0-485f-b1b1-9e54a9d2f32b" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="OrderTestServiceSoap12Binding" type="wsdl" bindingName="{http://www.orionhealth.com/train/rhapsody/OrderTestService}OrderTestServiceSoap12Binding" soapVersion="1_2" anonymous="optional" definition="http://douglasm-win7.orion.internal:8880/services/OrderTestService?wsdl" id="3bc8bc35-7c76-475d-b71a-17e263f75f2b" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://douglasm-win7.orion.internal:8880/services/OrderTestService?wsdl"><con:part><con:url>http://douglasm-win7.orion.internal:8880/services/OrderTestService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.orionhealth.com/train/rhapsody/OrderTestService" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns0="http://www.orionhealth.com/train/rhapsody/OrderTestService" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+  <wsdl:documentation>Order a Lab or Radiology test</wsdl:documentation>
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.orionhealth.com/train/rhapsody/OrderTestService">
+      <xs:element name="OrderTest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="patientId" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" name="testCode" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="OrderTestResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="orderNumber" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="OrderTestFault">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="payload" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="OrderTestRequest">
+    <wsdl:part name="parameters" element="ns0:OrderTest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="OrderTestResponse">
+    <wsdl:part name="parameters" element="ns0:OrderTestResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="OrderTestFault">
+    <wsdl:part name="parameters" element="ns0:OrderTestFault"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="OrderTestServicePortType" wsp:PolicyURIs="#servicePolicy">
+    <wsdl:operation name="OrderTest">
+      <wsdl:documentation>Order a test</wsdl:documentation>
+      <wsdl:input message="ns0:OrderTestRequest" wsaw:Action="urn:OrderTest"></wsdl:input>
+      <wsdl:output message="ns0:OrderTestResponse" wsaw:Action="http://www.orionhealth.com/train/rhapsody/OrderTestService/OrderTestServicePortType/OrderTestResponse"></wsdl:output>
+      <wsdl:fault name="OrderTestFault" message="ns0:OrderTestFault" wsaw:Action="http://www.orionhealth.com/train/rhapsody/OrderTestService/OrderTestServicePortType/OrderTestFault"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="OrderTestServiceSoap12Binding" type="ns0:OrderTestServicePortType">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsaw:UsingAddressing wsdl:required="false"/>
+    <wsdl:operation name="OrderTest">
+      <soap12:operation soapAction="urn:OrderTest" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="OrderTestFault">
+        <soap12:fault name="OrderTestFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OrderTestService">
+    <wsdl:port name="OrderTestServiceHttpSoap12Endpoint" binding="ns0:OrderTestServiceSoap12Binding">
+      <soap12:address location="http://douglasm-win7.orion.internal:8880/services/OrderTestService.OrderTestServiceHttpSoap12Endpoint"/>
+    </wsdl:port>
+  </wsdl:service>
+  <wsp:Policy wsu:Id="servicePolicy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsam:Addressing wsp:Optional="true" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata">
+          <wsp:Policy>
+            <wsam:AnonymousResponses/>
+          </wsp:Policy>
+        </wsam:Addressing>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://douglasm-win7.orion.internal:8880/services/OrderTestService.OrderTestServiceHttpSoap12Endpoint</con:endpoint></con:endpoints><con:operation isOneWay="false" action="urn:OrderTest" name="OrderTest" bindingOperationName="OrderTest" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="13426caf-af6f-47b4-8ce3-29ea00b7c104"><con:settings/><con:call name="Request 1" id="fe7e7aa8-45bb-48d7-9695-74378bde3c26"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://douglasm-win7.orion.internal:8880/services/OrderTestService.OrderTestServiceHttpSoap12Endpoint</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ord="http://www.orionhealth.com/train/rhapsody/OrderTestService">
+   <soap:Header/>
+   <soap:Body>
+      <ord:OrderTest>
+         <ord:patientId>12345</ord:patientId>
+         <!--1 or more repetitions:-->
+         <ord:testCode>104</ord:testCode>
+         <ord:testCode>109</ord:testCode>
+		<ord:testCode>117</ord:testCode>
+      </ord:OrderTest>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:OrderTest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="DocumentServiceSoap12Binding" type="wsdl" bindingName="{http://www.orionhealth.com/train/rhapsody/DocumentService}DocumentServiceSoap12Binding" soapVersion="1_2" anonymous="optional" definition="http://douglasm-win7.orion.internal:8889/services/DocumentService?wsdl" id="c4dc94a5-b6d0-4995-aaa8-30f05b4a2497" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://douglasm-win7.orion.internal:8889/services/DocumentService?wsdl"><con:part><con:url>http://douglasm-win7.orion.internal:8889/services/DocumentService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.orionhealth.com/train/rhapsody/DocumentService" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns0="http://www.orionhealth.com/train/rhapsody/DocumentService" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+  <wsdl:types>
+    <schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.orionhealth.com/train/rhapsody/DocumentService" xmlns="http://www.w3.org/2001/XMLSchema">
+      <element name="sendDocument">
+        <complexType>
+          <sequence>
+            <any maxOccurs="unbounded" minOccurs="0" processContents="lax"/>
+          </sequence>
+        </complexType>
+      </element>
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="sendDocumentRequest">
+    <wsdl:part name="parameters" element="ns0:sendDocument"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="DocumentServicePortType" wsp:PolicyURIs="#servicePolicy">
+    <wsdl:operation name="sendDocument">
+      <wsdl:input message="ns0:sendDocumentRequest" wsaw:Action="urn:sendDocument"></wsdl:input>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DocumentServiceSoap12Binding" type="ns0:DocumentServicePortType">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsaw:UsingAddressing wsdl:required="false"/>
+    <wsdl:operation name="sendDocument">
+      <soap12:operation soapAction="urn:sendDocument" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DocumentService">
+    <wsdl:port name="DocumentServiceHttpSoap12Endpoint" binding="ns0:DocumentServiceSoap12Binding">
+      <soap12:address location="http://douglasm-win7.orion.internal:8889/services/DocumentService.DocumentServiceHttpSoap12Endpoint"/>
+    </wsdl:port>
+  </wsdl:service>
+  <wsp:Policy wsu:Id="servicePolicy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsam:Addressing wsp:Optional="true" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata">
+          <wsp:Policy>
+            <wsam:AnonymousResponses/>
+          </wsp:Policy>
+        </wsam:Addressing>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://douglasm-win7.orion.internal:8881/services/DocumentService.DocumentServiceHttpSoap12Endpoint</con:endpoint><con:endpoint>http://douglasm-win7.orion.internal:8889/services/DocumentService.DocumentServiceHttpSoap12Endpoint</con:endpoint></con:endpoints><con:operation isOneWay="false" action="urn:sendDocument" name="sendDocument" bindingOperationName="sendDocument" type="One-Way" inputName="" sendsAttachments="false" anonymous="optional" id="8f587372-7b3d-4545-946b-bf67cb203379"><con:settings/><con:call name="Request 1" id="f60bda43-a046-4c63-b16e-912a7d133404"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://douglasm-win7.orion.internal:8889/services/DocumentService.DocumentServiceHttpSoap12Endpoint</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:doc="http://www.orionhealth.com/train/rhapsody/DocumentService">
+   <soap:Header/>
+   <soap:Body>
+      <doc:sendDocument>
+        <test>Test Document ... </test>
+      </doc:sendDocument>
+   </soap:Body>
+</soap:Envelope8]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:sendDocument"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="TerminologyServiceSoap12Binding" type="wsdl" bindingName="{http://www.orionhealth.com/train/rhapsody/TerminologyService}TerminologyServiceSoap12Binding" soapVersion="1_2" anonymous="optional" definition="http://douglasm-win7.orion.internal:8998/services/TerminologyService?wsdl" id="27d50772-e634-4dbb-baf0-0fe71d0d654d" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://douglasm-win7.orion.internal:8998/services/TerminologyService?wsdl"><con:part><con:url>http://douglasm-win7.orion.internal:8998/services/TerminologyService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.orionhealth.com/train/rhapsody/TerminologyService" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns0="http://www.orionhealth.com/train/rhapsody/TerminologyService" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+  <wsdl:documentation>Currently used to translate a universal service id -> diagnostic service section id</wsdl:documentation>
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.orionhealth.com/train/rhapsody/TerminologyService">
+      <xs:element name="getDiagnosticcService">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="universalId" type="xs:int"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getDiagnosticcServiceResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="description" type="xs:string"/>
+            <xs:element name="diagnosisservsect" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getDiagnosticcServiceFault">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="payload" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getDiagnosticcServiceRequest">
+    <wsdl:part name="parameters" element="ns0:getDiagnosticcService"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDiagnosticcServiceFault">
+    <wsdl:part name="parameters" element="ns0:getDiagnosticcServiceFault"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDiagnosticcServiceResponse">
+    <wsdl:part name="parameters" element="ns0:getDiagnosticcServiceResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="TerminologyServicePortType" wsp:PolicyURIs="#servicePolicy">
+    <wsdl:operation name="getDiagnosticcService">
+      <wsdl:input message="ns0:getDiagnosticcServiceRequest" wsaw:Action="urn:getDiagnosticcService"></wsdl:input>
+      <wsdl:output message="ns0:getDiagnosticcServiceResponse" wsaw:Action="http://www.orionhealth.com/train/rhapsody/TerminologyService/TerminologyServicePortType/getDiagnosticcServiceResponse"></wsdl:output>
+      <wsdl:fault name="getDiagnosticcServiceFault" message="ns0:getDiagnosticcServiceFault" wsaw:Action="http://www.orionhealth.com/train/rhapsody/TerminologyService/TerminologyServicePortType/getDiagnosticcServiceFault"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TerminologyServiceSoap12Binding" type="ns0:TerminologyServicePortType">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsaw:UsingAddressing wsdl:required="false"/>
+    <wsdl:operation name="getDiagnosticcService">
+      <soap12:operation soapAction="urn:getDiagnosticcService" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="getDiagnosticcServiceFault">
+        <soap12:fault name="getDiagnosticcServiceFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TerminologyService">
+    <wsdl:port name="TerminologyServiceHttpSoap12Endpoint" binding="ns0:TerminologyServiceSoap12Binding">
+      <soap12:address location="http://douglasm-win7.orion.internal:8998/services/TerminologyService.TerminologyServiceHttpSoap12Endpoint"/>
+    </wsdl:port>
+  </wsdl:service>
+  <wsp:Policy wsu:Id="servicePolicy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsam:Addressing wsp:Optional="true" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata">
+          <wsp:Policy>
+            <wsam:AnonymousResponses/>
+          </wsp:Policy>
+        </wsam:Addressing>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://douglasm-win7.orion.internal:8998/services/TerminologyService.TerminologyServiceHttpSoap12Endpoint</con:endpoint></con:endpoints><con:operation isOneWay="false" action="urn:getDiagnosticcService" name="getDiagnosticcService" bindingOperationName="getDiagnosticcService" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="4403a1c5-3434-4bf7-a9db-1e905d90d7df"><con:settings/><con:call name="Request 1" id="c82f1078-970c-4d35-8ca8-20902dc6b560"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://douglasm-win7.orion.internal:8998/services/TerminologyService.TerminologyServiceHttpSoap12Endpoint</con:endpoint><con:request><![CDATA[<soap:Envelope>
+<soap:Header />
+<soap:Body>
+<ter:getDiagnosticcService>
+<ter:universalId>GLC</ter:universalId>
+</ter:getDiagnosticcService>
+</soap:Body>
+</soap:Envelope>
+]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:getDiagnosticcService"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Request 2" id="260c47cc-28a4-431c-bff6-358ff487836f"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://douglasm-win7.orion.internal:8998/services/TerminologyService.TerminologyServiceHttpSoap12Endpoint</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" 
+	xmlns:ter="http://www.orionhealth.com/train/rhapsody/TerminologyService">
+   <soap:Header/>
+   <soap:Body>
+      <ter:getDiagnosticcService>
+         <!--Optional:-->
+         <ter:universalId>3426543254325432</ter:universalId>
+      </ter:getDiagnosticcService>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:getDiagnosticcService"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" wsaVersion="200508" name="MessageSearchingServiceSoap12Binding" type="wsdl" bindingName="{http://www.orionhealth.com/rhapsody/api/2009/09/messageSearchingService}MessageSearchingServiceSoap12Binding" soapVersion="1_2" anonymous="required" definition="https://localhost:8449/services/MessageSearchingService?wsdl" id="aa091067-778d-40c6-bb4c-f107ab3b601b" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache/><con:endpoints><con:endpoint>https://douglasm-win7.orion.internal:8449/services/MessageSearchingService.MessageSearchingServiceHttpsSoap12Endpoint</con:endpoint></con:endpoints><con:operation isOneWay="false" action="urn:continueSearch" name="continueSearch" bindingOperationName="continueSearch" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="7a7a9b78-ace2-44e5-be56-92cb1fd65ac4"><con:settings/><con:call name="Request 1" useWsAddressing="true" id="c88c28e6-b264-434d-8150-6efe5a5b2bfa"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://douglasm-win7.orion.internal:8449/services/MessageSearchingService.MessageSearchingServiceHttpsSoap12Endpoint</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:mes="http://www.orionhealth.com/rhapsody/api/2009/09/messageSearchingService">
+   <soap:Header/>
+   <soap:Body>
+      <mes:continueSearch>
+         <mes:resultSetId>?</mes:resultSetId>
+         <mes:direction>?</mes:direction>
+      </mes:continueSearch>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:continueSearch"/></con:call></con:operation><con:operation isOneWay="false" action="urn:deleteMessageFromTable" name="deleteMessageFromTable" bindingOperationName="deleteMessageFromTable" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="2dc29c50-f932-40ac-acf9-61e9e4da5eb5"><con:settings/><con:call name="Request 1" useWsAddressing="true" id="bbfff7f5-7d93-49ac-b6ea-34c1098b7e2d"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://douglasm-win7.orion.internal:8449/services/MessageSearchingService.MessageSearchingServiceHttpsSoap12Endpoint</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:mes="http://www.orionhealth.com/rhapsody/api/2009/09/messageSearchingService">
+   <soap:Header/>
+   <soap:Body>
+      <mes:deleteMessageFromTable>
+         <mes:messageIdentifier>?</mes:messageIdentifier>
+         <mes:table>?</mes:table>
+      </mes:deleteMessageFromTable>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:deleteMessageFromTable"/></con:call></con:operation><con:operation isOneWay="false" action="urn:getMessage" name="getMessage" bindingOperationName="getMessage" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="3b930e02-d2b8-473d-a833-a0e2c235ec52"><con:settings/><con:call name="Request 1" useWsAddressing="true" id="dba20bbd-6afa-4110-bc52-3124ee4a2d84"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://douglasm-win7.orion.internal:8449/services/MessageSearchingService.MessageSearchingServiceHttpsSoap12Endpoint</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:mes="http://www.orionhealth.com/rhapsody/api/2009/09/messageSearchingService">
+   <soap:Header/>
+   <soap:Body>
+      <mes:getMessage>
+         <mes:messageIdentifier>?</mes:messageIdentifier>
+         <!--Optional:-->
+         <mes:retrieveMessageBody>false</mes:retrieveMessageBody>
+      </mes:getMessage>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:getMessage"/></con:call></con:operation><con:operation isOneWay="false" action="urn:getMessagesOnTable" name="getMessagesOnTable" bindingOperationName="getMessagesOnTable" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="676f5c71-a644-4946-91d1-dba505413cc4"><con:settings/><con:call name="Request 1" useWsAddressing="true" id="26baf269-372d-4d84-9c69-4a6f74b571d1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://douglasm-win7.orion.internal:8449/services/MessageSearchingService.MessageSearchingServiceHttpsSoap12Endpoint</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:mes="http://www.orionhealth.com/rhapsody/api/2009/09/messageSearchingService">
+   <soap:Header/>
+   <soap:Body>
+      <mes:getMessagesOnTable>
+         <mes:table>?</mes:table>
+         <!--Optional:-->
+         <mes:maxResults>1000</mes:maxResults>
+      </mes:getMessagesOnTable>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:getMessagesOnTable"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="urn:getMessageTableCounts" name="getMessageTableCounts" bindingOperationName="getMessageTableCounts" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="ba141e22-ae7e-4581-afa4-d47248b1c675"><con:settings/><con:call name="Request 1" useWsAddressing="true" id="1597a98a-2f31-46a8-a9a2-0cab38998e7a"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://douglasm-win7.orion.internal:8449/services/MessageSearchingService.MessageSearchingServiceHttpsSoap12Endpoint</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:mes="http://www.orionhealth.com/rhapsody/api/2009/09/messageSearchingService">
+   <soap:Header/>
+   <soap:Body>
+      <mes:getMessageTableCounts/>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:getMessageTableCounts"/></con:call></con:operation><con:operation isOneWay="false" action="urn:releaseMessageFromTable" name="releaseMessageFromTable" bindingOperationName="releaseMessageFromTable" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="a788143e-a073-4c68-9a50-408d3506254d"><con:settings/><con:call name="Request 1" useWsAddressing="true" id="eaae5994-9e89-4cb2-b7b1-bf6891142872"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://douglasm-win7.orion.internal:8449/services/MessageSearchingService.MessageSearchingServiceHttpsSoap12Endpoint</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:mes="http://www.orionhealth.com/rhapsody/api/2009/09/messageSearchingService">
+   <soap:Header/>
+   <soap:Body>
+      <mes:releaseMessageFromTable>
+         <mes:messageIdentifier>?</mes:messageIdentifier>
+         <mes:table>?</mes:table>
+      </mes:releaseMessageFromTable>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:releaseMessageFromTable"/></con:call></con:operation><con:operation isOneWay="false" action="urn:renewResultSet" name="renewResultSet" bindingOperationName="renewResultSet" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="78f75336-00f5-47ee-a5fb-4cafa543c491"><con:settings/><con:call name="Request 1" useWsAddressing="true" id="8961314c-032b-42ef-b0a2-a18860ec9f2a"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://douglasm-win7.orion.internal:8449/services/MessageSearchingService.MessageSearchingServiceHttpsSoap12Endpoint</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:mes="http://www.orionhealth.com/rhapsody/api/2009/09/messageSearchingService">
+   <soap:Header/>
+   <soap:Body>
+      <mes:renewResultSet>
+         <mes:resultSetId>?</mes:resultSetId>
+      </mes:renewResultSet>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:renewResultSet"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" wsaVersion="200508" name="MessageSearchingServiceSoap11Binding" type="wsdl" bindingName="{http://www.orionhealth.com/rhapsody/api/2009/09/messageSearchingService}MessageSearchingServiceSoap11Binding" soapVersion="1_1" anonymous="required" definition="https://localhost:8449/services/MessageSearchingService?wsdl" id="dbe1a21b-a4a5-48fd-a7a8-7968c2fcd618" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://localhost:8449/services/MessageSearchingService?wsdl"><con:part><con:url>https://localhost:8449/services/MessageSearchingService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.orionhealth.com/rhapsody/api/2009/09/messageSearchingService" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns="http://www.orionhealth.com/rhapsody/api/2009/09/messageSearchingService" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+  <wsdl:documentation>The Message Searching Service provides a mechanism to find messages on the error and hold queues, retrieve details about 
+		these messages, and reprocess or delete them. In the normal case where there are few messages on the error or hold queue,
+		the getMessagesOnTable operation can be used to retrieve the list of messages. The details for a particular message can
+		then be retrieved using the getMessage operation.
+		
+		In the more complicated case where there are a large number of messages on the error or hold queue, the getMessagesOnTable
+		operation will only return some of them (to avoid ridiculously large responses). In this case the web service will hold 
+		on to the internal result set for at least 5 minutes. During this time the search can be continued and the next set of
+		results retrieved (i.e. it supports paging of the search results). The web service will keep track of at most 10 result
+		sets per user, and will expire them after 5 minutes of inactivity with that result set. A result set can be kept alive 
+		(subject to the maximum limit of 10 per user) by using the renewResultSet operation. If a search is continued it creates
+		a new result set with a new timeout.  Result sets are private for each user, so it is not possible to continue a search
+		started by another user.
+		
+		The getMessage operation in this service has an option to include the raw message body in the response. In order to 
+		handle this correctly even in the event of very large messages, MTOM (Message Transmission Optimization Mechanism) is used
+		to return the body. Consequently the getMessage operation always returns a MIME multi-part message. If the message body is
+		present then it is included as a separate MIME part, and a reference to it is included in the SOAP response (this is 
+		generally handled fairly transparently by most tools).
+		
+		All methods provided in this service require WS-Security to authenticate with a user with sufficient
+		permissions. UsernameToken authentication is supported in PasswordText mode only (an HTTPS connection 
+		should be used to protect the authentication information). A SOAP fault is raised if the security 
+		information is not provided, or if the user could not be authenticated.</wsdl:documentation>
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://www.orionhealth.com/rhapsody/api/2009/09/messageSearchingService" xmlns:xmime="http://www.w3.org/2005/05/xmlmime">
+      <xs:import namespace="http://www.w3.org/2005/05/xmlmime" schemaLocation="http://www.w3.org/2005/05/xmlmime"/>
+      <xs:simpleType name="searchingErrorCode">
+        <xs:annotation>
+          <xs:appinfo>Error code indicating the type of error that occurred.</xs:appinfo>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="InsufficientPrivileges">
+            <xs:annotation>
+              <xs:appinfo>Authentication succeeded but the user has insufficient privileges for the requested operation.</xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="DataBindingError">
+            <xs:annotation>
+              <xs:appinfo>A data binding error occurred processing the request. This generally means that the request didn't match this schema.</xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="MessageNotFound">
+            <xs:annotation>
+              <xs:appinfo>The requested message was not found.</xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="ResultSetNotFound">
+            <xs:annotation>
+              <xs:appinfo>A continue search or keep alive operation failed because the previously used result set could not be found.</xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="ContinueSearchOfStillRunningSearch">
+            <xs:annotation>
+              <xs:appinfo>An attempt was made to continue a search that is still running.</xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="RouteExecutionServiceIsPaused">
+            <xs:annotation>
+              <xs:appinfo>The route execution service is temporarily paused (generally while parts of archive cleanup or backup are 
+								underway) so a reprocess / release / redirect operation cannot be performed. Try again in a few minutes.</xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="InternalError">
+            <xs:annotation>
+              <xs:appinfo>An internal error occurred.</xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="SearchingException">
+        <xs:annotation>
+          <xs:appinfo>SOAP fault thrown when errors occur.</xs:appinfo>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ErrorCode" type="searchingErrorCode"/>
+            <xs:element minOccurs="0" name="Message" type="xs:string"/>
+            <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:simpleType name="messageIdentifier">
+        <xs:annotation>
+          <xs:appinfo>A Rhapsody message identifier.</xs:appinfo>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[0-9]+\.[0-9]+\.[0-9]+"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="componentType">
+        <xs:annotation>
+          <xs:appinfo>An enumeration used to specify the type of a component.</xs:appinfo>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="COMMUNICATION_POINT"/>
+          <xs:enumeration value="ROUTE"/>
+          <xs:enumeration value="FILTER"/>
+          <xs:enumeration value="HOLD_TABLE"/>
+          <xs:enumeration value="ERROR_TABLE"/>
+          <xs:enumeration value="ARCHIVE"/>
+          <xs:enumeration value="COMPONENT_NO_LONGER_EXISTS">
+            <xs:annotation>
+              <xs:appinfo>Used when the component no longer exists but a message event still references it.</xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="componentIdentifier">
+        <xs:annotation>
+          <xs:appinfo>Used to identify a component.</xs:appinfo>
+        </xs:annotation>
+        <xs:attribute name="id" type="xs:int" use="required"/>
+        <xs:attribute name="name" type="xs:string" use="optional"/>
+        <xs:attribute name="path" type="xs:string" use="optional">
+          <xs:annotation>
+            <xs:appinfo>The path is the full path for communication points and routes, and is the full path of the parent route if the component is a filter.</xs:appinfo>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="type" type="componentType" use="required"/>
+      </xs:complexType>
+      <xs:simpleType name="messageTableType">
+        <xs:annotation>
+          <xs:appinfo>An enumeration to select either the error message table or hold message table.</xs:appinfo>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="ERROR_TABLE"/>
+          <xs:enumeration value="HOLD_TABLE"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="continueSearchDirection">
+        <xs:annotation>
+          <xs:appinfo>An enumeration to select which direction to continue a search in.</xs:appinfo>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="FORWARDS">
+            <xs:annotation>
+              <xs:appinfo>Retrieves the next set of search results (later results for date ascending searches or 
+								earlier results for date descending searches).</xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="BACKWARDS">
+            <xs:annotation>
+              <xs:appinfo>Retrieves the previous set of search results (earlier results for date ascending searches 
+								or later results for date descending searches).</xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="emptyType">
+        <xs:annotation>
+          <xs:appinfo>Empty complex type used by elements with no content.</xs:appinfo>
+        </xs:annotation>
+      </xs:complexType>
+      <xs:element name="getMessage">
+        <xs:annotation>
+          <xs:appinfo>Request to retrieve the details for a particular message.</xs:appinfo>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" name="messageIdentifier" type="messageIdentifier"/>
+            <xs:element default="false" minOccurs="0" name="retrieveMessageBody" type="xs:boolean">
+              <xs:annotation>
+                <xs:appinfo>Determines if the message body is included in the response.</xs:appinfo>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="messageProperty">
+        <xs:annotation>
+          <xs:appinfo>A Rhapsody message property.</xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax">
+            <xs:annotation>
+              <xs:documentation>Allows for future extensions to what information is provided.</xs:documentation>
+            </xs:annotation>
+          </xs:any>
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string" use="required"/>
+        <xs:attribute name="value" type="xs:string" use="optional"/>
+        <xs:anyAttribute namespace="##other" processContents="lax">
+          <xs:annotation>
+            <xs:documentation>Allows for future extensions to what information is provided.</xs:documentation>
+          </xs:annotation>
+        </xs:anyAttribute>
+      </xs:complexType>
+      <xs:complexType name="messageError">
+        <xs:annotation>
+          <xs:appinfo>An error on a message.</xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="1" name="message" type="xs:string"/>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax">
+            <xs:annotation>
+              <xs:documentation>Allows for future extensions to what information is provided.</xs:documentation>
+            </xs:annotation>
+          </xs:any>
+        </xs:sequence>
+        <xs:anyAttribute namespace="##other" processContents="lax">
+          <xs:annotation>
+            <xs:documentation>Allows for future extensions to what information is provided.</xs:documentation>
+          </xs:annotation>
+        </xs:anyAttribute>
+      </xs:complexType>
+      <xs:complexType name="messagePathEvent">
+        <xs:annotation>
+          <xs:appinfo>An event that occurred during message processing.</xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="1" name="message" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo>The user-readable description of the event.</xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo>The parameters, if any, associated with this event.</xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax">
+            <xs:annotation>
+              <xs:documentation>Allows for future extensions to what information is provided.</xs:documentation>
+            </xs:annotation>
+          </xs:any>
+        </xs:sequence>
+        <xs:attribute name="eventType" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:appinfo>The type of event.</xs:appinfo>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="time" type="xs:dateTime" use="required"/>
+        <xs:anyAttribute namespace="##other" processContents="lax">
+          <xs:annotation>
+            <xs:documentation>Allows for future extensions to what information is provided.</xs:documentation>
+          </xs:annotation>
+        </xs:anyAttribute>
+      </xs:complexType>
+      <xs:complexType name="messagePathElement">
+        <xs:annotation>
+          <xs:appinfo>An element within a message path. This is a recursive definition.</xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="1" name="component" type="componentIdentifier">
+            <xs:annotation>
+              <xs:appinfo>The communication point, route, or filter that this path element relates to.</xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="messageEvent" type="messagePathEvent">
+            <xs:annotation>
+              <xs:appinfo>Message events for this point in the message. Message events are only included for the path 
+								elements for this particular message - i.e. only if the 'onPath' attribute for this element 
+								is set to true.</xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="child" type="messagePathElement"/>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax">
+            <xs:annotation>
+              <xs:documentation>Allows for future extensions to what information is provided.</xs:documentation>
+            </xs:annotation>
+          </xs:any>
+        </xs:sequence>
+        <xs:attribute name="messageIdentifier" type="messageIdentifier" use="required">
+          <xs:annotation>
+            <xs:appinfo>The message identifier at this point in the message path.</xs:appinfo>
+            <xs:documentation>Note that message identifiers change very frequently in Rhapsody so this message identifier is very
+							unlikely to be the same as the message identifier of the requested message (unless this is the end
+							of the path).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="onPath" type="xs:boolean" use="required">
+          <xs:annotation>
+            <xs:appinfo>This is set to true if the message that this path was retrieved for used this event. At most one event
+							at each level will have this flag set to true.</xs:appinfo>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:anyAttribute namespace="##other" processContents="lax">
+          <xs:annotation>
+            <xs:documentation>Allows for future extensions to what information is provided.</xs:documentation>
+          </xs:annotation>
+        </xs:anyAttribute>
+      </xs:complexType>
+      <xs:complexType name="messagePath">
+        <xs:annotation>
+          <xs:appinfo>The full message path for a Rhapsody message.</xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="root" type="messagePathElement"/>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax">
+            <xs:annotation>
+              <xs:documentation>Allows for future extensions to what information is provided.</xs:documentation>
+            </xs:annotation>
+          </xs:any>
+        </xs:sequence>
+        <xs:anyAttribute namespace="##other" processContents="lax">
+          <xs:annotation>
+            <xs:documentation>Allows for future extensions to what information is provided.</xs:documentation>
+          </xs:annotation>
+        </xs:anyAttribute>
+      </xs:complexType>
+      <xs:complexType name="messageDetails">
+        <xs:annotation>
+          <xs:appinfo>The details for a single message.</xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="1" name="messagePath" type="messagePath"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="property" type="messageProperty"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="messageError"/>
+          <xs:element minOccurs="0" name="body" type="xmime:base64Binary">
+            <xs:annotation>
+              <xs:appinfo>The message body is transmitted using MTOM.</xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax">
+            <xs:annotation>
+              <xs:documentation>Allows for future extensions to what information is provided.</xs:documentation>
+            </xs:annotation>
+          </xs:any>
+        </xs:sequence>
+        <xs:attribute name="messageIdentifier" type="messageIdentifier" use="required"/>
+        <xs:attribute name="inputTime" type="xs:dateTime" use="required">
+          <xs:annotation>
+            <xs:appinfo>The date/time that this message was received by Rhapsody.</xs:appinfo>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="bodyEncoding" type="xs:string" use="optional">
+          <xs:annotation>
+            <xs:appinfo>The Java encoding for the message body if known.</xs:appinfo>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute default="false" name="corruptMessage" type="xs:boolean" use="optional">
+          <xs:annotation>
+            <xs:appinfo>This value is true in the unlikely event that message corruption is detected.</xs:appinfo>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:anyAttribute namespace="##other" processContents="lax">
+          <xs:annotation>
+            <xs:documentation>Allows for future extensions to what information is provided.</xs:documentation>
+          </xs:annotation>
+        </xs:anyAttribute>
+      </xs:complexType>
+      <xs:element name="getMessageResponse">
+        <xs:annotation>
+          <xs:appinfo>Response to a request for the details for a message.</xs:appinfo>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" name="message" type="messageDetails"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getMessageTableCounts" type="emptyType">
+        <xs:annotation>
+          <xs:appinfo>Request to retrieve the number of messagse currently on the error and hold tables.</xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="getMessageTableCountsResponse">
+        <xs:annotation>
+          <xs:appinfo>Response for the number of messages currently on the error and hold tables.</xs:appinfo>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" name="tableCounts">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="1" name="errorTable" type="xs:int"/>
+                  <xs:element minOccurs="1" name="holdTable" type="xs:int"/>
+                  <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax">
+                    <xs:annotation>
+                      <xs:documentation>Allows for future extensions to what information is provided.</xs:documentation>
+                    </xs:annotation>
+                  </xs:any>
+                </xs:sequence>
+                <xs:anyAttribute namespace="##other" processContents="lax">
+                  <xs:annotation>
+                    <xs:documentation>Allows for future extensions to what information is provided.</xs:documentation>
+                  </xs:annotation>
+                </xs:anyAttribute>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getMessagesOnTable">
+        <xs:annotation>
+          <xs:appinfo>Request to retrieve messages on the error or hold table.</xs:appinfo>
+          <xs:documentation>Performs a search on the specified message table and returns messages on the table in date descending
+						order. The maximum results parameter configures the maximum number of results that will be returned
+						(there is an internal limit to prevent memory problems which will be used if the specified value is
+						too large).</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" name="table" type="messageTableType"/>
+            <xs:element default="1000" minOccurs="0" name="maxResults" type="xs:int">
+              <xs:annotation>
+                <xs:appinfo>The maximum number of results to retrieve at a time.</xs:appinfo>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="searchResult">
+        <xs:annotation>
+          <xs:appinfo>An individual result from a result set generated from a search.</xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="1" name="component" type="componentIdentifier">
+            <xs:annotation>
+              <xs:appinfo>The component associated with this message. For input messages this is the communication 
+								point that received the message; for output messages this is the communication point that 
+								sent the message; for intermediate messages this is the route that the message was found on; 
+								for messages on the error or hold queue this is the previous component to process the message 
+								(not the component that sent it to the error or hold queue).</xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="source" type="componentIdentifier">
+            <xs:annotation>
+              <xs:appinfo>The communication point that originally received this message. This element will not be present
+								for messages migrated from Rhapsody 3.3 or ealier as this information is not available.</xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="nextDestination" type="componentIdentifier">
+            <xs:annotation>
+              <xs:appinfo>The next destination for this message. This element will not be present for messages found
+								using an input or output search. For messages found via an intermediate message search this
+								is the next filter to process the message (i.e. the first filter on the route). For messages
+								on the error or hold queue, this is the component that send them there.</xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax">
+            <xs:annotation>
+              <xs:documentation>Allows for future extensions to what information is provided.</xs:documentation>
+            </xs:annotation>
+          </xs:any>
+        </xs:sequence>
+        <xs:attribute name="timestamp" type="xs:dateTime" use="required">
+          <xs:annotation>
+            <xs:appinfo>The timestamp associated with the message. This is the received time for input messages, the sent 
+							time for output messages, the route received time for intermediate messages, and the arrival time 
+							on the message table for errored / held messages.</xs:appinfo>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="receivedTimestamp" type="xs:dateTime" use="optional">
+          <xs:annotation>
+            <xs:appinfo>The timestamp for when this message was originally received by Rhapsody. This value will not be 
+							returned for non-input searches if this message was migrated from a Rhapsody 3.3 or earliert as 
+							this information is not available.</xs:appinfo>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="messageIdentifier" type="messageIdentifier" use="required">
+          <xs:annotation>
+            <xs:appinfo>The message identifier for this message.</xs:appinfo>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="rootMessageIdentifier" type="messageIdentifier" use="optional">
+          <xs:annotation>
+            <xs:appinfo>The root message identifier for this message. Messages migrated from Rhapsody 3.3 or earlier will 
+							not contain this attribute as the information is not available.</xs:appinfo>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:anyAttribute namespace="##other" processContents="lax">
+          <xs:annotation>
+            <xs:documentation>Allows for future extensions to what information is provided.</xs:documentation>
+          </xs:annotation>
+        </xs:anyAttribute>
+      </xs:complexType>
+      <xs:complexType name="searchResults">
+        <xs:annotation>
+          <xs:appinfo>Results for a message seach.</xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="result" type="searchResult"/>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax">
+            <xs:annotation>
+              <xs:documentation>Allows for future extensions to what information is provided.</xs:documentation>
+            </xs:annotation>
+          </xs:any>
+        </xs:sequence>
+        <xs:attribute name="resultSetId" type="xs:long" use="required">
+          <xs:annotation>
+            <xs:appinfo>Result set identifier to allow continuation of the search.</xs:appinfo>
+            <xs:documentation>The result set identifier is used to continue searches until they expire or are renewed. A search
+							can only be continued by the same user that originally ran it.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="resultSetExpiryTime" type="xs:dateTime" use="required">
+          <xs:annotation>
+            <xs:appinfo>The expiry time for this result set unless renewed.</xs:appinfo>
+            <xs:documentation>Once a result set has been retrieved by performing a search it is valid for a period of time to 
+							allow the search to be continued. Once the search has expired then it cannot be continued.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="searchTime" type="xs:duration" use="required">
+          <xs:annotation>
+            <xs:appinfo>The time it took to run the search.</xs:appinfo>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="completeResults" type="xs:boolean" use="required">
+          <xs:annotation>
+            <xs:appinfo>This attribute is true if and only if there are no additional results matching the search criteria
+							at the time that this search was run. It is false if either the query service knows that there are
+							more results, or if it does not know whether there are more results available or not. If this is 
+							false and all the results are required, then the continueSearch operation should be used to retrieve
+							the next set of results.</xs:appinfo>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute default="false" name="cancelledSearch" type="xs:boolean" use="optional">
+          <xs:annotation>
+            <xs:appinfo>This attribute is present and set to true if the search was cancelled before it had a chance to
+							complete. If this is set then some search results may be available, however, there are possibly
+							additional results that might have been found had the search run to completion.</xs:appinfo>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute default="false" name="limitedByDataValidation" type="xs:boolean" use="optional">
+          <xs:annotation>
+            <xs:appinfo>This attribute is present and set to true if the result set has potentially been limited due to 
+							ongoing data validation in the background. If this is true then more results may be available
+							after data validation has completed.</xs:appinfo>
+          </xs:annotation>
+        </xs:attribute>
+        "
+        <xs:anyAttribute namespace="##other" processContents="lax">
+          <xs:annotation>
+            <xs:documentation>Allows for future extensions to what information is provided.</xs:documentation>
+          </xs:annotation>
+        </xs:anyAttribute>
+      </xs:complexType>
+      <xs:element name="getMessagesOnTableResponse">
+        <xs:annotation>
+          <xs:appinfo>Response to a request for messages on the message table.</xs:appinfo>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" name="messageTableResults" type="searchResults"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="continueSearch">
+        <xs:annotation>
+          <xs:appinfo>Continues a previously run search from where it left off.</xs:appinfo>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" name="resultSetId" type="xs:long">
+              <xs:annotation>
+                <xs:appinfo>The result set identifier from the previously run search.</xs:appinfo>
+              </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="1" name="direction" type="continueSearchDirection">
+              <xs:annotation>
+                <xs:appinfo>The direction to continue the search in.</xs:appinfo>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="continueSearchResponse">
+        <xs:annotation>
+          <xs:appinfo>Response to a continue search operation.</xs:appinfo>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" name="searchResults" type="searchResults"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteMessageFromTable">
+        <xs:annotation>
+          <xs:appinfo>Request to delete a message from the error or hold table.</xs:appinfo>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" name="messageIdentifier" type="messageIdentifier"/>
+            <xs:element minOccurs="1" name="table" type="messageTableType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteMessageFromTableResponse" type="emptyType">
+        <xs:annotation>
+          <xs:appinfo>Response to a request to delete a message from the error or hold table.</xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="releaseMessageFromTable">
+        <xs:annotation>
+          <xs:appinfo>Request to release / reprocess a message on the error or hold table.</xs:appinfo>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" name="messageIdentifier" type="messageIdentifier"/>
+            <xs:element minOccurs="1" name="table" type="messageTableType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="releaseMessageFromTableResponse" type="emptyType">
+        <xs:annotation>
+          <xs:appinfo>Response to a request to release or reprocess a message.</xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="renewResultSet">
+        <xs:annotation>
+          <xs:appinfo>Request to extend the expiry time of a result set.</xs:appinfo>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" name="resultSetId" type="xs:long">
+              <xs:annotation>
+                <xs:appinfo>The result set identifier from the previously run search.</xs:appinfo>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="renewResultSetResponse">
+        <xs:annotation>
+          <xs:appinfo>Response to a request to extend the expiry time of a result set.</xs:appinfo>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="resultSet">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax">
+                    <xs:annotation>
+                      <xs:documentation>Allows for future extensions to what information is provided.</xs:documentation>
+                    </xs:annotation>
+                  </xs:any>
+                </xs:sequence>
+                <xs:attribute name="resultSetId" type="xs:long" use="required">
+                  <xs:annotation>
+                    <xs:appinfo>The result set identifier.</xs:appinfo>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="resultSetExpiryTime" type="xs:dateTime" use="required">
+                  <xs:annotation>
+                    <xs:appinfo>The new expiry time for this result set.</xs:appinfo>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:anyAttribute namespace="##other" processContents="lax">
+                  <xs:annotation>
+                    <xs:documentation>Allows for future extensions to what information is provided.</xs:documentation>
+                  </xs:annotation>
+                </xs:anyAttribute>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="renewResultSetRequest">
+    <wsdl:part name="parameters" element="renewResultSet"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="continueSearchRequest">
+    <wsdl:part name="parameters" element="continueSearch"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="releaseMessageFromTableRequest">
+    <wsdl:part name="parameters" element="releaseMessageFromTable"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMessagesOnTableResponse">
+    <wsdl:part name="parameters" element="getMessagesOnTableResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="continueSearchResponse">
+    <wsdl:part name="parameters" element="continueSearchResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteMessageFromTableRequest">
+    <wsdl:part name="parameters" element="deleteMessageFromTable"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMessageTableCountsRequest">
+    <wsdl:part name="parameters" element="getMessageTableCounts"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMessageTableCountsResponse">
+    <wsdl:part name="parameters" element="getMessageTableCountsResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMessagesOnTableRequest">
+    <wsdl:part name="parameters" element="getMessagesOnTable"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="renewResultSetResponse">
+    <wsdl:part name="parameters" element="renewResultSetResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="releaseMessageFromTableResponse">
+    <wsdl:part name="parameters" element="releaseMessageFromTableResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteMessageFromTableResponse">
+    <wsdl:part name="parameters" element="deleteMessageFromTableResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMessageRequest">
+    <wsdl:part name="parameters" element="getMessage"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SearchingException">
+    <wsdl:part name="parameters" element="SearchingException"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMessageResponse">
+    <wsdl:part name="parameters" element="getMessageResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="MessageSearchingService">
+    <wsdl:operation name="getMessage">
+      <wsdl:documentation>Retrieves details about the specified message. This includes its full path (which includes all splits), all events 
+				for this particular message, all message properties, and any errors that have occurred during processing. It can
+				optionally return the message body as well - the message body is returned using MTOM since it can potentially be
+				very large.
+				
+				If the user has insufficient privileges to see message properties then the message properties are not included in
+				the response. If the user requests the message body, but has insufficient privileges to view the message body, a
+				SOAP fault is raised.
+				
+				A SOAP fault is raised if the message cannot be found. A valid response is returned in the unlikely case where the 
+				message meta was found but either the message path or body could not be found. The response in these cases will of 
+				course have less information.</wsdl:documentation>
+      <wsdl:input message="getMessageRequest" wsaw:Action="urn:getMessage"></wsdl:input>
+      <wsdl:output message="getMessageResponse"></wsdl:output>
+      <wsdl:fault name="SearchingException" message="SearchingException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getMessageTableCounts">
+      <wsdl:documentation>Retrieves the number of messages currently on the error and hold tables. This method takes no parameters.</wsdl:documentation>
+      <wsdl:input message="getMessageTableCountsRequest" wsaw:Action="urn:getMessageTableCounts"></wsdl:input>
+      <wsdl:output message="getMessageTableCountsResponse"></wsdl:output>
+      <wsdl:fault name="SearchingException" message="SearchingException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getMessagesOnTable">
+      <wsdl:documentation>Performs a search of the specified message table (error queue or hold queue) and retrieves the messages found in 
+				date descending order. A little information is retrieved about each message found - the details can be retrieved
+				by subsequently calling getMessage.
+				
+				A search can be subsequently continued by calling the continueSearch operation with the result set identifier
+				returned here. Note that a result set expires after a short period of time and must be refreshed or continued
+				within this time or it becomes unavailable.</wsdl:documentation>
+      <wsdl:input message="getMessagesOnTableRequest" wsaw:Action="urn:getMessagesOnTable"></wsdl:input>
+      <wsdl:output message="getMessagesOnTableResponse"></wsdl:output>
+      <wsdl:fault name="SearchingException" message="SearchingException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="continueSearch">
+      <wsdl:documentation>Continues a previously executed search. The result set identifier is provided to this operation so that Rhapsody
+				can continue a previous search from where it left off. The result set identifier must not have expired, and it
+				must have been generated from a search run by the same user as this search. When continuing a search the caller
+				specifies whether to continue forwards (in the same date ascending / descending direction as the original search)
+				or backwards (the opposite direction). This allows paging of search results. Note that if the continue operation 
+				is to be called multiple times for a set of results, the latest result set identifier must be used each time as
+				a new result set is returned whether the continue operation is used.  
+				
+				A SOAP fault is raised if the specified result set could not be found, if the previous search is still running,
+				or if an error occurs continuing the search.</wsdl:documentation>
+      <wsdl:input message="continueSearchRequest" wsaw:Action="urn:continueSearch"></wsdl:input>
+      <wsdl:output message="continueSearchResponse"></wsdl:output>
+      <wsdl:fault name="SearchingException" message="SearchingException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deleteMessageFromTable">
+      <wsdl:documentation>Deletes a message from the error or hold table. The message is removed from the table and an event added to it to
+				indicate that it was manually deleted. A SOAP fault is raised if the caller has insufficient privileges to delete
+				messages from the error or hold table, or if an error occurs deleting the message.
+				
+				No errors are raised if the message is not on the specified table - it is treated as a successful deletion.</wsdl:documentation>
+      <wsdl:input message="deleteMessageFromTableRequest" wsaw:Action="urn:deleteMessageFromTable"></wsdl:input>
+      <wsdl:output message="deleteMessageFromTableResponse"></wsdl:output>
+      <wsdl:fault name="SearchingException" message="SearchingException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="releaseMessageFromTable">
+      <wsdl:documentation>Releases a message from the error or hold table. If the message is currently on the hold table then it is released
+				to the next filter in the chain. If the message is currently on the error table then it is reprocessed using the
+				same filter that sent it to the error table in the first place.
+				
+				A SOAP fault is raised if the caller has insufficient privileges to reprocess messages from the error or hold table,
+				if the message could not be found on the error or hold table, or if an error occurs releasing or reprocessing it.</wsdl:documentation>
+      <wsdl:input message="releaseMessageFromTableRequest" wsaw:Action="urn:releaseMessageFromTable"></wsdl:input>
+      <wsdl:output message="releaseMessageFromTableResponse"></wsdl:output>
+      <wsdl:fault name="SearchingException" message="SearchingException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="renewResultSet">
+      <wsdl:documentation>Renews the expiry time of a result set obtained by a running a search. By default result sets expiry after about 5
+				minutes and then can no longer be used for contiuing searches. This operation renews the expiry time of the specified
+				result set for another 5 minutes. Result sets can only be renewed if they are still valid at the time of renewal,
+				and if they were created by the same user.
+				
+				A SOAP fault is raised if the specified result set cannot be found. This generally means that it has already timed
+				out.</wsdl:documentation>
+      <wsdl:input message="renewResultSetRequest" wsaw:Action="urn:renewResultSet"></wsdl:input>
+      <wsdl:output message="renewResultSetResponse"></wsdl:output>
+      <wsdl:fault name="SearchingException" message="SearchingException"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MessageSearchingServiceSoap11Binding" type="MessageSearchingService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsp:PolicyReference URI="#servicePolicy" wsdl:required="true" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"/>
+    <wsaw:UsingAddressing wsdl:required="false">
+      <wsaw:Anonymous/>
+    </wsaw:UsingAddressing>
+    <wsdl:operation name="getMessage">
+      <soap:operation soapAction="urn:getMessage" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SearchingException">
+        <soap:fault name="SearchingException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getMessageTableCounts">
+      <soap:operation soapAction="urn:getMessageTableCounts" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SearchingException">
+        <soap:fault name="SearchingException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getMessagesOnTable">
+      <soap:operation soapAction="urn:getMessagesOnTable" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SearchingException">
+        <soap:fault name="SearchingException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="continueSearch">
+      <soap:operation soapAction="urn:continueSearch" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SearchingException">
+        <soap:fault name="SearchingException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deleteMessageFromTable">
+      <soap:operation soapAction="urn:deleteMessageFromTable" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SearchingException">
+        <soap:fault name="SearchingException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="releaseMessageFromTable">
+      <soap:operation soapAction="urn:releaseMessageFromTable" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SearchingException">
+        <soap:fault name="SearchingException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="renewResultSet">
+      <soap:operation soapAction="urn:renewResultSet" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SearchingException">
+        <soap:fault name="SearchingException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MessageSearchingServiceSoap12Binding" type="MessageSearchingService">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsp:PolicyReference URI="#servicePolicy" wsdl:required="true" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"/>
+    <wsaw:UsingAddressing wsdl:required="false">
+      <wsaw:Anonymous/>
+    </wsaw:UsingAddressing>
+    <wsdl:operation name="getMessage">
+      <soap12:operation soapAction="urn:getMessage" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SearchingException">
+        <soap12:fault name="SearchingException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getMessageTableCounts">
+      <soap12:operation soapAction="urn:getMessageTableCounts" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SearchingException">
+        <soap12:fault name="SearchingException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getMessagesOnTable">
+      <soap12:operation soapAction="urn:getMessagesOnTable" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SearchingException">
+        <soap12:fault name="SearchingException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="continueSearch">
+      <soap12:operation soapAction="urn:continueSearch" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SearchingException">
+        <soap12:fault name="SearchingException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deleteMessageFromTable">
+      <soap12:operation soapAction="urn:deleteMessageFromTable" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SearchingException">
+        <soap12:fault name="SearchingException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="releaseMessageFromTable">
+      <soap12:operation soapAction="urn:releaseMessageFromTable" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SearchingException">
+        <soap12:fault name="SearchingException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="renewResultSet">
+      <soap12:operation soapAction="urn:renewResultSet" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SearchingException">
+        <soap12:fault name="SearchingException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MessageSearchingService">
+    <wsdl:port name="MessageSearchingServiceHttpsSoap12Endpoint" binding="MessageSearchingServiceSoap12Binding">
+      <soap12:address location="https://douglasm-E6430.orion.internal:8449/services/MessageSearchingService.MessageSearchingServiceHttpsSoap12Endpoint"/>
+    </wsdl:port>
+    <wsdl:port name="MessageSearchingServiceHttpsSoap11Endpoint" binding="MessageSearchingServiceSoap11Binding">
+      <soap:address location="https://douglasm-E6430.orion.internal:8449/services/MessageSearchingService.MessageSearchingServiceHttpsSoap11Endpoint"/>
+    </wsdl:port>
+  </wsdl:service>
+  <wsp:Policy wsu:Id="servicePolicy" xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding>
+          <wsp:Policy>
+            <wsp:ExactlyOne>
+              <wsp:All>
+                <sp:HttpsToken/>
+              </wsp:All>
+            </wsp:ExactlyOne>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <sp:SupportingTokens>
+          <wsp:Policy>
+            <sp:UsernameToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient"/>
+          </wsp:Policy>
+        </sp:SupportingTokens>
+        <wsam:Addressing wsp:Optional="true" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata">
+          <wsp:Policy>
+            <wsp:ExactlyOne>
+              <wsp:All>
+                <wsam:AnonymousResponses/>
+              </wsp:All>
+            </wsp:ExactlyOne>
+          </wsp:Policy>
+        </wsam:Addressing>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://www.w3.org/2005/05/xmlmime</con:url><con:content><![CDATA[<!--W3C XML Schema defined in the Describing Media Content of Binary Data in XML
+   specification
+     http://www.w3.org/TR/xml-media-types
+
+   Copyright © 2005 World Wide Web Consortium,
+  
+   (Massachusetts Institute of Technology, European Research Consortium for
+   Informatics and Mathematics, Keio University). All Rights Reserved. This
+   work is distributed under the W3C® Software License [1] in the hope that
+   it will be useful, but WITHOUT ANY WARRANTY; without even the implied
+   warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  
+   [1] http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231
+
+   $Id: xmlmime.xsd,v 1.1 2005/04/25 17:08:35 hugo Exp $-->
+<xs:schema targetNamespace="http://www.w3.org/2005/05/xmlmime" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xmime="http://www.w3.org/2005/05/xmlmime">
+  <xs:attribute name="contentType">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:minLength value="3"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+  <xs:attribute name="expectedContentTypes" type="xs:string"/>
+  <xs:complexType name="base64Binary">
+    <xs:simpleContent>
+      <xs:extension base="xs:base64Binary">
+        <xs:attribute ref="xmime:contentType"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="hexBinary">
+    <xs:simpleContent>
+      <xs:extension base="xs:hexBinary">
+        <xs:attribute ref="xmime:contentType"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://douglasm-E6430.orion.internal:8449/services/MessageSearchingService.MessageSearchingServiceHttpsSoap11Endpoint</con:endpoint><con:endpoint>https://douglasm-win7.orion.internal:8449/services/MessageSearchingService.MessageSearchingServiceHttpsSoap11Endpoint</con:endpoint></con:endpoints><con:operation isOneWay="false" action="urn:continueSearch" name="continueSearch" bindingOperationName="continueSearch" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="f04c3b4a-e820-4f29-a2d4-631ca43fbd9e"><con:settings/><con:call name="continue search" useWsAddressing="true" id="c9d889a4-46e6-45f1-9fb1-41331be85a0e"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://douglasm-E6430.orion.internal:8449/services/MessageSearchingService.MessageSearchingServiceHttpsSoap11Endpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mes="http://www.orionhealth.com/rhapsody/api/2009/09/messageSearchingService">
+   <soapenv:Header xmlns:wsa="http://www.w3.org/2005/08/addressing">
+      <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-B2B638269FEBDBCA1314177942711691">
+            <wsse:Username>wsuser</wsse:Username>
+            <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">123</wsse:Password>
+            <wsse:Nonce EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary">5ar14WUVhtCI15jUyxOMBQ==</wsse:Nonce>
+            <wsu:Created>2014-12-05T15:44:31.167Z</wsu:Created>
+         </wsse:UsernameToken>
+      </wsse:Security>
+      <wsa:Action>urn:getMessagesOnTable</wsa:Action>
+      <wsa:ReplyTo>
+         <wsa:Address>http://www.w3.org/2005/08/addressing/anonymous</wsa:Address>
+      </wsa:ReplyTo>
+      <wsa:MessageID>uuid:7eefdf8c-3c63-4064-bf8c-7e07335c79ff</wsa:MessageID>
+   </soapenv:Header>
+   <soapenv:Body>
+      <mes:continueSearch>
+         <mes:resultSetId>75</mes:resultSetId>
+         <mes:direction>FORWARDS</mes:direction>
+      </mes:continueSearch>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:continueSearch"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="urn:deleteMessageFromTable" name="deleteMessageFromTable" bindingOperationName="deleteMessageFromTable" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="7fdbf78f-5b9d-47da-af12-c89cb2a21201"><con:settings/><con:call name="Request 1" useWsAddressing="true" id="4e0a1993-403c-4909-a4f6-1088c9a9047a"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://douglasm-E6430.orion.internal:8449/services/MessageSearchingService.MessageSearchingServiceHttpsSoap11Endpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mes="http://www.orionhealth.com/rhapsody/api/2009/09/messageSearchingService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <mes:deleteMessageFromTable>
+         <mes:messageIdentifier>?</mes:messageIdentifier>
+         <mes:table>?</mes:table>
+      </mes:deleteMessageFromTable>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:deleteMessageFromTable"/></con:call></con:operation><con:operation isOneWay="false" action="urn:getMessage" name="getMessage" bindingOperationName="getMessage" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="83273a99-3c58-4bd5-a321-561fa17ebec5"><con:settings/><con:call name="Filter Error" useWsAddressing="true" id="fa4f0e94-8523-441d-8062-c0558f5aed31"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://douglasm-E6430.orion.internal:8449/services/MessageSearchingService.MessageSearchingServiceHttpsSoap11Endpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:mes="http://www.orionhealth.com/rhapsody/api/2009/09/messageSearchingService" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   <soapenv:Header xmlns:wsa="http://www.w3.org/2005/08/addressing">
+      <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-B2B638269FEBDBCA1314177961249202">
+            <wsse:Username>wsuser</wsse:Username>
+            <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">123</wsse:Password>
+            <wsse:Nonce EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary">KG68S5Oc6NEvyCG5MOjt9A==</wsse:Nonce>
+            <wsu:Created>2014-12-05T16:15:24.920Z</wsu:Created>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   <wsa:Action>urn:getMessage</wsa:Action><wsa:ReplyTo><wsa:Address>http://www.w3.org/2005/08/addressing/anonymous</wsa:Address></wsa:ReplyTo><wsa:MessageID>uuid:ca705447-2b7b-4260-941c-7371b17edc49</wsa:MessageID></soapenv:Header>
+   <soapenv:Body>
+      <mes:getMessage>
+         <mes:messageIdentifier>1.8591144192.73698</mes:messageIdentifier>
+         <!--Optional:-->
+         <mes:retrieveMessageBody>true</mes:retrieveMessageBody>
+      </mes:getMessage>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:username>wsuser</con:username><con:password>123</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:getMessage" generateMessageId="true"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Get Error2" useWsAddressing="true" id="a7665c63-8950-47f7-bf0f-9ecddb03919e"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://douglasm-E6430.orion.internal:8449/services/MessageSearchingService.MessageSearchingServiceHttpsSoap11Endpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:mes="http://www.orionhealth.com/rhapsody/api/2009/09/messageSearchingService" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   <soapenv:Header xmlns:wsa="http://www.w3.org/2005/08/addressing">
+      <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-B2B638269FEBDBCA1314177961249202">
+            <wsse:Username>wsuser</wsse:Username>
+            <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">123</wsse:Password>
+            <wsse:Nonce EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary">KG68S5Oc6NEvyCG5MOjt9A==</wsse:Nonce>
+            <wsu:Created>2014-12-05T16:15:24.920Z</wsu:Created>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   <wsa:Action>urn:getMessage</wsa:Action><wsa:ReplyTo><wsa:Address>http://www.w3.org/2005/08/addressing/anonymous</wsa:Address></wsa:ReplyTo><wsa:MessageID>uuid:ca705447-2b7b-4260-941c-7371b17edc49</wsa:MessageID></soapenv:Header>
+   <soapenv:Body>
+      <mes:getMessage>
+         <mes:messageIdentifier>1.21478547456.183370</mes:messageIdentifier>
+         <!--Optional:-->
+         <mes:retrieveMessageBody>true</mes:retrieveMessageBody>
+      </mes:getMessage>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:username>wsuser</con:username><con:password>123</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:getMessage"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="urn:getMessagesOnTable" name="getMessagesOnTable" bindingOperationName="getMessagesOnTable" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="44701088-bb73-49c9-8b94-2bc65c61248d"><con:settings/><con:call name="Error Queue" useWsAddressing="true" id="46ec8d02-2c40-477b-ab6b-04facd00d9fd"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://douglasm-E6430.orion.internal:8449/services/MessageSearchingService.MessageSearchingServiceHttpsSoap11Endpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:mes="http://www.orionhealth.com/rhapsody/api/2009/09/messageSearchingService" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   <soapenv:Header xmlns:wsa="http://www.w3.org/2005/08/addressing">
+      <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-B2B638269FEBDBCA1314177942711691">
+            <wsse:Username>wsuser</wsse:Username>
+            <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">123</wsse:Password>
+            <wsse:Nonce EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary">5ar14WUVhtCI15jUyxOMBQ==</wsse:Nonce>
+            <wsu:Created>2014-12-05T15:44:31.167Z</wsu:Created>
+         </wsse:UsernameToken>
+      </wsse:Security>
+      <wsa:Action>urn:getMessagesOnTable</wsa:Action>
+      <wsa:ReplyTo>
+         <wsa:Address>http://www.w3.org/2005/08/addressing/anonymous</wsa:Address>
+      </wsa:ReplyTo>
+      <wsa:MessageID>uuid:7eefdf8c-3c63-4064-bf8c-7e07335c79ff</wsa:MessageID>
+   </soapenv:Header>
+   <soapenv:Body>
+      <mes:getMessagesOnTable>
+         <mes:table>ERROR_TABLE</mes:table>
+         <!--Optional:-->
+         <mes:maxResults>100</mes:maxResults>
+      </mes:getMessagesOnTable>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:username>wsuser</con:username><con:password>123</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:getMessagesOnTable" generateMessageId="true"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="urn:getMessageTableCounts" name="getMessageTableCounts" bindingOperationName="getMessageTableCounts" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="f5c0b873-752a-40e6-8bca-e90f098776da"><con:settings/><con:call name="Request 1" useWsAddressing="true" id="149a4ce6-5b24-4437-a410-e0be77bffe1a"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://douglasm-E6430.orion.internal:8449/services/MessageSearchingService.MessageSearchingServiceHttpsSoap11Endpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mes="http://www.orionhealth.com/rhapsody/api/2009/09/messageSearchingService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <mes:getMessageTableCounts/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:getMessageTableCounts"/></con:call></con:operation><con:operation isOneWay="false" action="urn:releaseMessageFromTable" name="releaseMessageFromTable" bindingOperationName="releaseMessageFromTable" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="1908e6b8-8fec-412e-92f8-bc3155d530a6"><con:settings/><con:call name="Request 1" useWsAddressing="true" id="a4942617-c39a-46e9-a1d5-2dc776661ef5"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://douglasm-E6430.orion.internal:8449/services/MessageSearchingService.MessageSearchingServiceHttpsSoap11Endpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mes="http://www.orionhealth.com/rhapsody/api/2009/09/messageSearchingService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <mes:releaseMessageFromTable>
+         <mes:messageIdentifier>?</mes:messageIdentifier>
+         <mes:table>?</mes:table>
+      </mes:releaseMessageFromTable>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:releaseMessageFromTable"/></con:call></con:operation><con:operation isOneWay="false" action="urn:renewResultSet" name="renewResultSet" bindingOperationName="renewResultSet" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="885ace86-3727-4d0d-a1e2-12adb7f9e1e1"><con:settings/><con:call name="Request 1" useWsAddressing="true" id="8a5433dd-a747-4ee4-a7bd-51787801641b"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://douglasm-E6430.orion.internal:8449/services/MessageSearchingService.MessageSearchingServiceHttpsSoap11Endpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mes="http://www.orionhealth.com/rhapsody/api/2009/09/messageSearchingService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <mes:renewResultSet>
+         <mes:resultSetId>?</mes:resultSetId>
+      </mes:renewResultSet>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:renewResultSet"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
