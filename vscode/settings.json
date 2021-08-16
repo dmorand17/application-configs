@@ -1,0 +1,76 @@
+{
+    "workbench.colorTheme": "Dracula",
+    "todo-tree.tree.showScanModeButton": false,
+    "terminal.integrated.fontFamily": "Roboto Mono for Powerline",
+    "editor.fontFamily": "RobotoMono Nerd Font, Monaco, 'Courier New', monospace",
+    "editor.renderWhitespace": "all",
+    "editor.renderControlCharacters": true,
+    "files.associations": {
+        "*.fmlpp": "map"
+    },
+    "workbench.editor.enablePreview": false,
+    "rest-client.environmentVariables": {
+        "$shared": {
+            "version": "v1",
+            "prodToken": "foo",
+            "nonProdToken": "bar"
+        },
+        "local": {
+            "endpoint": "bend.local.commure.com:8000",
+            "client_id": "{{$shared nonProdToken}}",
+            "client_secret": "devSecret"
+        },
+    },
+    "rest-client.formParamEncodingStrategy": "always", // https://github.com/Huachao/vscode-restclient/issues/222
+    "terminal.integrated.inheritEnv": true,
+    "[json]": {
+        "editor.defaultFormatter": "HookyQR.beautify",
+    },
+    "vs-kubernetes": {
+        "vs-kubernetes.draft-path.mac": "/Users/douglasm/.vs-kubernetes/tools/draft/darwin-amd64/draft",
+        "vs-kubernetes.kubectl-path.mac": "/Users/douglasm/.vs-kubernetes/tools/kubectl/kubectl",
+        "vs-kubernetes.minikube-path.mac": "/Users/douglasm/.vs-kubernetes/tools/minikube/darwin-amd64/minikube",
+        "vscode-kubernetes.minikube-path.mac": "/Users/douglasm/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
+    },
+    "beautify.config": {
+        "indent_size": 4,
+        "indent_char": " ",
+        "css": {
+            "indent_size": 2
+        },
+        "js": {
+            "allowed_file_extensions": ["js", "jsonc", "json", "jshintrc", "jsbeautifyrc"],
+            "indent_size": 2,
+            "indent_char": " " // Indentation character
+        }
+    },
+    "python.pythonPath": "python3",
+    "python.languageServer": "Pylance",
+    "python.formatting.provider": "black",
+    "python.linting.pylintEnabled": true,
+    "python.formatting.blackArgs": [
+        "--line-length=119"
+    ],
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    "files.insertFinalNewline": true,
+    "todo-tree.general.tags": [
+        "BUG",
+        "HACK",
+        "FIXME",
+        "TODO",
+        "XXX",
+        "[ ]",
+        "[x]"
+    ],
+    "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+    "security.workspace.trust.untrustedFiles": "open",
+    "python.defaultInterpreterPath": "python3",
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "go.toolsManagement.autoUpdate": true
+}
