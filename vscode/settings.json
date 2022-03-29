@@ -44,10 +44,14 @@
             "indent_char": " " // Indentation character
         }
     },
+    "python.defaultInterpreterPath": "python3",
     "python.pythonPath": "python3",
     "python.languageServer": "Pylance",
     "python.formatting.provider": "black",
     "python.linting.flake8Enabled": true,
+    "python.linting.flake8Args": [
+        "--ignore=E501",
+    ],    
     "python.formatting.blackArgs": [
         "--line-length=119"
     ],
@@ -70,7 +74,6 @@
     ],
     "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
     "security.workspace.trust.untrustedFiles": "open",
-    "python.defaultInterpreterPath": "python3",
     "notebook.cellToolbarLocation": {
         "default": "right",
         "jupyter-notebook": "left"
